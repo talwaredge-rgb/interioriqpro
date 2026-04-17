@@ -604,6 +604,212 @@ section { padding: 100px 0; }
 .fade-up.in { opacity: 1; transform: translateY(0); }
 
 
+
+/* ─── SAMPLE TABS ──────────────────────────────────────────── */
+.sample-tabs {
+  display: flex; gap: 0; margin-bottom: 40px;
+  border: 1px solid var(--rule-strong); border-radius: 8px;
+  overflow: hidden; max-width: 600px;
+}
+.sample-tab {
+  flex: 1; padding: 16px 24px; background: #fff;
+  border: none; cursor: pointer; font-family: 'Jost', sans-serif;
+  font-size: 0.88rem; font-weight: 600; color: var(--muted);
+  display: flex; align-items: center; gap: 10px;
+  transition: all 0.2s; border-right: 1px solid var(--rule-strong);
+}
+.sample-tab:last-child { border-right: none; }
+.sample-tab.active { background: var(--ink); color: var(--linen); }
+.tab-badge {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 2px 8px; border-radius: 10px;
+}
+.free-badge { background: #1A7A3C; color: #fff; }
+.paid-badge { background: var(--terracotta); color: #fff; }
+.sample-tab.active .free-badge { background: rgba(26,122,60,0.3); }
+.sample-tab.active .paid-badge { background: rgba(196,85,42,0.3); }
+
+/* ─── FREE HEALTH CHECK MOCK ────────────────────────────────── */
+.free-explainer {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  margin-bottom: 40px;
+}
+.free-explainer-col {
+  padding: 24px; background: #fff;
+  border: 1px solid rgba(26,23,20,0.09); border-radius: 8px;
+}
+.free-explainer-label {
+  font-family: 'Jost', sans-serif; font-size: 0.65rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--terracotta); margin-bottom: 12px;
+}
+.free-explainer-list {
+  list-style: none; display: flex; flex-direction: column; gap: 8px;
+}
+.free-explainer-list li {
+  font-size: 0.88rem; color: var(--ink); line-height: 1.5;
+  padding-left: 14px; position: relative;
+}
+.free-explainer-list li::before {
+  content: ''; position: absolute; left: 0; top: 8px;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--terracotta);
+}
+.muted-list li { color: var(--muted); }
+.muted-list li::before { background: var(--muted); }
+
+.free-mock-label {
+  font-family: 'Jost', sans-serif; font-size: 0.68rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+
+.free-mock {
+  background: #fff; border: 1px solid rgba(26,23,20,0.09);
+  border-radius: 12px; overflow: hidden; max-width: 840px;
+}
+.free-mock-header {
+  background: var(--ink); padding: 24px 28px;
+}
+.free-mock-brand {
+  font-family: 'Jost', sans-serif; font-size: 0.68rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(245,240,232,0.4); margin-bottom: 10px;
+}
+.free-mock-project {
+  display: flex; align-items: center; gap: 12px;
+  font-family: 'Jost', sans-serif; font-size: 0.88rem;
+  color: rgba(245,240,232,0.7); margin-bottom: 14px;
+}
+.health-badge {
+  font-family: 'Jost', sans-serif; font-size: 0.62rem;
+  font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 10px;
+}
+.needs-attention { background: #E8A020; color: #fff; }
+.high-risk { background: var(--terracotta); color: #fff; }
+.looks-good { background: #1A7A3C; color: #fff; }
+.free-mock-summary {
+  font-size: 0.88rem; color: rgba(245,240,232,0.6); line-height: 1.7;
+}
+.free-mock-section-title {
+  font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 600;
+  display: flex; align-items: center; gap: 8px;
+  padding: 16px 28px; color: var(--ink);
+  border-bottom: 1px solid rgba(26,23,20,0.07);
+  background: rgba(26,23,20,0.02);
+}
+.free-flag {
+  display: flex; gap: 0;
+  border-bottom: 1px solid rgba(26,23,20,0.07);
+}
+.free-flag:last-of-type { border-bottom: none; }
+.free-flag-num {
+  font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 700;
+  color: var(--terracotta); padding: 20px 20px 20px 28px;
+  min-width: 60px; padding-top: 22px;
+}
+.free-flag-content { padding: 18px 28px 18px 0; flex: 1; }
+.free-flag-title {
+  font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 600;
+  color: var(--ink); margin-bottom: 8px;
+}
+.free-flag-desc {
+  font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 10px;
+}
+.free-flag-ask {
+  font-size: 0.82rem; color: var(--ink); line-height: 1.6;
+  background: rgba(196,85,42,0.06); padding: 10px 14px;
+  border-left: 3px solid var(--terracotta); border-radius: 0 4px 4px 0;
+  font-style: italic;
+}
+.free-overall {
+  padding: 16px 28px 20px; font-size: 0.88rem; color: var(--muted); line-height: 1.75;
+}
+.free-mock-upsell {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; padding: 20px 28px;
+  background: rgba(196,85,42,0.05);
+  border-top: 1px solid rgba(196,85,42,0.15);
+  flex-wrap: wrap;
+}
+.free-upsell-text { font-size: 0.88rem; color: var(--ink); line-height: 1.6; flex: 1; }
+.free-upsell-btn {
+  font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--terracotta); color: #fff;
+  padding: 10px 20px; border-radius: 6px; text-decoration: none;
+  white-space: nowrap; transition: background 0.2s;
+}
+.free-upsell-btn:hover { background: #a83d1b; }
+
+.findings-more {
+  background: rgba(26,23,20,0.03); border: 1px solid rgba(26,23,20,0.09);
+  border-radius: 8px; padding: 16px 20px;
+  font-family: 'Jost', sans-serif; font-size: 0.85rem; color: var(--muted);
+  display: flex; align-items: flex-start; gap: 10px; line-height: 1.6;
+}
+
+@media(max-width:700px) {
+  .free-explainer { grid-template-columns: 1fr; }
+  .sample-tabs { flex-direction: column; }
+  .sample-tab { border-right: none; border-bottom: 1px solid var(--rule-strong); }
+  .free-mock-upsell { flex-direction: column; }
+}
+
+
+/* ─── SERVICE CARD META ROW ─────────────────────────────────── */
+.svc-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: nowrap;
+}
+.svc-price {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--terracotta);
+  flex-shrink: 0;
+}
+.svc-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  background: var(--terracotta);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.svc-add {
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--rule);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.svc-add:hover { background: var(--terracotta); color: #fff; border-color: var(--terracotta); }
+.svc-add.added { background: var(--ink); color: var(--linen); border-color: var(--ink); }
+/* defined with badge CSS */
+
 /* ─── SAMPLE REPORT ─────────────────────────────────────────────── */
 .sample-wrap { display:flex; flex-direction:column; gap:14px; max-width:960px; }
 
@@ -611,7 +817,6 @@ section { padding: 100px 0; }
   background:#fff; border:1px solid rgba(26,23,20,0.09);
   border-radius:12px; padding:28px 32px;
 }
-.sample-header-card {}
 .sample-project-meta {
   display:grid; grid-template-columns:repeat(4,1fr);
   border:1px solid rgba(26,23,20,0.09); border-radius:8px;
@@ -626,7 +831,7 @@ section { padding: 100px 0; }
   font-family:'Jost',sans-serif; font-size:0.6rem;
   letter-spacing:0.08em; text-transform:uppercase; color:var(--muted);
 }
-.sample-meta-item strong { font-family:'Jost',sans-serif; font-size:0.95rem; }
+.sample-meta-item strong { font-family:'Jost',sans-serif; font-size:0.95rem; font-weight:600; }
 .issues-count { color:#E8A020 !important; }
 .sample-costs {
   display:flex; align-items:center; gap:24px;
@@ -647,24 +852,18 @@ section { padding: 100px 0; }
   font-family:'Jost',sans-serif; font-size:0.65rem;
   color:var(--muted); margin-top:14px; letter-spacing:0.03em; line-height:1.6;
 }
-
-/* Findings label */
 .findings-label {
   font-family:'Jost',sans-serif; font-size:0.68rem; letter-spacing:0.1em;
   text-transform:uppercase; color:var(--muted);
   display:flex; align-items:center; gap:8px; padding:0 4px;
 }
-
-/* Finding cards */
 .finding-card {
   background:#fff; border-radius:10px;
-  border:1px solid rgba(26,23,20,0.09);
-  border-left-width:4px; overflow:hidden;
+  border:1px solid rgba(26,23,20,0.09); border-left-width:4px; overflow:hidden;
 }
 .finding-high { border-left-color:#C4552A; }
 .finding-medium { border-left-color:#E8A020; }
 .finding-low { border-left-color:#6B8FA3; }
-
 .finding-header {
   display:flex; justify-content:space-between; align-items:flex-start;
   gap:16px; padding:20px 24px 16px; background:#fff;
@@ -674,15 +873,13 @@ section { padding: 100px 0; }
 .finding-tag {
   font-family:'Jost',sans-serif; font-size:0.6rem;
   letter-spacing:0.1em; text-transform:uppercase;
-  padding:3px 10px; border-radius:20px; display:inline-block;
-  width:fit-content;
+  padding:3px 10px; border-radius:20px; display:inline-block; width:fit-content;
 }
 .tag-rate { background:rgba(196,85,42,0.1); color:#C4552A; }
 .tag-quantity { background:rgba(196,85,42,0.1); color:#C4552A; }
 .tag-double { background:rgba(196,85,42,0.1); color:#C4552A; }
 .tag-spec { background:rgba(232,160,32,0.12); color:#A07010; }
 .tag-exclusion { background:rgba(107,143,163,0.12); color:#3A6070; }
-
 .finding-title {
   font-family:'Jost',sans-serif; font-size:1rem; font-weight:600;
   color:var(--ink); line-height:1.3;
@@ -691,53 +888,29 @@ section { padding: 100px 0; }
   font-family:'Jost',sans-serif; font-size:1rem; font-weight:500;
   color:#C4552A; white-space:nowrap; text-align:right; padding-top:2px;
 }
-.finding-amount-note {
-  font-size:0.62rem; display:block; color:var(--muted); margin-top:2px;
-}
-
-.finding-body {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:0; padding:0;
-}
-.finding-col {
-  padding:18px 24px;
-  border-right:1px solid rgba(26,23,20,0.07);
-  border-top:none;
-}
+.finding-amount-note { font-size:0.62rem; display:block; color:var(--muted); margin-top:2px; }
+.finding-body { display:grid; grid-template-columns:1fr 1fr; gap:0; padding:0; }
+.finding-col { padding:18px 24px; border-right:1px solid rgba(26,23,20,0.07); }
 .finding-col:last-child { border-right:none; }
-.finding-col-full {
-  grid-column:1/-1; border-right:none;
-  border-top:1px solid rgba(26,23,20,0.07);
-}
+.finding-col-full { grid-column:1/-1; border-right:none; border-top:1px solid rgba(26,23,20,0.07); }
 .finding-detail-label {
   font-family:'Jost',sans-serif; font-size:0.6rem;
-  letter-spacing:0.1em; text-transform:uppercase;
-  color:var(--muted); margin-bottom:8px;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;
 }
 .finding-detail { font-size:0.88rem; color:var(--ink); line-height:1.7; }
 .finding-detail strong { color:#C4552A; }
-
-/* Exclusion list */
-.exclusion-list { display:flex; flex-direction:column; gap:8px; margin-top:10px; }
-.exclusion-item {
-  display:flex; justify-content:space-between; align-items:baseline;
-  gap:12px; padding:10px 14px; background:rgba(107,143,163,0.07);
-  border-radius:6px; flex-wrap:wrap;
+.findings-more {
+  background:rgba(26,23,20,0.03); border:1px solid rgba(26,23,20,0.09);
+  border-radius:8px; padding:16px 20px;
+  font-family:'Jost',sans-serif; font-size:0.85rem; color:var(--muted);
+  display:flex; align-items:flex-start; gap:10px; line-height:1.6;
 }
-.exclusion-name { font-size:0.88rem; color:var(--ink); }
-.exclusion-est {
-  font-family:'Jost',sans-serif; font-size:0.72rem;
-  color:#3A6070; white-space:nowrap;
-}
-
-/* Summary table */
 .summary-card {}
 .summary-table { display:flex; flex-direction:column; margin-top:8px; }
 .summary-row {
   display:grid; grid-template-columns:1fr 140px 130px;
   gap:12px; padding:11px 0; border-bottom:1px solid rgba(26,23,20,0.07);
-  align-items:baseline;
-  font-size:0.88rem; color:var(--ink);
+  align-items:baseline; font-size:0.88rem; color:var(--ink);
 }
 .summary-row:last-child { border-bottom:none; }
 .summary-row-header {
@@ -753,10 +926,7 @@ section { padding: 100px 0; }
   font-family:'Jost',sans-serif; font-size:1.05rem;
   color:#C4552A; border-top:none; padding-top:4px;
 }
-.summary-amount {
-  font-family:'Jost',sans-serif; font-size:0.82rem;
-  color:#C4552A; text-align:right;
-}
+.summary-amount { font-family:'Jost',sans-serif; font-size:0.82rem; color:#C4552A; text-align:right; }
 .tag-pill {
   font-family:'Jost',sans-serif; font-size:0.58rem;
   letter-spacing:0.06em; text-transform:uppercase;
@@ -767,16 +937,12 @@ section { padding: 100px 0; }
 .tag-dbl-sm { background:rgba(196,85,42,0.1); color:#C4552A; }
 .tag-spec-sm { background:rgba(232,160,32,0.12); color:#A07010; }
 .tag-excl-sm { background:rgba(107,143,163,0.12); color:#3A6070; }
-
 .sample-commentary p { font-size:0.95rem; color:var(--muted); line-height:1.85; }
 .sample-section-title {
   font-family:'Jost',sans-serif; font-size:1rem; font-weight:700;
   display:flex; align-items:center; gap:8px; margin-bottom:16px; color:var(--ink);
 }
-.sample-cta-row {
-  display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin-top:8px;
-}
-
+.sample-cta-row { display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin-top:8px; }
 @media(max-width:760px) {
   .finding-body { grid-template-columns:1fr; }
   .finding-col { border-right:none; border-top:1px solid rgba(26,23,20,0.07); }
@@ -787,50 +953,6 @@ section { padding: 100px 0; }
   .summary-row > span:nth-child(2) { display:none; }
 }
 
-
-.svc-badge {
-  display: inline-flex; align-items: center;
-  font-family: 'Jost', sans-serif; font-size: 0.56rem;
-  font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
-  background: var(--terracotta); color: #fff;
-  padding: 2px 8px; border-radius: 10px;
-  white-space: nowrap; flex-shrink: 0;
-}
-/* svc-meta flex: price | badge | spacer | + */
-.svc-meta {
-  display: flex; align-items: center; gap: 8px;
-  margin-bottom: 10px;
-}
-.svc-price { flex-shrink: 0; }
-
-/* Hide Uploadcare default button - we use our custom drop zone */
-/* Hide all Uploadcare default UI - we use custom drop zone */
-.uploadcare-widget,
-.uploadcare-widget-button,
-.uploadcare-widget-status,
-.uploadcare-widget-dragndrop-area,
-[class*="uploadcare-widget"] { 
-  display: none !important; 
-  visibility: hidden !important;
-  width: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
-}
-#ucWidgetContainer * { display: none !important; }
-
-/* Hide all Uploadcare default UI - we use custom drop zone */
-.uploadcare-widget,
-.uploadcare-widget-button,
-.uploadcare-widget-status,
-.uploadcare-widget-dragndrop-area,
-[class*="uploadcare-widget"] { 
-  display: none !important; 
-  visibility: hidden !important;
-  width: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
-}
-#ucWidgetContainer * { display: none !important; }
 </style>
 <!-- Uploadcare file upload widget -->
 <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
@@ -894,7 +1016,8 @@ section { padding: 100px 0; }
             </svg>
             <div class="drop-label" id="dropLabel">
               <strong>Drop your BoQ here</strong>
-              PDF or Excel &nbsp;·&nbsp; Up to 3 files &nbsp;·&nbsp; 10MB max each
+              <span style="display:block;margin-top:4px;">Floor plan and design brief welcome, not required</span>
+              <span style="display:block;margin-top:3px;font-size:0.62rem;">PDF, Excel or image &nbsp;·&nbsp; Up to 3 files &nbsp;·&nbsp; 10MB each</span>
             </div>
           </div>
           <div id="ucWidgetContainer" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;">
@@ -1694,297 +1817,308 @@ section { padding: 100px 0; }
 <section id="sample-report" style="background:var(--linen); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
   <div class="container">
     <div class="section-label">What you receive</div>
-    <h2 class="section-h2">This is what a free<br>BoQ analysis looks like.</h2>
-    <p style="color:var(--muted);max-width:600px;margin-bottom:16px;font-size:1rem;line-height:1.8;">
-      Below is a sample analysis for a 3BHK apartment renovation. The BoQ was submitted by a homeowner in Pune. It looked reasonable on the surface. On closer review, it had seven distinct problems across quantity inflation, rate padding, specification ambiguity, and one instance of double billing. None of these required brand substitution to fix.
-    </p>
-    <p style="color:var(--muted);max-width:600px;margin-bottom:52px;font-size:0.88rem;line-height:1.7;font-family:'Jost',sans-serif;letter-spacing:0.03em;">
-      Project details, contractor names and client identity have been changed. The numbers and findings are representative of real patterns we see routinely.
+    <h2 class="section-h2">Two levels of analysis.<br>One is free.</h2>
+    <p style="color:var(--muted);max-width:600px;margin-bottom:64px;font-size:1rem;line-height:1.8;">
+      Every BoQ submission gets a free Health Check within 24-48 hours. If you want to go deeper, the paid BoQ Check (&#8377;3,499) gives you the full forensic audit with specific numbers, floor plan verification, and a negotiation brief.
     </p>
 
-    <div class="sample-wrap">
-
-      <!-- Project header -->
-      <div class="sample-card sample-header-card">
-        <div class="sample-project-meta">
-          <div class="sample-meta-item"><span class="sample-meta-label">Project Type</span><strong>3BHK Renovation</strong></div>
-          <div class="sample-meta-item"><span class="sample-meta-label">Carpet Area</span><strong>1,240 sq ft</strong></div>
-          <div class="sample-meta-item"><span class="sample-meta-label">BoQ Value</span><strong>&#8377;24.3 Lakhs</strong></div>
-          <div class="sample-meta-item issues"><span class="sample-meta-label">Issues Found</span><strong class="issues-count">7</strong></div>
-        </div>
-        <div class="sample-costs">
-          <div class="sample-cost-item">
-            <span class="cost-label">Submitted BoQ</span>
-            <span class="cost-value original">&#8377;24.3 Lakhs</span>
-          </div>
-          <div class="sample-cost-divider">&#8594;</div>
-          <div class="sample-cost-item">
-            <span class="cost-label">Verified Fair Value</span>
-            <span class="cost-value optimised">&#8377;20.9 Lakhs</span>
-          </div>
-          <div class="sample-saved-badge">&#8377;3.4 Lakhs identified</div>
-        </div>
-        <p class="sample-header-note">Note: "identified" means these are verifiable discrepancies with documented basis. Actual recovery depends on negotiation and contractor response.</p>
-      </div>
-
-      <!-- Findings grid -->
-      <div class="findings-label">
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7.5" cy="7.5" r="6.5"/><path d="M7.5 4.5v3.5l2 2"/></svg>
-        7 findings, ranked by financial impact
-      </div>
-
-      <!-- Finding 1 -->
-      <div class="finding-card finding-high">
-        <div class="finding-header">
-          <div class="finding-left">
-            <span class="finding-tag tag-rate">Rate Padding</span>
-            <h4 class="finding-title">False ceiling: rate 61% above market</h4>
-          </div>
-          <div class="finding-amount">&#8377;81,600</div>
-        </div>
-        <div class="finding-body">
-          <div class="finding-col">
-            <div class="finding-detail-label">What the BoQ says</div>
-            <p class="finding-detail">False ceiling (gypsum board, all rooms): 680 sq ft at <strong>&#8377;195/sq ft</strong> = &#8377;1,32,600</p>
-          </div>
-          <div class="finding-col">
-            <div class="finding-detail-label">What the market says</div>
-            <p class="finding-detail">Current contractor rate for gypsum board false ceiling in this city range: <strong>&#8377;105–120/sq ft</strong> all inclusive (frame, board, finishing, paint-ready). Mid-point: &#8377;113/sq ft.</p>
-          </div>
-          <div class="finding-col finding-col-full">
-            <div class="finding-detail-label">Our assessment</div>
-            <p class="finding-detail">The BoQ does not specify whether &#8377;195 includes the perimeter cove or painting. We asked for clarification; the contractor confirmed it does. At that scope, &#8377;195/sq ft is 61% above the verified market rate for the same deliverable. Overcharge: 680 sq ft × &#8377;82 = <strong>&#8377;55,760</strong>. Additionally, the BoQ lists "electrical channels in false ceiling" as a separate line item at &#8377;38/sq ft. This is standard included work at any rate above &#8377;140. Double-counted value: 680 × &#8377;38 = <strong>&#8377;25,840</strong>. Combined: &#8377;81,600.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Finding 2 -->
-      <div class="finding-card finding-high">
-        <div class="finding-header">
-          <div class="finding-left">
-            <span class="finding-tag tag-quantity">Quantity Inflation</span>
-            <h4 class="finding-title">Living room + master bedroom flooring: 94 sq ft overbilled</h4>
-          </div>
-          <div class="finding-amount">&#8377;42,300</div>
-        </div>
-        <div class="finding-body">
-          <div class="finding-col">
-            <div class="finding-detail-label">What the BoQ says</div>
-            <p class="finding-detail">Vitrified tile flooring (600×600mm, living room + master bedroom): <strong>580 sq ft</strong> at &#8377;450/sq ft including tile, adhesive, and laying = &#8377;2,61,000</p>
-          </div>
-          <div class="finding-col">
-            <div class="finding-detail-label">What the measurements say</div>
-            <p class="finding-detail">Floor plan measurements (shared by client): Living room 18×14 ft = 252 sq ft. Master bedroom 14×12 ft = 168 sq ft. Wardrobe footprint deducted: 28 sq ft. Net tiling area: <strong>392 sq ft</strong>. Standard wastage allowance (8%): 31 sq ft. Adjusted quantity: <strong>423 sq ft</strong>.</p>
-          </div>
-          <div class="finding-col finding-col-full">
-            <div class="finding-detail-label">Our assessment</div>
-            <p class="finding-detail">The BoQ quantity of 580 sq ft exceeds verified area by 157 sq ft. After accounting for the 8% wastage allowance we consider fair, the net overbill is <strong>94 sq ft × &#8377;450 = &#8377;42,300</strong>. This is a straightforward quantity inflation, not an estimation error. The contractor has the same floor plan the client shared with us.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Finding 3 -->
-      <div class="finding-card finding-high">
-        <div class="finding-header">
-          <div class="finding-left">
-            <span class="finding-tag tag-double">Double Billing</span>
-            <h4 class="finding-title">Waterproofing billed under two separate heads</h4>
-          </div>
-          <div class="finding-amount">&#8377;36,000</div>
-        </div>
-        <div class="finding-body">
-          <div class="finding-col">
-            <div class="finding-detail-label">Line item A (Civil Works section)</div>
-            <p class="finding-detail">"Waterproofing treatment: bathrooms and utility": &#8377;28,000 lump sum</p>
-          </div>
-          <div class="finding-col">
-            <div class="finding-detail-label">Line item B (Bathroom section)</div>
-            <p class="finding-detail">"Bathroom waterproofing: 3 coats Dr. Fixit": &#8377;36,000 lump sum (3 bathrooms)</p>
-          </div>
-          <div class="finding-col finding-col-full">
-            <div class="finding-detail-label">Our assessment</div>
-            <p class="finding-detail">These are the same scope of work described under different section headings. We asked the contractor to confirm which line covers the Dr. Fixit application. He confirmed both do. One must be removed entirely. At the lower rate, &#8377;36,000 is the duplicate. The &#8377;28,000 line at lump sum also warrants a sq ft breakdown before approval. That is a separate negotiation point, not counted in this finding's total.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Finding 4 -->
-      <div class="finding-card finding-medium">
-        <div class="finding-header">
-          <div class="finding-left">
-            <span class="finding-tag tag-spec">Spec Ambiguity</span>
-            <h4 class="finding-title">Kitchen plywood specified generically: grade unverifiable</h4>
-          </div>
-          <div class="finding-amount">&#8377;31,200</div>
-        </div>
-        <div class="finding-body">
-          <div class="finding-col">
-            <div class="finding-detail-label">What the BoQ says</div>
-            <p class="finding-detail">Kitchen cabinets: "18mm plywood carcass." No brand, no grade (BWP/MR/commercial), no IS standard cited. Quoted at &#8377;1,100/sq ft for carcass.</p>
-          </div>
-          <div class="finding-col">
-            <div class="finding-detail-label">Why it matters</div>
-            <p class="finding-detail">BWP (Boiling Water Proof) plywood costs &#8377;85–95/sq ft. MR (Moisture Resistant) costs &#8377;52–60/sq ft. Commercial ply costs &#8377;32–40/sq ft. A kitchen cabinet built with commercial ply instead of BWP will begin delaminating within 3–5 years. The spec as written allows the carpenter to use any grade without breaching the contract.</p>
-          </div>
-          <div class="finding-col finding-col-full">
-            <div class="finding-detail-label">Our assessment</div>
-            <p class="finding-detail">The kitchen carcass area totals approximately 480 sq ft (verified from layout drawing). The rate difference between BWP (what the customer expects) and commercial ply (what the spec permits) is &#8377;55–65/sq ft material cost. At &#8377;65/sq ft: 480 × &#8377;65 = <strong>&#8377;31,200</strong> is at risk if the carpenter substitutes downward. This is not a confirmed overcharge. It is an unprotected specification that must be corrected in writing before work starts. We have drafted the replacement specification clause.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Finding 5 -->
-      <div class="finding-card finding-medium">
-        <div class="finding-header">
-          <div class="finding-left">
-            <span class="finding-tag tag-rate">Rate Padding</span>
-            <h4 class="finding-title">Painting: day labour rate 58% above prevailing market</h4>
-          </div>
-          <div class="finding-amount">&#8377;27,000</div>
-        </div>
-        <div class="finding-body">
-          <div class="finding-col">
-            <div class="finding-detail-label">What the BoQ says</div>
-            <p class="finding-detail">Interior painting labour: 18 painter-days at <strong>&#8377;1,900/day</strong> = &#8377;34,200. (Material billed separately.)</p>
-          </div>
-          <div class="finding-col">
-            <div class="finding-detail-label">What the market says</div>
-            <p class="finding-detail">Prevailing painter day rate in this city: <strong>&#8377;1,100–1,200/day</strong> for skilled painter. At &#8377;1,200: 18 days = &#8377;21,600.</p>
-          </div>
-          <div class="finding-col finding-col-full">
-            <div class="finding-detail-label">Our assessment</div>
-            <p class="finding-detail">The contractor is using a day rate labour model but billing at a rate we cannot substantiate for this city and scope. The 18-day estimate for a 1,240 sq ft home is reasonable. The rate is not. Overcharge on labour alone: 18 × &#8377;700 = <strong>&#8377;12,600</strong>. We also note the BoQ does not specify number of coats, primer brand, or sanding requirement. These omissions routinely lead to arguments at execution. We have flagged the three specific clauses that need to be added.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Finding 6 -->
-      <div class="finding-card finding-low">
-        <div class="finding-header">
-          <div class="finding-left">
-            <span class="finding-tag tag-exclusion">Hidden Exclusion</span>
-            <h4 class="finding-title">Four line items likely to become additions: not in the BoQ</h4>
-          </div>
-          <div class="finding-amount">&#8377;68,000 <span class="finding-amount-note">at risk</span></div>
-        </div>
-        <div class="finding-body">
-          <div class="finding-col finding-col-full">
-            <div class="finding-detail-label">Items absent from the BoQ that are standard for this scope</div>
-            <div class="exclusion-list">
-              <div class="exclusion-item">
-                <span class="exclusion-name">Loft shutters above kitchen and utility cabinets</span>
-                <span class="exclusion-est">Est. &#8377;14,000–18,000</span>
-              </div>
-              <div class="exclusion-item">
-                <span class="exclusion-name">Toilet paper holders, towel rods, and bathroom accessories (3 bathrooms)</span>
-                <span class="exclusion-est">Est. &#8377;8,000–12,000</span>
-              </div>
-              <div class="exclusion-item">
-                <span class="exclusion-name">Door stopper, magnetic catches, and soft-close retrofits on existing doors</span>
-                <span class="exclusion-est">Est. &#8377;6,000–9,000</span>
-              </div>
-              <div class="exclusion-item">
-                <span class="exclusion-name">Balcony waterproofing and tile re-grouting (scope visible in site photos)</span>
-                <span class="exclusion-est">Est. &#8377;22,000–29,000</span>
-              </div>
-            </div>
-            <p class="finding-detail" style="margin-top:14px;">None of these are explicitly excluded in the BoQ either. That ambiguity allows the contractor to add them at will during execution. We recommend adding a formal exclusion list to the contract and getting written confirmation on each of these four items before signing.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Finding 7 -->
-      <div class="finding-card finding-low">
-        <div class="finding-header">
-          <div class="finding-left">
-            <span class="finding-tag tag-spec">Spec Ambiguity</span>
-            <h4 class="finding-title">Main door and bedroom door frames: material unspecified</h4>
-          </div>
-          <div class="finding-amount">&#8377;14,400 <span class="finding-amount-note">at risk</span></div>
-        </div>
-        <div class="finding-body">
-          <div class="finding-col finding-col-full">
-            <div class="finding-detail-label">Our assessment</div>
-            <p class="finding-detail">The BoQ lists "door frames: 5 nos." at &#8377;4,800 per frame with no material specification. Teak frames cost &#8377;6,500–8,000. Sal wood frames cost &#8377;4,500–5,500. Engineered wood (HDF) frames cost &#8377;1,800–2,500. The rate quoted is consistent with sal wood. If the client expects teak (as is standard at this project value), the underspecification creates a &#8377;14,400 gap between quoted and expected. We recommend specifying "Sal wood, Grade A, minimum 3×2 inch section" if the current budget is acceptable, or revising the rate if teak is required.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Summary table -->
-      <div class="sample-card summary-card">
-        <div class="sample-section-title">
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="1.5" width="12" height="12" rx="1"/><path d="M4.5 7.5h6M4.5 5h6M4.5 10h4"/></svg>
-          Summary of findings
-        </div>
-        <div class="summary-table">
-          <div class="summary-row summary-row-header">
-            <span>Finding</span><span>Type</span><span>Amount</span>
-          </div>
-          <div class="summary-row">
-            <span>False ceiling: rate 61% above market + double counted electrical</span>
-            <span class="tag-pill tag-rate-sm">Rate + Double billing</span>
-            <span class="summary-amount">&#8377;81,600</span>
-          </div>
-          <div class="summary-row">
-            <span>Flooring: 94 sq ft overbilled vs floor plan measurements</span>
-            <span class="tag-pill tag-qty-sm">Quantity</span>
-            <span class="summary-amount">&#8377;42,300</span>
-          </div>
-          <div class="summary-row">
-            <span>Waterproofing billed under two separate contract heads</span>
-            <span class="tag-pill tag-dbl-sm">Double billing</span>
-            <span class="summary-amount">&#8377;36,000</span>
-          </div>
-          <div class="summary-row">
-            <span>Kitchen plywood grade unspecified: BWP vs commercial ply risk</span>
-            <span class="tag-pill tag-spec-sm">Spec risk</span>
-            <span class="summary-amount">&#8377;31,200</span>
-          </div>
-          <div class="summary-row">
-            <span>Painter day rate 58% above market</span>
-            <span class="tag-pill tag-rate-sm">Rate</span>
-            <span class="summary-amount">&#8377;12,600</span>
-          </div>
-          <div class="summary-row summary-row-risk">
-            <span>Four missing exclusions likely to become additions</span>
-            <span class="tag-pill tag-excl-sm">Exclusion risk</span>
-            <span class="summary-amount">&#8377;68,000 at risk</span>
-          </div>
-          <div class="summary-row summary-row-risk">
-            <span>Door frame material underspecified vs expected standard</span>
-            <span class="tag-pill tag-spec-sm">Spec risk</span>
-            <span class="summary-amount">&#8377;14,400 at risk</span>
-          </div>
-          <div class="summary-row summary-row-total">
-            <span>Confirmed overcharges</span>
-            <span></span>
-            <span>&#8377;1,72,500</span>
-          </div>
-          <div class="summary-row summary-row-total summary-row-grand">
-            <span>Including spec and exclusion risks</span>
-            <span></span>
-            <span>&#8377;3,40,700</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Expert Commentary -->
-      <div class="sample-card sample-commentary">
-        <div class="sample-section-title">
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1.5 2h12v9H8.5l-3 3v-3H1.5V2z"/></svg>
-          Expert commentary
-        </div>
-        <p>This BoQ would pass a casual read. The individual line items are not outrageous, the total is within a plausible range for the scope, and the contractor's reputation is reasonable. The problems only surface when you cross reference quantities against the floor plan, compare rates against current city benchmarks, and read the specification language carefully.</p>
-        <p style="margin-top:14px;">The false ceiling finding is the most important: it combines an inflated rate with a double counted line item in a way that is difficult to spot without knowing what "all inclusive" means for this trade. The waterproofing double billing is the most common pattern we see: same work described under two section headings. The quantity inflation on flooring is a straightforward measurement check that took twelve minutes with a floor plan.</p>
-        <p style="margin-top:14px;">The specification gaps on plywood and door frames are not overcharges yet. They are contract vulnerabilities. Left uncorrected, they give the contractor the legal right to deliver something the client would consider substandard, and to charge for upgrades if the client objects at execution. Fixing these costs nothing at the BoQ stage. It costs significantly more after the carpenter has started work.</p>
-      </div>
-
-      <div class="sample-cta-row">
-        <a href="#hero-upload" class="btn-primary" onclick="focusUpload(event)">Get this analysis for your BoQ, free</a>
-        <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:var(--muted);letter-spacing:0.06em;">24-48 hr turnaround &nbsp;·&nbsp; No signup required</span>
-      </div>
-
+    <!-- TAB SWITCHER -->
+    <div class="sample-tabs">
+      <button class="sample-tab active" onclick="switchSampleTab('free', this)">
+        <span class="tab-badge free-badge">Free</span>
+        BoQ Health Check
+      </button>
+      <button class="sample-tab" onclick="switchSampleTab('paid', this)">
+        <span class="tab-badge paid-badge">&#8377;3,499</span>
+        BoQ Check: Full Audit
+      </button>
     </div>
+
+    <!-- FREE HEALTH CHECK TAB -->
+    <div id="sample-free" class="sample-panel">
+      <div class="sample-wrap">
+
+        <!-- What it is -->
+        <div class="free-explainer">
+          <div class="free-explainer-col">
+            <div class="free-explainer-label">What you get</div>
+            <ul class="free-explainer-list">
+              <li>3-5 flagged concerns with plain-language explanations</li>
+              <li>Overall BoQ health rating: Good, Needs Attention, or High Risk</li>
+              <li>Key questions to raise with your contractor before signing</li>
+              <li>Returned as a 1-2 page PDF within 24-48 hours</li>
+            </ul>
+          </div>
+          <div class="free-explainer-col">
+            <div class="free-explainer-label">What it does not include</div>
+            <ul class="free-explainer-list muted-list">
+              <li>Specific rupee calculations or quantity verification</li>
+              <li>Floor plan cross-referencing</li>
+              <li>Double billing detection across sections</li>
+              <li>Specification clause drafting</li>
+              <li>These are covered in the paid BoQ Check</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Mock free report -->
+        <div class="free-mock-label">Sample free Health Check: 2BHK renovation, &#8377;18 Lakhs BoQ</div>
+
+        <div class="free-mock">
+          <!-- Header -->
+          <div class="free-mock-header">
+            <div class="free-mock-brand">InteriorIQ Pro &nbsp;·&nbsp; BoQ Health Check</div>
+            <div class="free-mock-project">
+              <span>2BHK Apartment &nbsp;·&nbsp; Bangalore</span>
+              <span class="health-badge needs-attention">Needs Attention</span>
+            </div>
+            <div class="free-mock-summary">We reviewed your BoQ and identified 4 areas that warrant clarification before you sign. These are flags, not confirmed overcharges. We recommend raising each point with your contractor and requesting written clarification.</div>
+          </div>
+
+          <!-- Flags -->
+          <div class="free-mock-section-title">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#E8A020" stroke-width="1.4"><circle cx="7" cy="7" r="6"/><path d="M7 4.5v3M7 9.5h.01"/></svg>
+            4 items flagged for your attention
+          </div>
+
+          <div class="free-flag">
+            <div class="free-flag-num">01</div>
+            <div class="free-flag-content">
+              <div class="free-flag-title">False ceiling rate appears above current market range</div>
+              <div class="free-flag-desc">The rate quoted for gypsum board false ceiling is at the higher end of what we typically see for this scope and city. Ask your contractor to break down what is included at this rate and confirm whether electrical channels and painting are included or separate.</div>
+              <div class="free-flag-ask">Ask your contractor: "Can you confirm what is included in the false ceiling rate and provide a breakdown?"</div>
+            </div>
+          </div>
+
+          <div class="free-flag">
+            <div class="free-flag-num">02</div>
+            <div class="free-flag-content">
+              <div class="free-flag-title">Plywood grade not specified in kitchen cabinet line item</div>
+              <div class="free-flag-desc">The BoQ lists "18mm plywood carcass" without specifying BWP, MR, or commercial grade. These have significantly different lifespans in a kitchen environment. Without a grade specification, the contract allows substitution to a lower grade after signing.</div>
+              <div class="free-flag-ask">Ask your contractor: "Can you confirm the plywood grade as BWP (Boiling Water Proof) and add this to the specification?"</div>
+            </div>
+          </div>
+
+          <div class="free-flag">
+            <div class="free-flag-num">03</div>
+            <div class="free-flag-content">
+              <div class="free-flag-title">Waterproofing appears under two separate section headings</div>
+              <div class="free-flag-desc">We noticed waterproofing listed in both the Civil Works section and the Bathroom section. This may be two separate scopes or the same work listed twice. Confirm with your contractor which lines cover which areas.</div>
+              <div class="free-flag-ask">Ask your contractor: "Can you confirm whether the waterproofing in Civil Works and the bathroom waterproofing cover different areas or the same scope?"</div>
+            </div>
+          </div>
+
+          <div class="free-flag">
+            <div class="free-flag-num">04</div>
+            <div class="free-flag-content">
+              <div class="free-flag-title">Loft shutters, bathroom accessories, and balcony work not mentioned</div>
+              <div class="free-flag-desc">These items are common to this scope but absent from the BoQ. They are not explicitly excluded either. Confirm in writing whether these are included, excluded, or to be priced separately.</div>
+              <div class="free-flag-ask">Ask your contractor: "Are loft shutters, bathroom accessories, and balcony waterproofing included in this quote or will they be charged separately?"</div>
+            </div>
+          </div>
+
+          <!-- Key questions summary -->
+          <div class="free-mock-section-title" style="margin-top:24px;">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#1A7A3C" stroke-width="1.4"><path d="M2 2h10v8H7.5l-2.5 2.5V10H2V2z"/></svg>
+            Overall assessment
+          </div>
+          <div class="free-overall">
+            This BoQ is reasonably structured but has four areas that need written clarification before signing. The specification gaps on plywood and waterproofing are the most important to resolve. None of these require renegotiation. They require written confirmation of scope. Most contractors will agree to add specification details if asked directly.
+          </div>
+
+          <!-- Upsell -->
+          <div class="free-mock-upsell">
+            <div class="free-upsell-text">
+              <strong>Want the full picture?</strong> The paid BoQ Check (&#8377;3,499) cross-references quantities against your floor plan, calculates exact overcharges in rupees, detects double billing across sections, and drafts the specification clauses for you to send to your contractor.
+            </div>
+            <a href="#services" class="free-upsell-btn" onclick="filterServices('Design', document.querySelector('[onclick*=Design]'))">See BoQ Check &#8594;</a>
+          </div>
+        </div>
+
+        <div class="sample-cta-row" style="margin-top:32px;">
+          <a href="#hero-upload" class="btn-primary" onclick="focusUpload(event)">Get your free Health Check</a>
+          <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:var(--muted);letter-spacing:0.06em;">24-48 hr turnaround &nbsp;·&nbsp; No signup required</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PAID BOQ CHECK TAB -->
+    <div id="sample-paid" class="sample-panel" style="display:none;">
+      <div class="sample-wrap">
+        <p style="color:var(--muted);max-width:640px;margin-bottom:40px;font-size:0.95rem;line-height:1.8;">
+          Below is a sample paid BoQ Check for a 3BHK apartment renovation. Project details and contractor names have been changed. The numbers and findings are representative of real patterns we see routinely.
+        </p>
+
+        <!-- Project header -->
+        <div class="sample-card sample-header-card">
+          <div class="sample-project-meta">
+            <div class="sample-meta-item"><span class="sample-meta-label">Project Type</span><strong>3BHK Renovation</strong></div>
+            <div class="sample-meta-item"><span class="sample-meta-label">Carpet Area</span><strong>1,240 sq ft</strong></div>
+            <div class="sample-meta-item"><span class="sample-meta-label">BoQ Value</span><strong>&#8377;24.3 Lakhs</strong></div>
+            <div class="sample-meta-item issues"><span class="sample-meta-label">Issues Found</span><strong class="issues-count">7</strong></div>
+          </div>
+          <div class="sample-costs">
+            <div class="sample-cost-item">
+              <span class="cost-label">Submitted BoQ</span>
+              <span class="cost-value original">&#8377;24.3 Lakhs</span>
+            </div>
+            <div class="sample-cost-divider">&#8594;</div>
+            <div class="sample-cost-item">
+              <span class="cost-label">Verified Fair Value</span>
+              <span class="cost-value optimised">&#8377;20.9 Lakhs</span>
+            </div>
+            <div class="sample-saved-badge">&#8377;3.4 Lakhs identified</div>
+          </div>
+          <p class="sample-header-note">Note: "identified" means these are verifiable discrepancies with documented basis. Actual recovery depends on negotiation and contractor response.</p>
+        </div>
+
+        <!-- Findings label -->
+        <div class="findings-label">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7.5" cy="7.5" r="6.5"/><path d="M7.5 4.5v3.5l2 2"/></svg>
+          7 findings, ranked by financial impact
+        </div>
+
+        <!-- Finding 1 -->
+        <div class="finding-card finding-high">
+          <div class="finding-header">
+            <div class="finding-left">
+              <span class="finding-tag tag-rate">Rate Padding</span>
+              <h4 class="finding-title">False ceiling: rate 61% above market</h4>
+            </div>
+            <div class="finding-amount">&#8377;81,600</div>
+          </div>
+          <div class="finding-body">
+            <div class="finding-col">
+              <div class="finding-detail-label">What the BoQ says</div>
+              <p class="finding-detail">False ceiling (gypsum board, all rooms): 680 sq ft at <strong>&#8377;195/sq ft</strong> = &#8377;1,32,600</p>
+            </div>
+            <div class="finding-col">
+              <div class="finding-detail-label">What the market says</div>
+              <p class="finding-detail">Current contractor rate for gypsum board false ceiling in this city: <strong>&#8377;105-120/sq ft</strong> all-inclusive. Mid-point: &#8377;113/sq ft.</p>
+            </div>
+            <div class="finding-col finding-col-full">
+              <div class="finding-detail-label">Our assessment</div>
+              <p class="finding-detail">At &#8377;195/sq ft the rate is 61% above verified market rate for the same deliverable. Additionally, "electrical channels in false ceiling" is listed as a separate line item at &#8377;38/sq ft. This is standard included work at any rate above &#8377;140. Double-counted value: 680 x &#8377;38 = <strong>&#8377;25,840</strong>. Combined: &#8377;81,600.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Finding 2 -->
+        <div class="finding-card finding-high">
+          <div class="finding-header">
+            <div class="finding-left">
+              <span class="finding-tag tag-quantity">Quantity Inflation</span>
+              <h4 class="finding-title">Living room + master bedroom flooring: 94 sq ft overbilled</h4>
+            </div>
+            <div class="finding-amount">&#8377;42,300</div>
+          </div>
+          <div class="finding-body">
+            <div class="finding-col">
+              <div class="finding-detail-label">What the BoQ says</div>
+              <p class="finding-detail">Vitrified tile flooring: <strong>580 sq ft</strong> at &#8377;450/sq ft = &#8377;2,61,000</p>
+            </div>
+            <div class="finding-col">
+              <div class="finding-detail-label">What the floor plan says</div>
+              <p class="finding-detail">Living room 18x14 ft = 252 sq ft. Master bedroom 14x12 ft = 168 sq ft. Less wardrobe footprint: 28 sq ft. Plus 8% wastage. Net: <strong>423 sq ft</strong>.</p>
+            </div>
+            <div class="finding-col finding-col-full">
+              <div class="finding-detail-label">Our assessment</div>
+              <p class="finding-detail">BoQ quantity exceeds verified area by 157 sq ft. After fair wastage allowance, net overbill is <strong>94 sq ft x &#8377;450 = &#8377;42,300</strong>. The contractor has the same floor plan the client shared with us.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Finding 3 -->
+        <div class="finding-card finding-high">
+          <div class="finding-header">
+            <div class="finding-left">
+              <span class="finding-tag tag-double">Double Billing</span>
+              <h4 class="finding-title">Waterproofing billed under two separate heads</h4>
+            </div>
+            <div class="finding-amount">&#8377;36,000</div>
+          </div>
+          <div class="finding-body">
+            <div class="finding-col">
+              <div class="finding-detail-label">Line item A (Civil Works)</div>
+              <p class="finding-detail">"Waterproofing treatment: bathrooms and utility" at &#8377;28,000 lump sum</p>
+            </div>
+            <div class="finding-col">
+              <div class="finding-detail-label">Line item B (Bathroom section)</div>
+              <p class="finding-detail">"Bathroom waterproofing: 3 coats Dr. Fixit" at &#8377;36,000 lump sum</p>
+            </div>
+            <div class="finding-col finding-col-full">
+              <div class="finding-detail-label">Our assessment</div>
+              <p class="finding-detail">Same scope described under two section headings. Contractor confirmed both cover the same work. &#8377;36,000 duplicate line to be removed entirely.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Findings 4-7 collapsed indicator -->
+        <div class="findings-more">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="6"/><path d="M5 7h4M7 5v4"/></svg>
+          4 more findings in the full report: kitchen plywood spec gap (&#8377;31,200 at risk), painter day rate padding (&#8377;12,600), 4 hidden exclusions (&#8377;68,000 at risk), door frame underspecification (&#8377;14,400 at risk)
+        </div>
+
+        <!-- Summary -->
+        <div class="sample-card summary-card">
+          <div class="sample-section-title">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="1.5" width="12" height="12" rx="1"/><path d="M4.5 7.5h6M4.5 5h6M4.5 10h4"/></svg>
+            Summary of findings
+          </div>
+          <div class="summary-table">
+            <div class="summary-row summary-row-header">
+              <span>Finding</span><span>Type</span><span>Amount</span>
+            </div>
+            <div class="summary-row">
+              <span>False ceiling: rate 61% above market + double-counted electrical</span>
+              <span class="tag-pill tag-rate-sm">Rate + Double billing</span>
+              <span class="summary-amount">&#8377;81,600</span>
+            </div>
+            <div class="summary-row">
+              <span>Flooring: 94 sq ft overbilled vs floor plan</span>
+              <span class="tag-pill tag-qty-sm">Quantity</span>
+              <span class="summary-amount">&#8377;42,300</span>
+            </div>
+            <div class="summary-row">
+              <span>Waterproofing billed under two contract heads</span>
+              <span class="tag-pill tag-dbl-sm">Double billing</span>
+              <span class="summary-amount">&#8377;36,000</span>
+            </div>
+            <div class="summary-row summary-row-risk">
+              <span>Kitchen plywood, painter rates, exclusions, door frames</span>
+              <span class="tag-pill tag-spec-sm">Spec + Rate risk</span>
+              <span class="summary-amount">&#8377;1,26,200 at risk</span>
+            </div>
+            <div class="summary-row summary-row-total">
+              <span>Confirmed overcharges</span><span></span>
+              <span>&#8377;1,59,900</span>
+            </div>
+            <div class="summary-row summary-row-total summary-row-grand">
+              <span>Including spec and exclusion risks</span><span></span>
+              <span>&#8377;3,40,700</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Expert commentary -->
+        <div class="sample-card sample-commentary">
+          <div class="sample-section-title">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1.5 2h12v9H8.5l-3 3v-3H1.5V2z"/></svg>
+            Expert commentary
+          </div>
+          <p>This BoQ would pass a casual read. The individual line items are not outrageous, the total is within a plausible range for the scope, and the contractor's reputation is reasonable. The problems only surface when you cross-reference quantities against the floor plan, compare rates against current city benchmarks, and read the specification language carefully.</p>
+          <p style="margin-top:14px;">The false ceiling finding combines an inflated rate with a double-counted line item. The waterproofing double billing is the most common pattern we see: same work described under two section headings. The quantity inflation on flooring took twelve minutes with a floor plan.</p>
+        </div>
+
+        <div class="sample-cta-row">
+          <a href="#hero-upload" class="btn-primary" onclick="focusUpload(event)">Upload your BoQ to get started</a>
+          <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:var(--muted);letter-spacing:0.06em;">Free Health Check first &nbsp;·&nbsp; Full BoQ Check at &#8377;3,499</span>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -2104,6 +2238,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ─── FILTER ───────────────────────────────────────────────────────────────
+
+function switchSampleTab(tab, btn) {
+  document.querySelectorAll('.sample-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('sample-free').style.display = tab === 'free' ? 'block' : 'none';
+  document.getElementById('sample-paid').style.display = tab === 'paid' ? 'block' : 'none';
+}
+
 function filterServices(cat, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
