@@ -2063,7 +2063,15 @@ document.addEventListener('DOMContentLoaded', () => {
     allCards.push({ card, price, name, id, cat, desc });
   });
   sortAndRender();
-  document.getElementById('servicesSearch').addEventListener('input', sortAndRender);
+  let searchTimer;
+  document.getElementById('servicesSearch').addEventListener('input', (e) => {
+    sortAndRender();
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      const q = e.target.value.trim();
+      if (q.length > 2 && typeof gtag !== 'undefined') gtag('event', 'service_search', { event_category: 'services', event_label: q });
+    }, 1000);
+  });
 });
 
 // ─── FILTER ───────────────────────────────────────────────────────────────
@@ -2072,6 +2080,7 @@ function filterServices(cat, btn) {
   btn.classList.add('active');
   currentFilter = cat;
   sortAndRender();
+  if (typeof gtag !== 'undefined' && cat !== 'all') gtag('event', 'service_filter', { event_category: 'services', event_label: cat });
 }
 
 // ─── SORT & SEARCH ────────────────────────────────────────────────────────
@@ -2129,8 +2138,13 @@ function toggleCart(btn) {
   const id = card.querySelector('.svc-name').textContent.trim().slice(0,40);
   const price = parseInt(card.querySelector('.svc-price').textContent.replace(/[^\d]/g,'')) || 0;
   const name = card.querySelector('.svc-name').textContent;
-  if (cart[id]) { delete cart[id]; btn.textContent = '+'; btn.classList.remove('added'); }
-  else { cart[id] = { price, name }; btn.textContent = '\u2713'; btn.classList.add('added'); }
+  if (cart[id]) {
+    delete cart[id]; btn.textContent = '+'; btn.classList.remove('added');
+    if (typeof gtag !== 'undefined') gtag('event', 'remove_from_cart', { currency: 'INR', value: price, items: [{ item_name: name, price: price }] });
+  } else {
+    cart[id] = { price, name }; btn.textContent = '\u2713'; btn.classList.add('added');
+    if (typeof gtag !== 'undefined') gtag('event', 'add_to_cart', { currency: 'INR', value: price, items: [{ item_name: name, price: price }] });
+  }
   updateCartBar();
 }
 function toggleCartById(id, price, name) {
@@ -2142,7 +2156,11 @@ function updateCartBar() {
   const total = Object.values(cart).reduce((s, i) => s + i.price, 0);
   document.getElementById('cartCount').textContent = count + (count === 1 ? ' service' : ' services');
   document.getElementById('cartTotal').textContent = '\u20B9' + total.toLocaleString('en-IN');
+  const wasHidden = !document.getElementById('cartBar').classList.contains('show');
   document.getElementById('cartBar').classList.toggle('show', count > 0);
+  if (wasHidden && count > 0 && typeof gtag !== 'undefined') {
+    gtag('event', 'view_cart', { currency: 'INR', value: Object.values(cart).reduce((s,i) => s+i.price, 0) });
+  }
 }
 function clearCart() {
   cart = {};
@@ -2156,7 +2174,10 @@ function toggleFaq(btn) {
   const item = btn.closest('.faq-item');
   const isOpen = item.classList.contains('open');
   document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
+  if (!isOpen) {
+    item.classList.add('open');
+    if (typeof gtag !== 'undefined') gtag('event', 'faq_opened', { event_category: 'engagement', event_label: btn.textContent.replace('+','').trim().slice(0,60) });
+  }
 }
 
 // Drag and drop
@@ -2195,6 +2216,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!el || typeof uploadcare === 'undefined') return;
   ucareWidget = uploadcare.Widget(el);
   ucareWidget.onUploadComplete(info => {
+    if (typeof gtag !== 'undefined') gtag('event', 'boq_file_selected', { event_category: 'engagement', event_label: info.name.split('.').pop().toLowerCase() });
     uploadedFileUrl = info.cdnUrl;
     uploadedFileName = info.name;
     const label = document.getElementById('dropLabel');
@@ -2298,6 +2320,32 @@ document.querySelectorAll('.fade-up').forEach((el, i) => {
   el.style.transitionDelay = (i % 4) * 0.1 + 's';
   observer.observe(el);
 });
+// Cart abandonment tracking
+window.addEventListener('beforeunload', () => {
+  if (Object.keys(cart).length > 0 && typeof gtag !== 'undefined') {
+    const total = Object.values(cart).reduce((s,i) => s+i.price, 0);
+    gtag('event', 'cart_abandoned', {
+      currency: 'INR',
+      value: total,
+      item_count: Object.keys(cart).length,
+      items: Object.values(cart).map(i => ({ item_name: i.name, price: i.price }))
+    });
+  }
+});
+
+// Section visibility tracking
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && typeof gtag !== 'undefined') {
+      gtag('event', 'section_viewed', { event_category: 'scroll', event_label: entry.target.id });
+    }
+  });
+}, { threshold: 0.3 });
+['problem','how','services','trust','sample-report','faq','cta'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) sectionObserver.observe(el);
+});
+
 
 
 function openFaqPrivacy() {
@@ -2315,6 +2363,7 @@ function openFaqPrivacy() {
 }
 
 function focusUpload(e) {
+  if (typeof gtag !== 'undefined') gtag('event', 'upload_cta_clicked', { event_category: 'engagement', event_label: e.target.textContent.trim().slice(0,40) });
   const box = document.getElementById('hero-upload');
   const emailInput = document.getElementById('emailInput');
   if (!box) return;
@@ -2475,6 +2524,10 @@ function openCheckout() {
   updateCheckoutModal();
   document.getElementById('checkout-overlay').style.display = 'block';
   document.body.style.overflow = 'hidden';
+  if (typeof gtag !== 'undefined') {
+    const total = Object.values(cart).reduce((s,i) => s+i.price, 0);
+    gtag('event', 'checkout_opened', { currency: 'INR', value: total, items: Object.values(cart).map(i => ({ item_name: i.name, price: i.price })) });
+  }
   // Pre-fill email from hero form
   const heroEmail = document.getElementById('emailInput').value;
   if (heroEmail) document.getElementById('co-email').value = heroEmail;
