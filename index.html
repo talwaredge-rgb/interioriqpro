@@ -2856,6 +2856,17 @@ function initiatePayment() {
           message: 'PAYMENT CONFIRMED.\n\nPayment ID: ' + response.razorpay_payment_id + '\nName: ' + name + '\nEmail: ' + email + '\nServices: ' + services + '\nTotal: \u20B9' + total.toLocaleString('en-IN')
         })
       }).catch(e => console.log('notification error', e));
+      // Send order confirmation email via EmailJS
+      if (typeof emailjs !== 'undefined') {
+        emailjs.send('interioriqpro', 'template_zrp2ne4', {
+          email: email,
+          customer_name: name !== 'Customer' ? name : 'there',
+          services: services,
+          total: '\u20B9' + total.toLocaleString('en-IN'),
+          payment_id: response.razorpay_payment_id
+        }).then(() => console.log('Order confirmation sent'))
+          .catch(err => console.error('EmailJS order confirm error:', err));
+      }
       showToast('Payment successful. Order confirmation sent to ' + email + '.');
       clearCart();
     }
