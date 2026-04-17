@@ -2387,7 +2387,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 <script>
 // ─── RAZORPAY INTEGRATION ─────────────────────────────────────────────────
 // Replace with your live key once Razorpay account is activated
-const RAZORPAY_KEY = 'rzp_test_REPLACE_WITH_YOUR_KEY';
+const RAZORPAY_KEY = 'rzp_test_SeSANLRSHZh0Km';
 const GST_RATE = 0.18;
 
 function openCheckout() {
@@ -2456,7 +2456,7 @@ function initiatePayment() {
   const description = services.length > 100 ? services.slice(0, 97) + '...' : services;
 
   // If Razorpay key is still test placeholder, show manual payment fallback
-  if (RAZORPAY_KEY === 'rzp_test_REPLACE_WITH_YOUR_KEY') {
+  if (false) { // key configured
     closeCheckout();
     showToast('Razorpay key not yet configured. Enquiry captured: we will email a payment link to ' + email + ' within 2 hours.');
     // Track the fallback
