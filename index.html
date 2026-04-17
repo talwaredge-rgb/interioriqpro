@@ -835,6 +835,9 @@ section { padding: 100px 0; }
 <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
 <script>UPLOADCARE_PUBLIC_KEY = "ba46729704eed89d36f7";</script>
 <script>UPLOADCARE_LOCALE = "en";</script>
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init("ieeizTZgVPFoO2hTO");</script>
 <!-- Uploadcare -->
 <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
 <script>UPLOADCARE_PUBLIC_KEY = "ba46729704eed89d36f7";</script>
@@ -2279,6 +2282,15 @@ async function handleUpload() {
       status.style.color = '#1A7A3C';
       status.textContent = 'Analysis request received. Check your inbox in 24-48 hours.';
       if (typeof gtag !== 'undefined') trackEvent('boq_upload', 'engagement', 'hero_form');
+
+      // Send auto-confirmation email to customer
+      if (typeof emailjs !== 'undefined') {
+        emailjs.send('interioriqpro', 'c1ek1ql', {
+          email: email,
+          customer_name: name !== 'Not provided' ? name : 'there',
+          boq_file_name: uploadedFileName
+        }).catch(err => console.log('EmailJS error:', err));
+      }
 
       // Reset form after 5 seconds so another file can be submitted
       setTimeout(() => {
