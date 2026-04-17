@@ -801,7 +801,19 @@ section { padding: 100px 0; }
   margin-bottom: 10px;
 }
 .svc-price { flex-shrink: 0; }
+
+/* Hide Uploadcare default button - we use our custom drop zone */
+.uploadcare-widget { display: none !important; }
+
+.uploadcare-widget { display: none !important; }
 </style>
+<!-- Uploadcare file upload widget -->
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<script>UPLOADCARE_PUBLIC_KEY = "ba46729704eed89d36f7";</script>
+<script>UPLOADCARE_LOCALE = "en";</script>
+<!-- Uploadcare -->
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<script>UPLOADCARE_PUBLIC_KEY = "ba46729704eed89d36f7";</script>
 <!-- Razorpay Checkout SDK -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
@@ -848,19 +860,20 @@ section { padding: 100px 0; }
       <div id="hero-upload">
         <div class="upload-box">
           <div class="upload-box-label">Free BoQ Analysis</div>
-          <div class="drop-zone" id="dropZone">
+          <div class="drop-zone" id="dropZone" onclick="triggerUcWidget()">
             <svg class="drop-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
               <rect x="8" y="4" width="24" height="32" rx="1"/><path d="M14 14h12M14 20h12M14 26h8"/><path d="M24 4v8h8"/>
             </svg>
-            <div class="drop-label">
+            <div class="drop-label" id="dropLabel">
               <strong>Drop your BoQ here</strong>
               PDF, Excel, or image: click to browse
             </div>
-            <input type="file" class="drop-input" id="fileInput" accept=".pdf,.xlsx,.xls,.jpg,.jpeg,.png">
           </div>
+          <input type="hidden" role="uploadcare-uploader" id="ucWidget" data-public-key="ba46729704eed89d36f7" data-tabs="file" data-preview-step="false" />
           <input type="email" class="upload-field" id="emailInput" placeholder="Your email address">
           <input type="text" class="upload-field" id="nameInput" placeholder="Your name (optional)">
-          <button class="upload-submit" onclick="handleUpload()">Send my BoQ for free analysis →</button>
+          <button class="upload-submit" id="uploadSubmitBtn" onclick="handleUpload()">Send my BoQ for free analysis &#8594;</button>
+          <div id="uploadStatus" style="display:none;font-family:'Jost',sans-serif;font-size:0.78rem;padding:8px 0;color:var(--muted);"></div>
           <p class="upload-note">Your BoQ is kept strictly confidential. It is reviewed by one person, stored encrypted, and never shared with vendors or third parties. <a href="#faq" onclick="openFaqPrivacy()" style="color:var(--terracotta);text-decoration:underline;text-underline-offset:2px;">Full data commitment below.</a></p>
         </div>
       </div>
@@ -2168,15 +2181,82 @@ function handleFileSelected(file) {
   dropZone.style.borderColor = 'var(--terracotta)';
 }
 
-function handleUpload() {
+// Uploadcare widget
+let ucareWidget = null;
+let uploadedFileUrl = null;
+let uploadedFileName = null;
+
+function triggerUcWidget() {
+  if (ucareWidget) ucareWidget.openDialog();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.getElementById('ucWidget');
+  if (!el || typeof uploadcare === 'undefined') return;
+  ucareWidget = uploadcare.Widget(el);
+  ucareWidget.onUploadComplete(info => {
+    uploadedFileUrl = info.cdnUrl;
+    uploadedFileName = info.name;
+    const label = document.getElementById('dropLabel');
+    label.innerHTML = '<strong>' + info.name + '</strong>File ready';
+    document.getElementById('dropZone').style.borderColor = 'var(--terracotta)';
+    document.getElementById('dropZone').style.background = 'rgba(196,85,42,0.03)';
+  });
+});
+
+async function handleUpload() {
   const email = document.getElementById('emailInput').value.trim();
+  const name = document.getElementById('nameInput').value.trim() || 'Not provided';
+  const btn = document.getElementById('uploadSubmitBtn');
+  const status = document.getElementById('uploadStatus');
+
   if (!email || !email.includes('@')) {
     document.getElementById('emailInput').style.borderColor = 'var(--terracotta)';
     document.getElementById('emailInput').focus();
     return;
   }
-  showToast('BoQ upload received. We will analyse it and be in touch within 24 hours.');
-  if(typeof gtag!=='undefined') trackEvent('boq_upload','engagement','hero_form');
+  if (!uploadedFileUrl) {
+    document.getElementById('dropZone').style.borderColor = 'var(--terracotta)';
+    showToast('Please upload your BoQ file first.');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  status.style.display = 'block';
+  status.textContent = 'Submitting your BoQ for analysis...';
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        access_key: 'f6a1aa64-f9dc-4353-9270-374c64e23363',
+        subject: 'New BoQ Upload from ' + email,
+        from_name: 'InteriorIQ Pro',
+        replyto: email,
+        name: name,
+        email: email,
+        boq_file_name: uploadedFileName,
+        boq_download_url: uploadedFileUrl,
+        message: 'New free BoQ analysis request.\n\nName: ' + name + '\nEmail: ' + email + '\nFile: ' + uploadedFileName + '\nDownload BoQ: ' + uploadedFileUrl
+      })
+    });
+    const data = await res.json();
+    if (data.success) {
+      btn.style.background = '#1A7A3C';
+      btn.style.borderRadius = '8px';
+      btn.textContent = 'Submitted. We will be in touch within 24 hours.';
+      status.style.color = '#1A7A3C';
+      status.textContent = 'Analysis request received.';
+      if (typeof gtag !== 'undefined') trackEvent('boq_upload', 'engagement', 'hero_form');
+    } else { throw new Error('failed'); }
+  } catch(e) {
+    btn.disabled = false;
+    btn.textContent = 'Send my BoQ for free analysis →';
+    status.style.color = 'var(--terracotta)';
+    status.textContent = 'Something went wrong. Please email hello@interioriqpro.com directly.';
+  }
 }
 
 function handleCtaUpload() {
@@ -2494,7 +2574,6 @@ function initiatePayment() {
       }
     },
     handler: function(response) {
-      // Payment successful
       closeCheckout();
       if (typeof gtag !== 'undefined') {
         gtag('event', 'purchase', {
@@ -2504,6 +2583,24 @@ function initiatePayment() {
           items: Object.values(cart).map(i => ({ item_name: i.name, price: i.price }))
         });
       }
+      // Notify via Web3Forms
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          access_key: 'f6a1aa64-f9dc-4353-9270-374c64e23363',
+          subject: 'PAYMENT RECEIVED \u20B9' + total.toLocaleString('en-IN') + ' from ' + email,
+          from_name: 'InteriorIQ Pro',
+          replyto: email,
+          name: name,
+          email: email,
+          payment_id: response.razorpay_payment_id,
+          services_ordered: services,
+          total_paid: '\u20B9' + total.toLocaleString('en-IN'),
+          project_context: note || 'Not provided',
+          message: 'PAYMENT CONFIRMED.\n\nPayment ID: ' + response.razorpay_payment_id + '\nName: ' + name + '\nEmail: ' + email + '\nServices: ' + services + '\nTotal: \u20B9' + total.toLocaleString('en-IN')
+        })
+      }).catch(e => console.log('notification error', e));
       showToast('Payment successful. Order confirmation sent to ' + email + '.');
       clearCart();
     }
