@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>InteriorIQ Pro: India's Expert BoQ Advisory</title>
+<title>InteriorIQ Pro: Is Your Home Interiors or Renovation Quote Overpriced?</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231A1714'/><text x='16' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' text-anchor='middle' fill='%23C4552A'>I</text></svg>">
 <!-- SEO Meta Tags -->
-<meta name="description" content="InteriorIQ Pro: India's expert BoQ advisory. Upload your renovation quote and get a free independent review in 24-48 hours. Rate benchmarking, quantity verification, specification gaps.">
+<meta name="description" content="Your home interiors or renovation BoQ may be overpriced by ₹2-5 Lakhs. Get a free independent expert review before you sign. We check for rate padding, quantity inflation, and specification gaps. Results in 24-48 hours.">
 <meta name="keywords" content="BOQ analysis India, home renovation quote check, interior design BoQ review, contractor quote verification, home renovation advisory India">
 <meta name="robots" content="index, follow">
+  <meta name="keywords" content="BOQ review India, home renovation quote check, interior contractor BOQ analysis, renovation quote too high India, independent BOQ advisory, interior design quote verification, BoQ review before signing">
 <meta name="author" content="InteriorIQ Pro">
 <link rel="canonical" href="https://interioriqpro.com/">
 
@@ -33,7 +34,7 @@
   "@type": "ProfessionalService",
   "name": "InteriorIQ Pro",
   "url": "https://interioriqpro.com",
-  "description": "Independent BoQ analysis and advisory for Indian homeowners undergoing home renovation or interior work.",
+  "description": "Free independent BOQ review for Indian homeowners. Expert analysis of home renovation contractor quotes including rate benchmarking, quantity verification, and specification gap detection.",
   "areaServed": "IN",
   "serviceType": "Home Renovation Advisory",
   "offers": {
@@ -953,19 +954,25 @@ section { padding: 100px 0; }
   .summary-row > span:nth-child(2) { display:none; }
 }
 
+
+.hero-asterisk {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.68rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 12px;
+  max-width: 520px;
+  letter-spacing: 0.02em;
+}
+
 </style>
-<!-- Uploadcare file upload widget -->
-<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<!-- Uploadcare loaded after render -->
 <script>UPLOADCARE_PUBLIC_KEY = "ba46729704eed89d36f7";</script>
 <script>UPLOADCARE_LOCALE = "en";</script>
-<!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>emailjs.init("ieeizTZgVPFoO2hTO");</script>
-<!-- Uploadcare -->
-<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<!-- EmailJS  -  loaded after render -->
+<!-- Uploadcare loaded after render -->
 <script>UPLOADCARE_PUBLIC_KEY = "ba46729704eed89d36f7";</script>
-<!-- Razorpay Checkout SDK -->
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<!-- Razorpay  -  loaded after render -->
 </head>
 <body>
 
@@ -984,7 +991,7 @@ section { padding: 100px 0; }
       <li><a href="#sample-report">Sample Report</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="#hero-upload" class="nav-cta" onclick="focusUpload(event)">Upload BoQ</a>
+    <a href="#hero-upload" class="nav-cta" onclick="focusUpload(event)">Free BoQ Review</a>
     <button class="nav-hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
       <svg width="22" height="16" viewBox="0 0 22 16" fill="none" stroke="currentColor" stroke-width="1.5">
         <line x1="0" y1="2" x2="22" y2="2"/><line x1="0" y1="8" x2="22" y2="8"/><line x1="0" y1="14" x2="22" y2="14"/>
@@ -999,17 +1006,18 @@ section { padding: 100px 0; }
   <div class="container">
     <div class="hero-grid">
       <div>
-        <div class="hero-eyebrow">India's Expert BoQ Advisory</div>
-        <h1 class="hero-h1">Your contractor gave you a BoQ.<br><span style="color:var(--terracotta)">Have an expert review it before you sign.</span></h1>
-        <p class="hero-sub">You have a contractor. You have a quote. What you may not have is someone who can tell you whether what you're signing is fair, what to ask before you do, and what to watch for during execution. That is what we do.</p>
+        <div class="hero-eyebrow">Home Interiors & Renovation BoQ Advisory</div>
+        <h1 class="hero-h1">Your home interiors or renovation quote<br><span style="color:var(--terracotta)">may be overpriced by ₹2–5 Lakhs.</span><br>We will tell you for free.<sup style="font-size:0.45em;vertical-align:super;color:var(--muted)">*</sup></h1>
+        <p class="hero-sub">Most home interiors and renovation BoQs contain overcharges, inflated quantities, or specification gaps that homeowners never catch before signing. We review your contractor's quote independently and tell you exactly what to question. Free to start, no signup required.</p>
+          <p class="hero-asterisk">* Based on highest overcharge identified across reviewed BoQs. Actual savings depend on your contractor, scope, and city. Free analysis flags concerns. Specific rupee amounts in paid BoQ Check.</p>
         <div class="hero-actions">
-          <a href="#hero-upload" class="btn-primary" onclick="focusUpload(event)">Upload your BoQ: it's free</a>
+          <a href="#hero-upload" class="btn-primary" onclick="focusUpload(event)">Get your free BoQ review</a>
           <a href="#services" class="btn-ghost">View advisory services</a>
         </div>
       </div>
       <div id="hero-upload">
         <div class="upload-box">
-          <div class="upload-box-label">Free BoQ Analysis</div>
+          <div class="upload-box-label">Free Home Interiors & Renovation BoQ Review</div>
           <div class="drop-zone" id="dropZone" onclick="triggerUcWidget()">
             <svg class="drop-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
               <rect x="8" y="4" width="24" height="32" rx="1"/><path d="M14 14h12M14 20h12M14 26h8"/><path d="M24 4v8h8"/>
@@ -1025,7 +1033,7 @@ section { padding: 100px 0; }
           </div>
           <input type="email" class="upload-field" id="emailInput" placeholder="Your email address">
           <input type="text" class="upload-field" id="nameInput" placeholder="Your name (optional)">
-          <button class="upload-submit" id="uploadSubmitBtn" onclick="handleUpload()">Send my BoQ for free analysis &#8594;</button>
+          <button class="upload-submit" id="uploadSubmitBtn" onclick="handleUpload()">Get my free BoQ review &#8594;</button>
           <div id="uploadStatus" style="display:none;font-family:'Jost',sans-serif;font-size:0.78rem;padding:8px 0;color:var(--muted);"></div>
           <p class="upload-note">Your BoQ is kept strictly confidential. It is reviewed by our team, stored encrypted, and never shared with vendors or third parties. <a href="#faq" onclick="openFaqPrivacy()" style="color:var(--terracotta);text-decoration:underline;text-underline-offset:2px;">Full data commitment below.</a></p>
         </div>
@@ -1038,9 +1046,9 @@ section { padding: 100px 0; }
 <section id="problem">
   <div class="container">
     <div class="section-label">Why this exists</div>
-    <h2 class="section-h2">Your contractor is an expert.<br>Now you can be too.</h2>
+    <h2 class="section-h2">Your home interiors contractor<br>has done this 200 times.<br>You are doing it once.</h2>
     <p class="problem-intro">
-      Most homeowners sign a renovation contract having reviewed it once, briefly, without the context to evaluate what it contains. That is not incompetence. It is a knowledge gap. BoQ analysis, rate benchmarking, specification review: these are specialist skills. We provide them, so you walk into every conversation with your contractor informed.
+      Most homeowners sign a home renovation contract having reviewed it once, briefly, without the context to evaluate what it contains. That is not incompetence. It is a knowledge gap. BOQ analysis, contractor rate benchmarking, specification review: these are specialist skills. We provide them so you walk into every conversation about your renovation quote informed.
     </p>
     <div class="problem-grid">
       <div class="problem-card fade-up">
@@ -1936,7 +1944,7 @@ section { padding: 100px 0; }
         </div>
 
         <div class="sample-cta-row" style="margin-top:32px;">
-          <a href="#hero-upload" class="btn-primary" onclick="focusUpload(event)">Get your free Health Check</a>
+          <a href="#hero-upload" class="btn-primary" onclick="focusUpload(event)">Get your free BoQ review</a>
           <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:var(--muted);letter-spacing:0.06em;">24-48 hr turnaround &nbsp;·&nbsp; No signup required</span>
         </div>
 
@@ -2112,7 +2120,7 @@ section { padding: 100px 0; }
         </div>
 
         <div class="sample-cta-row">
-          <a href="#hero-upload" class="btn-primary" onclick="focusUpload(event)">Upload your BoQ to get started</a>
+          <a href="#hero-upload" class="btn-primary" onclick="focusUpload(event)">Get your free BoQ review</a>
           <span style="font-family:'Jost',sans-serif;font-size:0.72rem;color:var(--muted);letter-spacing:0.06em;">Free Health Check first &nbsp;·&nbsp; Full BoQ Check at &#8377;3,499</span>
         </div>
 
@@ -2465,13 +2473,13 @@ async function handleUpload() {
         document.getElementById('nameInput').value = '';
         btn.disabled = false;
         btn.style.background = 'var(--ink)';
-        btn.textContent = 'Send my BoQ for free analysis →';
+        btn.textContent = 'Get my free BoQ review →';
         status.style.display = 'none';
       }, 5000);
     } else { throw new Error('failed'); }
   } catch(e) {
     btn.disabled = false;
-    btn.textContent = 'Send my BoQ for free analysis →';
+    btn.textContent = 'Get my free BoQ review →';
     status.style.color = 'var(--terracotta)';
     status.textContent = 'Something went wrong. Please email hello@interioriqpro.com directly.';
   }
@@ -2889,6 +2897,61 @@ function initiatePayment() {
 }
 </script>
 
+
+
+  <!-- Deferred SDKs: load after page render for better Core Web Vitals -->
+  <script>
+    window.addEventListener('load', function() {
+      // Uploadcare
+      var ucScript = document.createElement('script');
+      ucScript.src = 'https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js';
+      ucScript.onload = function() {
+        UPLOADCARE_PUBLIC_KEY = 'ba46729704eed89d36f7';
+        UPLOADCARE_LOCALE = 'en';
+        // Re-init widget after SDK loads
+        var el = document.getElementById('ucWidget');
+        if (el && typeof uploadcare !== 'undefined') {
+          ucareWidget = uploadcare.Widget(el);
+          ucareWidget.onUploadComplete(function(info) {
+            if (typeof gtag !== 'undefined') gtag('event', 'boq_file_selected', { event_category: 'engagement', event_label: info.name ? info.name.split('.').pop().toLowerCase() : 'unknown' });
+            if (info.files) {
+              var fileCount = info.count;
+              var fileNames = info.files().map(function(f) { return f.name; }).join(', ');
+              uploadedFileUrl = info.files().map(function(f) { return f.cdnUrl; }).join(' | ');
+              uploadedFileName = fileNames;
+              var label = document.getElementById('dropLabel');
+              label.innerHTML = '<strong>' + fileCount + ' file' + (fileCount > 1 ? 's' : '') + ' ready</strong>' + fileNames.slice(0, 60) + (fileNames.length > 60 ? '...' : '');
+            } else {
+              uploadedFileUrl = info.cdnUrl;
+              uploadedFileName = info.name;
+              var label = document.getElementById('dropLabel');
+              label.innerHTML = '<strong>' + info.name + '</strong>File ready';
+            }
+            document.getElementById('dropZone').style.borderColor = 'var(--terracotta)';
+            document.getElementById('dropZone').style.background = 'rgba(196,85,42,0.03)';
+          });
+        }
+      };
+      document.head.appendChild(ucScript);
+
+      // EmailJS
+      var ejsScript = document.createElement('script');
+      ejsScript.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+      ejsScript.onload = function() {
+        emailjs.init('ieeizTZgVPFoO2hTO');
+      };
+      document.head.appendChild(ejsScript);
+
+      // Razorpay  -  only load when user opens checkout
+      document.getElementById('cartBar') && document.getElementById('cartBar').addEventListener('click', function() {
+        if (!window.Razorpay) {
+          var rzpScript = document.createElement('script');
+          rzpScript.src = 'https://checkout.razorpay.com/v1/checkout.js';
+          document.head.appendChild(rzpScript);
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
