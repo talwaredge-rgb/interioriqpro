@@ -2285,11 +2285,16 @@ async function handleUpload() {
 
       // Send auto-confirmation email to customer
       if (typeof emailjs !== 'undefined') {
-        emailjs.send('interioriqpro', 'c1ek1ql', {
+        const ejsParams = {
           email: email,
-          customer_name: name !== 'Not provided' ? name : 'there',
-          boq_file_name: uploadedFileName
-        }).catch(err => console.log('EmailJS error:', err));
+          customer_name: (name && name !== 'Not provided') ? name : 'there',
+          boq_file_name: uploadedFileName || 'BoQ file'
+        };
+        emailjs.send('interioriqpro', 'template_k6c0x4a', ejsParams)
+          .then(() => console.log('EmailJS confirmation sent to', email))
+          .catch(err => {
+            console.error('EmailJS error:', JSON.stringify(err));
+          });
       }
 
       // Reset form after 5 seconds so another file can be submitted
