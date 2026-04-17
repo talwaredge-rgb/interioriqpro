@@ -803,9 +803,33 @@ section { padding: 100px 0; }
 .svc-price { flex-shrink: 0; }
 
 /* Hide Uploadcare default button - we use our custom drop zone */
-.uploadcare-widget { display: none !important; }
+/* Hide all Uploadcare default UI - we use custom drop zone */
+.uploadcare-widget,
+.uploadcare-widget-button,
+.uploadcare-widget-status,
+.uploadcare-widget-dragndrop-area,
+[class*="uploadcare-widget"] { 
+  display: none !important; 
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+#ucWidgetContainer * { display: none !important; }
 
-.uploadcare-widget { display: none !important; }
+/* Hide all Uploadcare default UI - we use custom drop zone */
+.uploadcare-widget,
+.uploadcare-widget-button,
+.uploadcare-widget-status,
+.uploadcare-widget-dragndrop-area,
+[class*="uploadcare-widget"] { 
+  display: none !important; 
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+#ucWidgetContainer * { display: none !important; }
 </style>
 <!-- Uploadcare file upload widget -->
 <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
@@ -869,7 +893,9 @@ section { padding: 100px 0; }
               PDF, Excel, or image: click to browse
             </div>
           </div>
-          <input type="hidden" role="uploadcare-uploader" id="ucWidget" data-public-key="ba46729704eed89d36f7" data-tabs="file" data-preview-step="false" />
+          <div id="ucWidgetContainer" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;">
+            <input type="hidden" role="uploadcare-uploader" id="ucWidget" data-public-key="ba46729704eed89d36f7" data-tabs="file" data-preview-step="false" />
+          </div>
           <input type="email" class="upload-field" id="emailInput" placeholder="Your email address">
           <input type="text" class="upload-field" id="nameInput" placeholder="Your name (optional)">
           <button class="upload-submit" id="uploadSubmitBtn" onclick="handleUpload()">Send my BoQ for free analysis &#8594;</button>
@@ -2181,26 +2207,7 @@ function toggleFaq(btn) {
 }
 
 // Drag and drop
-const dropZone = document.getElementById('dropZone');
-const fileInput = document.getElementById('fileInput');
-let selectedFile = null;
-
-dropZone.addEventListener('click', () => fileInput.click());
-fileInput.addEventListener('change', e => {
-  if (e.target.files[0]) handleFileSelected(e.target.files[0]);
-});
-dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
-dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
-dropZone.addEventListener('drop', e => {
-  e.preventDefault(); dropZone.classList.remove('drag-over');
-  if (e.dataTransfer.files[0]) handleFileSelected(e.dataTransfer.files[0]);
-});
-
-function handleFileSelected(file) {
-  selectedFile = file;
-  dropZone.querySelector('.drop-label').innerHTML = `<strong>${file.name}</strong>Ready to submit`;
-  dropZone.style.borderColor = 'var(--terracotta)';
-}
+// File upload handled by Uploadcare widget
 
 // Uploadcare widget
 let ucareWidget = null;
@@ -2314,12 +2321,18 @@ const observer = new IntersectionObserver((entries) => {
       setTimeout(() => entry.target.classList.add('in'), 0);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.05 });
 
 document.querySelectorAll('.fade-up').forEach((el, i) => {
   el.style.transitionDelay = (i % 4) * 0.1 + 's';
   observer.observe(el);
 });
+
+// Fallback: make all fade-up elements visible after 800ms
+// Handles case where elements are already in viewport on page load
+setTimeout(() => {
+  document.querySelectorAll('.fade-up:not(.in)').forEach(el => el.classList.add('in'));
+}, 800);
 // Cart abandonment tracking
 window.addEventListener('beforeunload', () => {
   if (Object.keys(cart).length > 0 && typeof gtag !== 'undefined') {
@@ -2340,7 +2353,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
       gtag('event', 'section_viewed', { event_category: 'scroll', event_label: entry.target.id });
     }
   });
-}, { threshold: 0.3 });
+}, { threshold: 0.2 });
 ['problem','how','services','trust','sample-report','faq','cta'].forEach(id => {
   const el = document.getElementById(id);
   if (el) sectionObserver.observe(el);
