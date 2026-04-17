@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://interioriqpro.com/">
 <meta property="og:title" content="InteriorIQ Pro - Independent BoQ Review for Indian Homeowners">
 <meta property="og:description" content="Have an expert review your renovation quote before you sign. Free BoQ analysis returned in 24-48 hours. Rate benchmarking, quantity checks, specification review.">
-<meta property="og:image" content="https://interioriqpro.com/og-image.jpg">
+<meta property="og:image" content="https://interioriqpro.com/og-image.png">
 <meta property="og:locale" content="en_IN">
 <meta property="og:site_name" content="InteriorIQ Pro">
 
@@ -2275,10 +2275,26 @@ async function handleUpload() {
     if (data.success) {
       btn.style.background = '#1A7A3C';
       btn.style.borderRadius = '8px';
-      btn.textContent = 'Submitted. We will be in touch within 24 hours.';
+      btn.textContent = 'Submitted. We will be in touch within 24-48 hours.';
       status.style.color = '#1A7A3C';
-      status.textContent = 'Analysis request received.';
+      status.textContent = 'Analysis request received. Check your inbox in 24-48 hours.';
       if (typeof gtag !== 'undefined') trackEvent('boq_upload', 'engagement', 'hero_form');
+
+      // Reset form after 5 seconds so another file can be submitted
+      setTimeout(() => {
+        uploadedFileUrl = null;
+        uploadedFileName = null;
+        if (ucareWidget) ucareWidget.value(null);
+        document.getElementById('dropLabel').innerHTML = '<strong>Drop another BoQ here</strong>PDF, Excel, or image: click to browse';
+        document.getElementById('dropZone').style.borderColor = '';
+        document.getElementById('dropZone').style.background = '';
+        document.getElementById('emailInput').value = '';
+        document.getElementById('nameInput').value = '';
+        btn.disabled = false;
+        btn.style.background = 'var(--ink)';
+        btn.textContent = 'Send my BoQ for free analysis →';
+        status.style.display = 'none';
+      }, 5000);
     } else { throw new Error('failed'); }
   } catch(e) {
     btn.disabled = false;
