@@ -942,7 +942,7 @@ section { padding: 100px 0; }
       <div>
         <div class="section-label">The advisory menu</div>
         <h2 class="section-h2">100+ services.<br>For every situation.</h2>
-        <p class="services-count mono">10 categories &nbsp;·&nbsp; ₹499–₹4,999 per service &nbsp;·&nbsp; No retainers, no subscriptions</p>
+        <p class="services-count mono">10 categories &nbsp;·&nbsp; ₹499–₹4,999 per service, all incl. GST &nbsp;·&nbsp; No retainers</p>
       </div>
       <div class="services-filter" id="filterBtns">
         <button class="filter-btn active" onclick="filterServices('all', this)">All</button>
@@ -2354,19 +2354,11 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
     <div style="padding:24px 32px 0;">
       <div id="co-services" style="display:flex;flex-direction:column;margin-bottom:0;"></div>
 
-      <!-- Subtotal row -->
-      <div style="display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid var(--rule);">
-        <span style="font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);">Subtotal</span>
-        <span id="co-subtotal" style="font-family:'Jost',sans-serif;font-size:0.95rem;color:var(--ink);">&#8377;0</span>
-      </div>
-      <!-- GST row -->
-      <div style="display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid var(--rule);">
-        <span style="font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);">GST (18%)</span>
-        <span id="co-gst" style="font-family:'Jost',sans-serif;font-size:0.95rem;color:var(--muted);">&#8377;0</span>
-      </div>
+
+
       <!-- Total row -->
       <div style="display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:2px solid var(--rule-strong);margin-bottom:24px;">
-        <span style="font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;">Total (incl. GST)</span>
+        <span style="font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;">Total <span style="font-weight:400;font-size:0.65rem;color:var(--muted);">(all prices incl. GST)</span></span>
         <span id="co-total" style="font-family:'Jost',sans-serif;font-size:1.5rem;font-weight:700;color:var(--terracotta);">&#8377;0</span>
       </div>
     </div>
@@ -2385,7 +2377,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
         UPI &nbsp;&#183;&nbsp; Cards &nbsp;&#183;&nbsp; Net Banking &nbsp;&#183;&nbsp; Wallets &nbsp;&nbsp;|&nbsp;&nbsp; Secured by Razorpay
       </p>
       <p style="font-size:0.68rem;color:rgba(122,114,104,0.6);margin-top:6px;text-align:center;font-family:'Jost',sans-serif;">
-        All prices are exclusive of GST. 18% GST applicable on all services.
+        All listed prices are inclusive of GST.
       </p>
     </div>
   </div>
@@ -2412,12 +2404,9 @@ function updateCheckoutModal() {
   const items = Object.values(cart);
   const count = Object.keys(cart).length;
   const subtotal = items.reduce((s, i) => s + i.price, 0);
-  const gst = Math.round(subtotal * GST_RATE);
-  const total = subtotal + gst;
+  const total = subtotal;
 
   document.getElementById('co-title').textContent = count + (count === 1 ? ' service selected' : ' services selected');
-  document.getElementById('co-subtotal').innerHTML = '&#8377;' + subtotal.toLocaleString('en-IN');
-  document.getElementById('co-gst').innerHTML = '&#8377;' + gst.toLocaleString('en-IN');
   document.getElementById('co-total').innerHTML = '&#8377;' + total.toLocaleString('en-IN');
   document.getElementById('co-btn-amount').textContent = total.toLocaleString('en-IN');
 
@@ -2452,8 +2441,7 @@ function initiatePayment() {
   const note = document.getElementById('co-note').value.trim();
   const services = Object.values(cart).map(i => i.name).join(', ');
   const subtotal = Object.values(cart).reduce((s, i) => s + i.price, 0);
-  const gst = Math.round(subtotal * GST_RATE);
-  const total = subtotal + gst;
+  const total = subtotal;
   const totalPaise = total * 100; // Razorpay takes amount in paise
 
   // Track in GA4
