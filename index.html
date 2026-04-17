@@ -893,11 +893,11 @@ section { padding: 100px 0; }
             </svg>
             <div class="drop-label" id="dropLabel">
               <strong>Drop your BoQ here</strong>
-              PDF, Excel, or image: click to browse
+              PDF, Excel, or image &nbsp;·&nbsp; Up to 3 files &nbsp;·&nbsp; Max 10MB each
             </div>
           </div>
           <div id="ucWidgetContainer" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;">
-            <input type="hidden" role="uploadcare-uploader" id="ucWidget" data-public-key="ba46729704eed89d36f7" data-tabs="file" data-preview-step="false" />
+            <input type="hidden" role="uploadcare-uploader" id="ucWidget" data-public-key="ba46729704eed89d36f7" data-tabs="file" data-preview-step="false" data-max-local-file-size-bytes="10485760" data-multiple="true" data-multiple-max="3" />
           </div>
           <input type="email" class="upload-field" id="emailInput" placeholder="Your email address">
           <input type="text" class="upload-field" id="nameInput" placeholder="Your name (optional)">
@@ -2226,11 +2226,25 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!el || typeof uploadcare === 'undefined') return;
   ucareWidget = uploadcare.Widget(el);
   ucareWidget.onUploadComplete(info => {
-    if (typeof gtag !== 'undefined') gtag('event', 'boq_file_selected', { event_category: 'engagement', event_label: info.name.split('.').pop().toLowerCase() });
-    uploadedFileUrl = info.cdnUrl;
-    uploadedFileName = info.name;
-    const label = document.getElementById('dropLabel');
-    label.innerHTML = '<strong>' + info.name + '</strong>File ready';
+    // Handles both single file and multiple file groups
+    if (typeof gtag !== 'undefined') gtag('event', 'boq_file_selected', { event_category: 'engagement', event_label: info.count || 1 });
+
+    if (info.files) {
+      // Multiple files - info is a file group
+      const fileCount = info.count;
+      const fileNames = info.files().map(f => f.name).join(', ');
+      const fileUrls = info.files().map(f => f.cdnUrl).join('\n');
+      uploadedFileUrl = fileUrls;
+      uploadedFileName = fileNames;
+      const label = document.getElementById('dropLabel');
+      label.innerHTML = '<strong>' + fileCount + ' file' + (fileCount > 1 ? 's' : '') + ' ready</strong>' + fileNames.slice(0, 60) + (fileNames.length > 60 ? '...' : '');
+    } else {
+      // Single file
+      uploadedFileUrl = info.cdnUrl;
+      uploadedFileName = info.name;
+      const label = document.getElementById('dropLabel');
+      label.innerHTML = '<strong>' + info.name + '</strong>File ready';
+    }
     document.getElementById('dropZone').style.borderColor = 'var(--terracotta)';
     document.getElementById('dropZone').style.background = 'rgba(196,85,42,0.03)';
   });
@@ -2270,7 +2284,7 @@ async function handleUpload() {
         name: name,
         email: email,
         boq_file_name: uploadedFileName,
-        boq_download_url: uploadedFileUrl,
+        boq_download_url: uploadedFileUrl, // May contain multiple URLs separated by newlines
         message: 'New free BoQ analysis request.\n\nName: ' + name + '\nEmail: ' + email + '\nFile: ' + uploadedFileName + '\nDownload BoQ: ' + uploadedFileUrl
       })
     });
@@ -2301,7 +2315,7 @@ async function handleUpload() {
       setTimeout(() => {
         uploadedFileUrl = null;
         uploadedFileName = null;
-        if (ucareWidget) ucareWidget.value(null);
+        if (ucareWidget) ucareWidget.value(null); uploadedFileUrl = null; uploadedFileName = null;
         document.getElementById('dropLabel').innerHTML = '<strong>Drop another BoQ here</strong>PDF, Excel, or image: click to browse';
         document.getElementById('dropZone').style.borderColor = '';
         document.getElementById('dropZone').style.background = '';
