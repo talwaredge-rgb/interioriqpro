@@ -538,14 +538,14 @@
 
     <!-- CATEGORY TILES — UC-style -->
     <div class="cat-tiles" id="catTiles">
-      <button class="cat-tile active" data-cat="all" onclick="selectCatTile(this,'all')">
+      <button class="cat-tile" data-cat="all" onclick="selectCatTile(this,'all')">
         <div class="cat-tile-icon">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="12" height="12" rx="1"/><rect x="22" y="6" width="12" height="12" rx="1"/><rect x="6" y="22" width="12" height="12" rx="1"/><rect x="22" y="22" width="12" height="12" rx="1"/></svg>
         </div>
         <span>All services</span>
         <span class="cat-tile-count">110+</span>
       </button>
-      <button class="cat-tile" data-cat="Sales" onclick="selectCatTile(this,'Sales')">
+      <button class="cat-tile active" data-cat="Sales" onclick="selectCatTile(this,'Sales')">
         <div class="cat-tile-icon">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 32V16l12-8 12 8v16"/><rect x="15" y="22" width="10" height="10"/><path d="M20 22v10"/></svg>
         </div>
@@ -618,7 +618,7 @@
     </div>
 
     <!-- Active category label + sort -->
-    <div class="services-controls" id="servicesControls" style="display:none;">
+    <div class="services-controls" id="servicesControls">
       <button class="cat-back-btn" onclick="closeServicesList()">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2L4 7l5 5"/></svg>
         All categories
@@ -632,7 +632,7 @@
     </div>
 
     <div class="no-results" id="noResults" style="display:none;">No services match your search.</div>
-    <div id="servicesContainer" style="display:none;">
+    <div id="servicesContainer">
         <div class="cat-block" data-cat="Sales">
           <div class="cat-header">
     <h3 class="cat-title">Before You Sign</h3>
@@ -1773,7 +1773,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const desc = card.querySelector('.svc-desc').textContent;
     allCards.push({ card, price, name, id, cat, desc });
   });
-  sortAndRender();
+  currentFilter = 'Sales';
+document.getElementById('activeCatLabel').textContent = 'Before You Sign';
+sortAndRender();
   let searchTimer;
   document.getElementById('servicesSearch').addEventListener('input', (e) => {
     const q = e.target.value.trim();
