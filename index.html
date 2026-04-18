@@ -998,6 +998,160 @@ section { padding: 100px 0; }
   .wa-label { display: none; }
 }
 
+/* ─── BEYOND THE BOQ ──────────────────────────────────── */
+#beyond-boq .section-label {
+  color: var(--terracotta);
+}
+.beyond-header {
+  margin-bottom: 64px;
+}
+.beyond-header-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 80px;
+  align-items: start;
+  margin-top: 24px;
+}
+.beyond-intro-text {
+  font-size: 1rem;
+  color: rgba(245,240,232,0.55);
+  line-height: 1.85;
+  padding-top: 8px;
+}
+.beyond-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(245,240,232,0.1);
+  margin-top: 0;
+}
+.beyond-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(245,240,232,0.1);
+  overflow: hidden;
+  transition: flex 0.5s cubic-bezier(0.4,0,0.2,1);
+  cursor: default;
+}
+.beyond-card:last-child { border-right: none; }
+.beyond-card--light {
+  border-right-color: rgba(245,240,232,0.1);
+}
+.beyond-card-img {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.beyond-card-img img {
+  transition: transform 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.beyond-card:hover .beyond-card-img img {
+  transform: scale(1.06);
+}
+.beyond-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,23,20,0.95) 0%, rgba(26,23,20,0.4) 55%, transparent 100%);
+  pointer-events: none;
+}
+.beyond-drawing-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.beyond-card-content {
+  padding: 28px 28px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  color: var(--linen);
+}
+.beyond-tag {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  border: 1px solid rgba(196,85,42,0.3);
+  display: inline-block;
+  padding: 3px 10px;
+  align-self: flex-start;
+  margin-bottom: 4px;
+}
+.beyond-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--linen);
+}
+.beyond-card-body {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: rgba(245,240,232,0.5);
+  flex: 1;
+}
+.beyond-card-stat {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(245,240,232,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.beyond-card--light .beyond-card-stat {
+  border-top-color: rgba(26,23,20,0.1);
+}
+.beyond-stat-num {
+  font-family: 'Jost', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--terracotta);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.beyond-stat-label {
+  font-size: 0.72rem;
+  color: rgba(245,240,232,0.38);
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+.beyond-cta-bar {
+  background: rgba(196,85,42,0.12);
+  border-top: 1px solid rgba(196,85,42,0.25);
+  padding: 36px 0;
+  margin-top: 0;
+}
+.beyond-cta-headline {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--linen);
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.beyond-cta-sub {
+  font-size: 0.88rem;
+  color: rgba(245,240,232,0.5);
+}
+
+/* ─── BEYOND — RESPONSIVE ─────────────────────────────── */
+@media (max-width: 1024px) {
+  .beyond-header-grid { grid-template-columns: 1fr; gap: 20px; }
+  .beyond-strip { grid-template-columns: repeat(2, 1fr); }
+  .beyond-card:nth-child(2) { border-right: none; }
+  .beyond-card:nth-child(3),
+  .beyond-card:nth-child(4) { border-top: 1px solid rgba(245,240,232,0.1); }
+}
+@media (max-width: 640px) {
+  .beyond-strip { grid-template-columns: 1fr; }
+  .beyond-card { border-right: none; border-bottom: 1px solid rgba(245,240,232,0.1); }
+  .beyond-card:last-child { border-bottom: none; }
+  .beyond-card-img { height: 200px; }
+}
+
 </style>
 <!-- Uploadcare loaded after render -->
 <script>UPLOADCARE_PUBLIC_KEY = "ba46729704eed89d36f7";</script>
@@ -2160,6 +2314,158 @@ section { padding: 100px 0; }
       </div>
     </div>
 
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     BEYOND THE BOQ — Visual capabilities strip
+     ════════════════════════════════════════════════════════ -->
+<section id="beyond-boq" style="background:var(--ink); overflow:hidden; padding:100px 0 0;">
+  <div class="container">
+    <div class="beyond-header">
+      <div class="section-label" style="color:var(--terracotta);">
+        <span style="width:28px;height:1px;background:var(--terracotta);display:inline-block;"></span>
+        The full picture
+      </div>
+      <div class="beyond-header-grid">
+        <h2 class="section-h2" style="color:var(--linen); margin-bottom:0;">
+          We don't just read your quote.<br>
+          We know <em>exactly</em> what great looks like.
+        </h2>
+        <p class="beyond-intro-text">
+          Our experts have designed and delivered hundreds of premium homes across India. 
+          That's why when we review your BoQ, we're not guessing — we're benchmarking 
+          against real projects, real rates, real outcomes.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-bleed capability cards -->
+  <div class="beyond-strip">
+
+    <!-- Card 1: 3D Renders -->
+    <div class="beyond-card" data-capability="3D Renders &amp; Visualisation">
+      <div class="beyond-card-img">
+        <!-- Aditya R2 living room render -->
+        <img src="https://interioriqpro.com/render-living.jpg" 
+             alt="Premium 3D interior render — living room with marble feature wall"
+             loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="beyond-img-overlay"></div>
+      </div>
+      <div class="beyond-card-content">
+        <span class="beyond-tag">3D Renders</span>
+        <h3 class="beyond-card-title">3D Renders &amp; Visualisation</h3>
+        <p class="beyond-card-body">We've visualised hundreds of rooms before a single tile was laid. We know what renders should cost, what quality to expect, and how to spot when a contractor is charging for renders that never materialise.</p>
+        <div class="beyond-card-stat">
+          <span class="beyond-stat-num">₹40K–₹2L</span>
+          <span class="beyond-stat-label">typical render budgets we benchmark</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Electrical & Ceiling Layouts -->
+    <div class="beyond-card beyond-card--light" data-capability="Electrical &amp; False Ceiling">
+      <div class="beyond-card-img">
+        <img src="https://interioriqpro.com/ceiling-layout.jpg"
+             alt="False ceiling and electrical layout drawing"
+             loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="beyond-img-overlay"></div>
+        <div class="beyond-drawing-overlay">
+          <svg viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;opacity:0.18;">
+            <rect x="40" y="30" width="240" height="140" stroke="#C4552A" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <rect x="80" y="60" width="160" height="80" stroke="#1A1714" stroke-width="1"/>
+            <circle cx="160" cy="100" r="20" stroke="#1A1714" stroke-width="1"/>
+            <line x1="40" y1="100" x2="80" y2="100" stroke="#C4552A" stroke-width="1"/>
+            <line x1="240" y1="100" x2="280" y2="100" stroke="#C4552A" stroke-width="1"/>
+            <circle cx="100" cy="75" r="5" fill="#C4552A" opacity="0.6"/>
+            <circle cx="220" cy="75" r="5" fill="#C4552A" opacity="0.6"/>
+            <circle cx="100" cy="125" r="5" fill="#C4552A" opacity="0.6"/>
+            <circle cx="220" cy="125" r="5" fill="#C4552A" opacity="0.6"/>
+            <line x1="145" y1="30" x2="145" y2="170" stroke="#1A1714" stroke-width="0.5" stroke-dasharray="2 4"/>
+            <line x1="175" y1="30" x2="175" y2="170" stroke="#1A1714" stroke-width="0.5" stroke-dasharray="2 4"/>
+            <text x="56" y="27" fill="#C4552A" font-size="7" font-family="monospace">LVL +150MM</text>
+            <text x="56" y="175" fill="#1A1714" font-size="7" font-family="monospace">3589 × 6069</text>
+          </svg>
+        </div>
+      </div>
+      <div class="beyond-card-content" style="color:var(--ink);">
+        <span class="beyond-tag" style="color:var(--terracotta); border-color:rgba(196,85,42,0.3);">Electrical &amp; Ceilings</span>
+        <h3 class="beyond-card-title" style="color:var(--linen);">Electrical &amp;<br>False Ceiling Layouts</h3>
+        <p class="beyond-card-body" style="color:rgba(245,240,232,0.5);">Point-by-point wiring, looping drawings, cove lighting, fan positioning — we read technical drawings with the same fluency as the contractor who drew them. Over-quoted electrical work is one of the most common BoQ traps.</p>
+        <div class="beyond-card-stat" style="border-top-color:rgba(245,240,232,0.1);">
+          <span class="beyond-stat-num" style="color:var(--terracotta);">₹15–40K</span>
+          <span class="beyond-stat-label" style="color:rgba(245,240,232,0.38);">average electrical overcharge we find</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Floor Plans -->
+    <div class="beyond-card" data-capability="Furniture &amp; Floor Plans">
+      <div class="beyond-card-img">
+        <img src="https://interioriqpro.com/floor-plan.jpg"
+             alt="Detailed furniture layout floor plan"
+             loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="beyond-img-overlay"></div>
+        <!-- Floor plan SVG overlay -->
+        <div class="beyond-drawing-overlay">
+          <svg viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;opacity:0.15;">
+            <rect x="20" y="20" width="280" height="160" stroke="#F5F0E8" stroke-width="1.5"/>
+            <rect x="20" y="20" width="90" height="80" stroke="#F5F0E8" stroke-width="1"/>
+            <rect x="110" y="20" width="110" height="80" stroke="#F5F0E8" stroke-width="1"/>
+            <rect x="220" y="20" width="80" height="80" stroke="#F5F0E8" stroke-width="1"/>
+            <rect x="20" y="100" width="140" height="80" stroke="#F5F0E8" stroke-width="1"/>
+            <rect x="160" y="100" width="140" height="80" stroke="#F5F0E8" stroke-width="1"/>
+            <rect x="35" y="35" width="60" height="50" stroke="rgba(245,240,232,0.5)" stroke-width="0.8" rx="2"/>
+            <rect x="125" y="35" width="80" height="50" stroke="rgba(245,240,232,0.5)" stroke-width="0.8"/>
+            <text x="28" y="165" fill="#F5F0E8" font-size="6" font-family="monospace">LIVING AREA 25'-2" × 37'-4"</text>
+          </svg>
+        </div>
+      </div>
+      <div class="beyond-card-content">
+        <span class="beyond-tag">Floor Plans</span>
+        <h3 class="beyond-card-title">Furniture &amp;<br>Floor Plan Analysis</h3>
+        <p class="beyond-card-body">A furniture layout tells us exactly how much material a contractor needs. We cross-reference quoted quantities against room dimensions, catching inflation in flooring, wall panelling, and joinery line items.</p>
+        <div class="beyond-card-stat">
+          <span class="beyond-stat-num">30–40%</span>
+          <span class="beyond-stat-label">of quantity errors caught this way</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Kids Room / Design Execution -->
+    <div class="beyond-card beyond-card--light" data-capability="Premium Design Execution">
+      <div class="beyond-card-img">
+        <img src="https://interioriqpro.com/kids-room.jpg"
+             alt="Premium kids room with cloud false ceiling and custom headboard"
+             loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="beyond-img-overlay"></div>
+      </div>
+      <div class="beyond-card-content" style="color:var(--ink);">
+        <span class="beyond-tag" style="color:var(--terracotta); border-color:rgba(196,85,42,0.3);">Spec Quality</span>
+        <h3 class="beyond-card-title" style="color:var(--linen);">Specification<br>Quality Checks</h3>
+        <p class="beyond-card-body" style="color:rgba(245,240,232,0.5);">Suspended cloud ceilings. Custom-shaped false ceiling medallions. Feature wall treatments. We've spec'd them all — so we know instantly when a contractor quotes premium work using standard-grade materials and methods.</p>
+        <div class="beyond-card-stat" style="border-top-color:rgba(245,240,232,0.1);">
+          <span class="beyond-stat-num" style="color:var(--terracotta);">Spec gaps</span>
+          <span class="beyond-stat-label" style="color:rgba(245,240,232,0.38);">the most invisible — and expensive — trap</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom CTA bar -->
+  <div class="beyond-cta-bar">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px;">
+      <div>
+        <p class="beyond-cta-headline">You hired them for vision. We verify they deliver it.</p>
+        <p class="beyond-cta-sub">Free BoQ health check — no card required. Results in 24–48 hours.</p>
+      </div>
+      <a href="#hero" class="btn-primary" onclick="trackEvent('beyond_boq_cta_click','engagement','beyond_section');" style="white-space:nowrap; flex-shrink:0;">
+        Upload your BoQ — it's free
+      </a>
+    </div>
   </div>
 </section>
 
