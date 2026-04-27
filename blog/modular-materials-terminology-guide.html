@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Contractor Says HDHMR. Your Designer Says MDF. Here's What They Actually Mean. | The Interiors Brief | InteriorIQ Pro</title>
+<meta name="description" content="A plain-English guide to modular kitchen and wardrobe materials: HDHMR, BWP, MDF, PU, DUCO, membrane, Hettich, Hafele and everything else your contractor assumes you already know." />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --terracotta: #C4552A;
+    --ink: #1A1714;
+    --muted: #7A7268;
+    --cream: #EDE8DC;
+    --linen: #F5F0E8;
+    --white: #FFFFFF;
+    --border: #D9D2C5;
+    --green: #1A7A3C;
+    --green-light: #EFF7F0;
+    --red-light: #FDF3EF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.78;
+  }
+
+  /* HEADER */
+  .article-header { background: var(--ink); padding: 64px 24px 56px; }
+  .header-inner { max-width: 760px; margin: 0 auto; }
+  .tag {
+    display: inline-block;
+    background: var(--terracotta);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+  .article-header h1 {
+    font-size: clamp(22px, 3.8vw, 38px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+  .article-header h1 span { color: var(--terracotta); }
+  .article-meta { font-size: 13px; color: rgba(255,255,255,0.45); }
+
+  /* BODY */
+  .article-body { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
+  p { margin-bottom: 22px; }
+  h2 {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 52px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--terracotta);
+    line-height: 1.3;
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 32px 0 10px;
+  }
+  .lede {
+    font-size: 19px;
+    line-height: 1.68;
+    margin-bottom: 36px;
+    border-left: 3px solid var(--terracotta);
+    padding-left: 20px;
+    color: var(--ink);
+  }
+  hr { border: none; border-top: 1px solid var(--border); margin: 44px 0; }
+  strong { font-weight: 600; }
+
+  /* MATERIAL CARD */
+  .material-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin: 28px 0;
+    overflow: hidden;
+  }
+  .material-card-header {
+    background: var(--ink);
+    padding: 14px 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .material-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+  .material-full {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+  }
+  .material-body { padding: 18px 20px; background: var(--white); }
+  .material-body p { margin-bottom: 12px; font-size: 15px; }
+  .material-body p:last-child { margin-bottom: 0; }
+
+  /* USE TAGS */
+  .use-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .use-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+  .use-yes { background: var(--green-light); color: var(--green); }
+  .use-no { background: var(--red-light); color: var(--terracotta); }
+  .use-neutral { background: var(--linen); color: var(--muted); }
+
+  /* VERDICT ROW */
+  .verdict {
+    background: var(--linen);
+    border-top: 1px solid var(--border);
+    padding: 12px 20px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .verdict strong { color: var(--ink); }
+
+  /* COMPARISON TABLE */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0;
+    font-size: 14px;
+  }
+  .comp-table thead tr { background: var(--ink); }
+  .comp-table th {
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .comp-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .comp-table tr:nth-child(even) td { background: var(--linen); }
+  .badge-good {
+    display: inline-block;
+    background: var(--green-light);
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .badge-ok {
+    display: inline-block;
+    background: var(--linen);
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .badge-no {
+    display: inline-block;
+    background: var(--red-light);
+    color: var(--terracotta);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--linen);
+    border-left: 4px solid var(--terracotta);
+    padding: 18px 22px;
+    margin: 28px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout strong {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    margin-bottom: 7px;
+  }
+  .callout p { margin: 0; font-size: 15px; line-height: 1.7; }
+
+  /* HARDWARE GRID */
+  .hw-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 24px 0;
+  }
+  @media (max-width: 520px) { .hw-grid { grid-template-columns: 1fr; } }
+  .hw-card {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 16px 18px;
+    background: var(--white);
+  }
+  .hw-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .hw-card-brand {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--terracotta);
+    margin-bottom: 8px;
+  }
+  .hw-card p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.55; }
+
+  /* CTA */
+  .cta-block {
+    background: var(--ink);
+    border-radius: 6px;
+    padding: 36px 32px;
+    margin: 52px 0 0;
+    text-align: center;
+  }
+  .cta-block h3 { font-size: 20px; font-weight: 700; color: var(--white); margin: 0 0 10px; }
+  .cta-block p { color: rgba(255,255,255,0.55); margin: 0 0 22px; font-size: 15px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--terracotta);
+    color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 13px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="article-header">
+  <div class="header-inner">
+    <div class="tag">The Interiors Brief</div>
+    <h1>Your Contractor Says HDHMR.<br>Your Designer Says MDF.<br><span>Here's What They Actually Mean.</span></h1>
+    <p class="article-meta">By InteriorIQ Pro &nbsp;|&nbsp; 7 min read &nbsp;|&nbsp; Modular kitchens and wardrobes</p>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p class="lede">Interior quotations are full of abbreviations that contractors never explain and homeowners rarely ask about. This guide covers every material and hardware term you'll encounter in a modular kitchen or wardrobe quote — what it is, where it should go, and where it shouldn't.</p>
+
+  <p>When your quotation says "18mm HDHMR carcass with MDF shutter in PU finish, Hettich soft-close hardware," it's describing an entire product with specific quality implications at each step. Most homeowners sign off on it without knowing what any of that means. Then the wardrobe arrives and the inside smells like chemicals, or the kitchen base unit starts swelling six months after possession.</p>
+
+  <p>The material choices in a modular quote directly affect durability, especially in a kitchen or wet-adjacent area. This is what each term actually means.</p>
+
+  <hr />
+
+  <h2>Part 1: Carcass Materials</h2>
+
+  <p>The carcass is the box — the structural frame of your kitchen unit or wardrobe. You never see it once the shutters are installed, which is exactly why contractors cut corners here. A cheap carcass behind an expensive shutter is the most common value engineering move in Indian interiors.</p>
+
+  <div class="material-card">
+    <div class="material-card-header">
+      <span class="material-name">BWP Plywood</span>
+      <span class="material-full">Boiling Water Proof — also called Marine Ply</span>
+    </div>
+    <div class="material-body">
+      <p>The original gold standard for wet areas. Made from hardwood veneers bonded with phenol formaldehyde resin, which is waterproof under sustained exposure. The "boiling water proof" test means it can be submerged in boiling water for 72 hours without delaminating.</p>
+      <p>ISI mark (IS 710) is the only reliable quality indicator. Without it, you're buying something that might look like BWP but isn't tested to that standard. Branded options: Greenply, CenturyPly, Kitply.</p>
+      <div class="use-row">
+        <span class="use-tag use-yes">Under sink cabinet</span>
+        <span class="use-tag use-yes">Kitchen base units</span>
+        <span class="use-tag use-yes">Wet-area vanities</span>
+        <span class="use-tag use-neutral">Wardrobe carcass (overkill but fine)</span>
+      </div>
+    </div>
+    <div class="verdict"><strong>In your quote:</strong> If the spec says BWP without an ISI mark or brand name, ask for both. Unbranded "marine ply" is one of the most faked materials in Indian interiors.</div>
+  </div>
+
+  <div class="material-card">
+    <div class="material-card-header">
+      <span class="material-name">BWR Plywood</span>
+      <span class="material-full">Boiling Water Resistant — IS 303 grade</span>
+    </div>
+    <div class="material-body">
+      <p>One grade below BWP. Resistant to moisture but not sustained water exposure. Made with urea formaldehyde resin instead of phenol formaldehyde, which is cheaper and slightly less durable under prolonged wet conditions.</p>
+      <p>Perfectly adequate for wardrobe carcasses and kitchen overhead cabinets. Not ideal directly under a sink or in a bathroom vanity where water contact is regular.</p>
+      <div class="use-row">
+        <span class="use-tag use-yes">Wardrobe carcass</span>
+        <span class="use-tag use-yes">Kitchen wall/loft cabinets</span>
+        <span class="use-tag use-yes">TV unit, crockery unit</span>
+        <span class="use-tag use-no">Under sink or wet areas</span>
+      </div>
+    </div>
+    <div class="verdict"><strong>In your quote:</strong> A kitchen base unit carcass in BWR is a compromise. Acceptable if budget is tight. Not acceptable if the quote is already mid-to-premium range.</div>
+  </div>
+
+  <div class="material-card">
+    <div class="material-card-header">
+      <span class="material-name">HDHMR / HDF-HMR</span>
+      <span class="material-full">High Density High Moisture Resistant board</span>
+    </div>
+    <div class="material-body">
+      <p>An engineered wood board made from wood fibres compressed at high density with moisture-resistant additives. Denser and more dimensionally stable than standard MDF. Doesn't swell as dramatically when exposed to humidity, which makes it popular for modular unit carcasses in Indian climates.</p>
+      <p>The key distinction from plywood: HDHMR has no grain direction, so it machines and routes cleanly for CNC-cut modular units. This is why factory-made modular kitchens use it. Brands: Greenpanel, Archidply, Action HDHMR.</p>
+      <p>It is not waterproof. It resists humidity and light moisture contact. A direct water leak will damage it. The "HMR" designation means moisture resistant, not moisture proof.</p>
+      <div class="use-row">
+        <span class="use-tag use-yes">Wardrobe carcass</span>
+        <span class="use-tag use-yes">Kitchen overhead/wall units</span>
+        <span class="use-tag use-yes">Loft cabinets</span>
+        <span class="use-tag use-no">Under sink or wet areas</span>
+        <span class="use-tag use-no">Bathroom vanity carcass</span>
+      </div>
+    </div>
+    <div class="verdict"><strong>In your quote:</strong> HDHMR is the standard carcass material for factory-made modular units. Acceptable for most applications. Insist on BWP under the sink specifically.</div>
+  </div>
+
+  <div class="material-card">
+    <div class="material-card-header">
+      <span class="material-name">MDF</span>
+      <span class="material-full">Medium Density Fibreboard</span>
+    </div>
+    <div class="material-body">
+      <p>Wood fibres and resin compressed into a smooth, uniform board. Machines beautifully, takes paint perfectly, and costs less than plywood. The problem: standard MDF absorbs moisture and swells. Badly. A standard MDF carcass in a kitchen or bathroom is a poor choice in any Indian climate.</p>
+      <p>MR-grade MDF (Moisture Resistant) is slightly better but still not suitable for wet areas. MDF is mostly used for shutters and decorative panels, not structural carcasses, for this reason.</p>
+      <div class="use-row">
+        <span class="use-tag use-yes">Shutters (with good finish)</span>
+        <span class="use-tag use-yes">Decorative wall panels</span>
+        <span class="use-tag use-neutral">Dry area carcass if budget-constrained</span>
+        <span class="use-tag use-no">Kitchen carcass</span>
+        <span class="use-tag use-no">Any wet area</span>
+      </div>
+    </div>
+    <div class="verdict"><strong>In your quote:</strong> MDF showing up as a carcass material in a kitchen is a red flag. MDF as a shutter material is standard and fine. Ask which application they're using it for.</div>
+  </div>
+
+  <div class="callout">
+    <strong>The loft rule</strong>
+    <p>Loft units (the overhead storage above wardrobes and kitchen cabinets) are rarely accessed and carry only light loads. HDHMR or BWR ply is sufficient. The contractor who insists on BWP throughout is either being genuinely conservative or padding the material cost. Ask where each grade is being used and why.</p>
+  </div>
+
+  <hr />
+
+  <h2>Part 2: Shutter Finishes</h2>
+
+  <p>The shutter is the door you see. It sits on the carcass, takes the most wear, and is responsible for most of the visual impact of your kitchen or wardrobe. The finish on the shutter determines cost, maintenance, and how it ages.</p>
+
+  <div class="material-card">
+    <div class="material-card-header">
+      <span class="material-name">Laminate</span>
+      <span class="material-full">Pressed decorative surface sheet bonded to substrate</span>
+    </div>
+    <div class="material-body">
+      <p>A thin sheet of resin-impregnated paper bonded under heat and pressure to an MDF or ply substrate. The most common shutter finish in India. Available in thousands of colours and textures. Scratches are visible but don't penetrate deep. Relatively easy to clean.</p>
+      <p>Grade matters. 1mm laminates are more durable than 0.8mm. High pressure laminates (HPL) outperform standard ones at high-contact surfaces. Branded laminates from Merino, Greenlam, and Century are consistently more dimensionally stable than unbranded options.</p>
+      <p>Texture laminates (matte, wood grain, suede) hide fingerprints better than gloss. Gloss laminates show every smudge and are less forgiving on an uneven substrate.</p>
+      <div class="use-row">
+        <span class="use-tag use-yes">Kitchen shutters</span>
+        <span class="use-tag use-yes">Wardrobe shutters</span>
+        <span class="use-tag use-yes">Loft shutters</span>
+        <span class="use-tag use-yes">TV units, crockery units</span>
+      </div>
+    </div>
+    <div class="verdict"><strong>In your quote:</strong> Ask for laminate brand, thickness (0.8mm vs 1mm), and finish type (matt/gloss/texture). "Laminate finish" without these details can mean anything from Merino to an unbranded import.</div>
+  </div>
+
+  <div class="material-card">
+    <div class="material-card-header">
+      <span class="material-name">Membrane / Vinyl Wrap</span>
+      <span class="material-full">PVC membrane vacuum-pressed onto profiled MDF</span>
+    </div>
+    <div class="material-body">
+      <p>A PVC film thermally pressed onto an MDF shutter using vacuum forming. Allows curved profiles and routed designs that flat laminates can't achieve. Widely used for kitchen shutters with grooved or raised profiles.</p>
+      <p>The weakness: edges. Where the membrane wraps around the edge of the MDF is the failure point. In humid conditions, the membrane can lift at the edges over time, particularly if the MDF underneath isn't properly sealed. This shows up in kitchen shutters near the stove first.</p>
+      <p>Price is typically 30-50% higher than plain laminate for the same shutter area.</p>
+      <div class="use-row">
+        <span class="use-tag use-yes">Wardrobe shutters</span>
+        <span class="use-tag use-neutral">Kitchen shutters away from stove</span>
+        <span class="use-tag use-no">Near hob or high-heat zones</span>
+      </div>
+    </div>
+    <div class="verdict"><strong>In your quote:</strong> Ask whether the membrane is PVC or acrylic-coated PVC. The latter handles heat and humidity better. Also ask about edge banding specification.</div>
+  </div>
+
+  <div class="material-card">
+    <div class="material-card-header">
+      <span class="material-name">PU Finish</span>
+      <span class="material-full">Polyurethane paint — spray-applied on site or in factory</span>
+    </div>
+    <div class="material-body">
+      <p>A two-component polyurethane paint sprayed onto MDF or ply shutters and cured. Produces a hard, smooth finish that looks like factory lacquer. Significantly more expensive than laminate. The quality of the final finish is almost entirely dependent on surface preparation and the spray environment — dust particles, improper sanding, or humidity during application permanently affect the outcome.</p>
+      <p>Factory-applied PU (done in a spray booth) is consistently better than site-applied. Site PU applied in an under-construction flat with dust everywhere is a risk. Ask specifically where the PU work will be done.</p>
+      <div class="use-row">
+        <span class="use-tag use-yes">Wardrobe shutters (premium)</span>
+        <span class="use-tag use-yes">Kitchen shutters away from stove</span>
+        <span class="use-tag use-neutral">Puja units, display shelves</span>
+      </div>
+    </div>
+    <div class="verdict"><strong>In your quote:</strong> If PU finish is quoted, ask whether it's factory-applied or site-applied. Factory-applied PU at ₹350-500/sqft is a different product from site-applied PU at ₹220/sqft.</div>
+  </div>
+
+  <div class="material-card">
+    <div class="material-card-header">
+      <span class="material-name">DUCO Paint</span>
+      <span class="material-full">Nitrocellulose lacquer — typically site-applied</span>
+    </div>
+    <div class="material-body">
+      <p>A solvent-based lacquer that dries fast and gives a smooth, hard finish. Used as an alternative to PU when budget is tighter. Less durable than PU over time. More susceptible to yellowing with heat exposure, which is why it's a poor choice near a kitchen stove.</p>
+      <p>Often used for decorative wall panels, CNC-cut designs, and puja units where the surface gets less daily wear than a kitchen cabinet.</p>
+      <div class="use-row">
+        <span class="use-tag use-yes">Decorative wall panels</span>
+        <span class="use-tag use-yes">Puja units</span>
+        <span class="use-tag use-yes">CNC panels</span>
+        <span class="use-tag use-no">Kitchen shutters near hob</span>
+        <span class="use-tag use-no">High-contact wardrobe shutters</span>
+      </div>
+    </div>
+    <div class="verdict"><strong>In your quote:</strong> DUCO and PU are not the same thing. If you're paying PU rates and receiving DUCO, that's a substitution worth flagging.</div>
+  </div>
+
+  <div class="material-card">
+    <div class="material-card-header">
+      <span class="material-name">Veneer</span>
+      <span class="material-full">Thin natural wood slice bonded to substrate</span>
+    </div>
+    <div class="material-body">
+      <p>A 0.5-1mm slice of real wood bonded to a ply or MDF base. Finished with melamine polish or PU. Gives the warmth and grain of natural wood at a fraction of solid wood cost. Teak, oak, walnut, and wenge are the most common species in Indian interiors.</p>
+      <p>Veneer requires more maintenance than laminate. It's sensitive to prolonged moisture and direct sunlight. It's also more expensive, often 2-3x the cost of laminate for the same shutter area.</p>
+      <div class="use-row">
+        <span class="use-tag use-yes">Wardrobe shutters (premium)</span>
+        <span class="use-tag use-yes">TV units, display shelves</span>
+        <span class="use-tag use-neutral">Kitchen shutters (with care)</span>
+        <span class="use-tag use-no">Near sink or stove</span>
+      </div>
+    </div>
+    <div class="verdict"><strong>In your quote:</strong> Ask for the wood species, the finish (melamine or PU), and the veneer thickness. "Veneer finish" without these details is not a specification.</div>
+  </div>
+
+  <hr />
+
+  <h2>Part 3: What Goes Under the Sink</h2>
+
+  <p>The area under the sink is the single most moisture-exposed spot in any kitchen or bathroom. It gets drips from the drain connection, condensation from the supply pipes, and the occasional leak. The material here matters more than anywhere else in the modular fit-out.</p>
+
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>Material</th>
+        <th>Under Sink</th>
+        <th>Why</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>BWP Plywood (IS 710)</strong></td>
+        <td><span class="badge-good">Best choice</span></td>
+        <td>Survives sustained water exposure. Doesn't swell or delaminate under repeated moisture.</td>
+      </tr>
+      <tr>
+        <td><strong>Marine Ply (branded, ISI marked)</strong></td>
+        <td><span class="badge-good">Best choice</span></td>
+        <td>Same as BWP. Confirm the ISI mark before accepting.</td>
+      </tr>
+      <tr>
+        <td><strong>HDHMR</strong></td>
+        <td><span class="badge-ok">Acceptable with caveats</span></td>
+        <td>Handles humidity and light moisture. A slow drip over months will cause swelling. Not ideal but widely used.</td>
+      </tr>
+      <tr>
+        <td><strong>BWR Plywood (IS 303)</strong></td>
+        <td><span class="badge-ok">Acceptable with caveats</span></td>
+        <td>Better than MDF, not as good as BWP. Acceptable if BWP cost is a constraint and leaks are unlikely.</td>
+      </tr>
+      <tr>
+        <td><strong>Standard MDF</strong></td>
+        <td><span class="badge-no">Not suitable</span></td>
+        <td>Absorbs water and swells visibly. A single small leak will ruin a standard MDF base unit.</td>
+      </tr>
+      <tr>
+        <td><strong>MR-grade MDF</strong></td>
+        <td><span class="badge-no">Not suitable</span></td>
+        <td>Marginally better than standard MDF but still swells under sustained moisture. Not worth the risk.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>Ask this before sign-off</strong>
+    <p>"What material is the carcass of the under-sink cabinet?" If the answer is MDF or unspecified HDHMR, ask them to upgrade to BWP. The cost difference on a single base unit is typically ₹800 to ₹1,500. It's worth it.</p>
+  </div>
+
+  <hr />
+
+  <h2>Part 4: Hardware</h2>
+
+  <p>Hardware is what makes a modular unit feel premium or feel cheap, long after the paint job stops being relevant. A soft-close hinge that stays soft-close after five years costs more than one that doesn't. The brand on the hinge is the only reliable proxy for that.</p>
+
+  <div class="hw-grid">
+    <div class="hw-card">
+      <div class="hw-card-brand">Top Tier</div>
+      <div class="hw-card-title">Hettich</div>
+      <p>German brand. The standard against which everything else is benchmarked in Indian modular interiors. Soft-close hinges, drawer channels, lift systems. If your quote says Hettich, it means something. If it says "Hettich or equivalent," push for Hettich.</p>
+    </div>
+    <div class="hw-card">
+      <div class="hw-card-brand">Top Tier</div>
+      <div class="hw-card-title">Hafele</div>
+      <p>Also German. Strong on drawer systems and wardrobe fittings. Their Quadro drawer system is widely used in premium modular kitchens. Comparable quality to Hettich, slightly different product range emphasis.</p>
+    </div>
+    <div class="hw-card">
+      <div class="hw-card-brand">Mid Tier</div>
+      <div class="hw-card-title">Ebco</div>
+      <p>Indian brand. Decent quality for hinges and drawer channels. Significantly cheaper than Hettich or Hafele. The soft-close action is acceptable but degrades faster under heavy use. Fine for wardrobes, reasonable for kitchen cabinets.</p>
+    </div>
+    <div class="hw-card">
+      <div class="hw-card-brand">Mid Tier</div>
+      <div class="hw-card-title">Grass</div>
+      <p>Austrian brand, premium positioning. Less commonly specified in India but used in high-end projects. Their Nova Pro drawer system is well-regarded. If you see Grass in a quote, the contractor knows hardware.</p>
+    </div>
+    <div class="hw-card">
+      <div class="hw-card-brand">Mid Tier</div>
+      <div class="hw-card-title">Blum</div>
+      <p>Austrian brand. Premium hinges and lift systems (Aventos). The Aventos HF and HS systems for overhead cabinet doors are industry benchmarks. Often specified in high-end modular kitchens. Expensive but durable.</p>
+    </div>
+    <div class="hw-card">
+      <div class="hw-card-brand">Budget</div>
+      <div class="hw-card-title">Unbranded / "Local"</div>
+      <p>The hinge that costs ₹8 instead of ₹45. The soft-close stops working within 18 months. The drawer channel starts sticking. The quote may say "soft-close hardware" without naming the brand. Always ask for the brand name. If they can't answer, assume it's unbranded.</p>
+    </div>
+  </div>
+
+  <h3>What hardware types appear in a quote</h3>
+
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>Hardware Type</th>
+        <th>What It Does</th>
+        <th>Where It Appears</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Soft-close hinges</strong></td>
+        <td>Prevent cabinet doors from slamming. The hinge absorbs the last 15 degrees of closing.</td>
+        <td>All cabinet and wardrobe doors</td>
+      </tr>
+      <tr>
+        <td><strong>Drawer channels / runners</strong></td>
+        <td>The rail system that allows drawers to slide in and out. Soft-close channels retract the last few centimetres automatically.</td>
+        <td>All drawers in kitchen and wardrobes</td>
+      </tr>
+      <tr>
+        <td><strong>Tandem / undermount drawer</strong></td>
+        <td>A concealed drawer system with no visible side walls. Considered premium over standard box drawers.</td>
+        <td>Kitchen base units, premium wardrobes</td>
+      </tr>
+      <tr>
+        <td><strong>Lift systems (Aventos)</strong></td>
+        <td>Gas-lift or spring mechanism for overhead cabinet doors that open upward rather than sideways.</td>
+        <td>Kitchen overhead cabinets</td>
+      </tr>
+      <tr>
+        <td><strong>Sliding channel (wardrobe)</strong></td>
+        <td>Top and bottom track system for sliding wardrobe doors. Quality affects smoothness and longevity significantly.</td>
+        <td>Sliding door wardrobes</td>
+      </tr>
+      <tr>
+        <td><strong>Pull-outs and carousels</strong></td>
+        <td>Internal fittings: cutlery inserts, bottle pull-outs, thali units, corner carousels. Usually quoted separately per unit.</td>
+        <td>Kitchen base units</td>
+      </tr>
+      <tr>
+        <td><strong>Edge banding</strong></td>
+        <td>PVC or ABS strip applied to exposed edges of MDF or ply boards. Prevents moisture ingress and gives a clean finish. 2mm is better than 0.8mm.</td>
+        <td>All exposed edges of carcass and shutters</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <h2>Part 5: The One Question That Covers Everything</h2>
+
+  <p>Most homeowners feel awkward asking their contractor or designer to explain every material. There's a simpler approach. When you receive your modular quote, ask for a material specification sheet that lists, for each unit: carcass material and grade, shutter material and finish, hardware brand, and edge banding specification.</p>
+
+  <p>A professional contractor produces this without hesitation. It takes ten minutes to compile and exists for every legitimate modular project. If the response is vague, or if the contractor says "don't worry, we use good quality," that tells you something.</p>
+
+  <p>The material in the quote is not the material on site unless you've verified it. Specifications exist to be held to.</p>
+
+  <div class="cta-block">
+    <h3>Not sure what your modular quote is specifying?</h3>
+    <p>Upload your quote. We'll flag every vague material call, missing spec, and brand substitution risk.
+    <br>Before you sign.</p>
+    <a class="cta-btn" href="https://interioriqpro.com">Get Your Free Quote Review</a>
+  </div>
+
+</div>
+</body>
+</html>
