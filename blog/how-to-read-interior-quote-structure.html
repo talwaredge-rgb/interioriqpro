@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Interior Contractor Sent You a Quotation. Here's How to Actually Read It. | InteriorIQ Pro</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --terracotta: #C4552A;
+    --ink: #1A1714;
+    --muted: #7A7268;
+    --cream: #EDE8DC;
+    --linen: #F5F0E8;
+    --white: #FFFFFF;
+    --border: #D9D2C5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  .article-header {
+    background: var(--ink);
+    color: var(--white);
+    padding: 64px 24px 56px;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .header-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .tag {
+    display: inline-block;
+    background: var(--terracotta);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  .article-header h1 {
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+
+  .article-header h1 span {
+    color: var(--terracotta);
+  }
+
+  .article-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+  }
+
+  .article-body {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  p {
+    margin-bottom: 22px;
+    color: var(--ink);
+  }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 52px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--terracotta);
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 10px;
+  }
+
+  .lede {
+    font-size: 20px;
+    line-height: 1.65;
+    color: var(--ink);
+    font-weight: 400;
+    margin-bottom: 36px;
+    border-left: 3px solid var(--terracotta);
+    padding-left: 20px;
+  }
+
+  /* Call-out box */
+  .callout {
+    background: var(--linen);
+    border-left: 4px solid var(--terracotta);
+    padding: 20px 24px;
+    margin: 32px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout strong {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    margin-bottom: 6px;
+  }
+  .callout p { margin: 0; font-size: 15px; }
+
+  /* Warning box */
+  .warning {
+    background: #FDF3EF;
+    border: 1px solid #E8A990;
+    padding: 20px 24px;
+    margin: 32px 0;
+    border-radius: 4px;
+  }
+  .warning strong {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    margin-bottom: 6px;
+  }
+  .warning p { margin: 0; font-size: 15px; }
+
+  /* Chart containers */
+  .chart-wrap {
+    background: var(--linen);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px 24px 20px;
+    margin: 36px 0;
+  }
+  .chart-title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .chart-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  /* Bar chart rows */
+  .bar-row {
+    display: grid;
+    grid-template-columns: 160px 1fr 80px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .bar-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: right;
+    line-height: 1.3;
+  }
+  .bar-track {
+    background: var(--border);
+    border-radius: 2px;
+    height: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    background: var(--terracotta);
+    border-radius: 2px;
+    transition: width 0.8s ease;
+  }
+  .bar-fill.muted-fill {
+    background: #D4A090;
+  }
+  .bar-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  /* Budget split donut-style legend */
+  .budget-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  @media (max-width: 520px) {
+    .budget-grid { grid-template-columns: 1fr; }
+    .bar-row { grid-template-columns: 120px 1fr 72px; }
+  }
+  .budget-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px 14px;
+  }
+  .budget-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .budget-item-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    flex: 1;
+  }
+  .budget-item-pct {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* Rate table */
+  .rate-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .rate-table thead tr {
+    background: var(--ink);
+    color: var(--white);
+  }
+  .rate-table th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .rate-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--ink);
+    vertical-align: top;
+  }
+  .rate-table tr:nth-child(even) td {
+    background: var(--linen);
+  }
+  .rate-table .flag {
+    display: inline-block;
+    background: #FDF3EF;
+    color: var(--terracotta);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .rate-table .ok {
+    display: inline-block;
+    background: #EFF7F0;
+    color: #2E7D41;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  /* Red flag list */
+  .flag-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  .flag-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .flag-list li > span,
+  .flag-list li > div:not(.flag-icon) {
+    flex: 1;
+    min-width: 0;
+  }
+  .flag-list li strong {
+    display: inline;
+  }
+  .flag-list li:last-child { border-bottom: none; }
+  .flag-icon {
+    background: var(--terracotta);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* CTA block */
+  .cta-block {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 6px;
+    padding: 36px 32px;
+    margin: 52px 0 0;
+    text-align: center;
+  }
+  .cta-block h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 10px;
+  }
+  .cta-block p {
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 22px;
+    font-size: 15px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--terracotta);
+    color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 13px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+
+  /* Horizontal rule */
+  hr { border: none; border-top: 1px solid var(--border); margin: 44px 0; }
+
+  strong { font-weight: 600; }
+  em { font-style: italic; color: var(--muted); }
+
+  /* Stacked horizontal bar for budget split */
+  .stacked-bar {
+    height: 32px;
+    display: flex;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 16px 0 10px;
+  }
+  .stacked-segment {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--white);
+    white-space: nowrap;
+    overflow: hidden;
+    transition: width 0.8s ease;
+  }
+
+  .legend-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    margin-top: 14px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="article-header">
+  <div class="header-inner">
+    <div class="tag">The Interiors Brief</div>
+    <h1>Your Interior Contractor Sent You a Quotation.<br><span>Here's How to Actually Read It.</span></h1>
+    <p class="article-meta">By InteriorIQ Pro &nbsp;|&nbsp; 8 min read &nbsp;|&nbsp; Bengaluru / Mumbai / Delhi NCR</p>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="article-body">
+
+  <p class="lede">A 3BHK quotation in India today is typically 20 to 40 pages long, runs between ₹18L and ₹45L, and contains at least 6 to 10 line items the average homeowner cannot verify. This guide fixes that.</p>
+
+  <p>You've shortlisted a designer. They've done a site visit, taken measurements, and sent you a document that looks thorough. It's probably titled "Bill of Quantities" or "Scope of Work Estimate." You open it, scroll through 30-odd pages, and the feeling hits: you have no idea whether this is fair or not.</p>
+
+  <p>That feeling is universal. It's also exploitable. Let's change that.</p>
+
+  <p>This guide breaks down what a typical Indian interior quotation should look like, category by category, with actual market rate benchmarks for 2026-27. Read it before you sign anything.</p>
+
+  <hr />
+
+  <!-- SECTION 1: BUDGET SPLIT -->
+  <h2>First: Where Does the Money Go?</h2>
+
+  <p>Before line items, understand the typical split. In a mid-range 3BHK interior project (₹20L to ₹35L total), this is roughly how the budget divides across categories:</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Typical Budget Split — Mid-Range 3BHK Interior, India (2026-27)</div>
+
+    <div class="stacked-bar">
+      <div class="stacked-segment" style="width:38%; background:#C4552A;">38%</div>
+      <div class="stacked-segment" style="width:22%; background:#8B3D1F;">22%</div>
+      <div class="stacked-segment" style="width:15%; background:#D4845A;">15%</div>
+      <div class="stacked-segment" style="width:12%; background:#6B4E3D;">12%</div>
+      <div class="stacked-segment" style="width:8%; background:#A07060;">8%</div>
+      <div class="stacked-segment" style="width:5%; background:#7A7268;">5%</div>
+    </div>
+
+    <div class="legend-row">
+      <div class="legend-item"><div class="legend-dot" style="background:#C4552A;"></div>Modular Kitchen (38%)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#8B3D1F;"></div>Wardrobes & Storage (22%)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#D4845A;"></div>False Ceiling & Electrical (15%)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#6B4E3D;"></div>TV Unit, Crockery, Misc. Woodwork (12%)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#A07060;"></div>Flooring & Wall Treatments (8%)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#7A7268;"></div>Design Fee & Supervision (5%)</div>
+    </div>
+    <p class="chart-note">Source: Market benchmarks across Bengaluru, Mumbai, Delhi NCR (2026-27). Percentages vary with finish level.</p>
+  </div>
+
+  <p>If your quotation shows the kitchen at 15% of total spend, something is off. Either the kitchen scope is unusually thin or every other category is inflated. The split is your first sanity check.</p>
+
+  <div class="callout">
+    <strong>The furniture and woodwork rule</strong>
+    <p>Modular kitchens, wardrobes, TV units and storage together should account for 40-50% of a standard interior project budget. If that number is dramatically different in your quote, ask why before page 2.</p>
+  </div>
+
+  <hr />
+
+  <!-- SECTION 2: MODULAR KITCHEN -->
+  <h2>Category 1: Modular Kitchen</h2>
+
+  <p>The kitchen is the single largest line item in most Indian interior quotations, and the single easiest place to overcharge. There are three reasons: complexity of components, markup on appliances, and the fact that most homeowners can't tell an HDHMR carcass from a BWR-grade one.</p>
+
+  <p>What you should see in a proper kitchen quotation:</p>
+
+  <table class="rate-table">
+    <thead><tr><th>Component</th><th>Market Rate (2026-27)</th><th>Watch Out For</th></tr></thead>
+    <tbody>
+      <tr><td>Base cabinet carcass (per unit)</td><td>₹7,000 – ₹12,000</td><td>Vague "18mm ply" without specifying BWP/HDHMR grade</td></tr>
+      <tr><td>Wall cabinet carcass (per unit)</td><td>₹5,500 – ₹9,000</td><td>Missing soft-close hinges in "premium" quotes</td></tr>
+      <tr><td>Shutter (laminate finish, per sq ft)</td><td>₹220 – ₹420</td><td>Rate quoted without specifying laminate brand (Merino/Greenlam/Century)</td></tr>
+      <tr><td>Shutter (membrane/PU finish, per sq ft)</td><td>₹420 – ₹750</td><td>PU finish varies widely. Ask for brand and process spec.</td></tr>
+      <tr><td>Counter top (granite, per sq ft)</td><td>₹150 – ₹320</td><td>"Black galaxy" vs. "Absolute black". Ask specifically.</td></tr>
+      <tr><td>Counter top (quartz, per sq ft)</td><td>₹420 – ₹850</td><td>Imported vs. domestic quartz. Large price gap.</td></tr>
+      <tr><td>Chimney (branded, installed)</td><td>₹10,000 – ₹28,000</td><td>MRP marked up beyond standard 10-12% installation charge</td></tr>
+      <tr><td>Hob (branded, installed)</td><td>₹8,000 – ₹22,000</td><td>Always compare against Amazon/Amazon B2B pricing</td></tr>
+    </tbody>
+  </table>
+
+  <p>Total kitchen cost for a standard L-shaped kitchen (80-100 sq ft) in a metro: <strong>₹4L to ₹7L mid-range (independent contractor), ₹7L to ₹14L with a branded player.</strong> Reviewed project data from Bengaluru and Mumbai shows branded kitchen packages ranging from ₹4.1L (standard laminate, 3BHK) to ₹10L+ (large kitchen, PU finish). If your quote is ₹10L for a straight kitchen with plain laminates, start asking questions.</p>
+
+  <div class="warning">
+    <strong>Red flag: "Inclusive" appliance pricing</strong>
+    <p>Some contractors bundle appliance MRP into the kitchen quote at 15-20% above market. Always ask for appliances to be quoted separately at cost + installation charge. You can purchase them yourself on Croma or Amazon Business and save ₹15,000 to ₹40,000 on a standard kitchen.</p>
+  </div>
+
+  <hr />
+
+  <!-- SECTION 3: WARDROBES -->
+  <h2>Category 2: Wardrobes & Bedroom Storage</h2>
+
+  <p>Wardrobes are quoted in two ways: per running foot (most common) or per unit. Per-running-foot quotes are easier to compare. Per-unit quotes are easier to pad.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Wardrobe Rate Benchmarks — Per Running Foot, India Metro (2026-27)</div>
+
+    <div class="bar-row">
+      <div class="bar-label">Laminate, independent</div>
+      <div class="bar-track"><div class="bar-fill" style="width:28%;"></div></div>
+      <div class="bar-value">₹1,800–2,800/sqft</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Laminate, branded player</div>
+      <div class="bar-track"><div class="bar-fill" style="width:46%;"></div></div>
+      <div class="bar-value">₹3,200–4,200/sqft</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Membrane/PU, branded</div>
+      <div class="bar-track"><div class="bar-fill" style="width:60%;"></div></div>
+      <div class="bar-value">₹4,000–5,500/sqft</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Veneer finish</div>
+      <div class="bar-track"><div class="bar-fill" style="width:75%;"></div></div>
+      <div class="bar-value">₹4,500–7,000/sqft</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Walk-in, full fit-out</div>
+      <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+      <div class="bar-value">₹6,000–12,000/sqft</div>
+    </div>
+    <p class="chart-note">Source: Actual BOQ data from reviewed projects across Bengaluru, Mumbai, and Delhi NCR (2025). Independent contractors price lower. Branded players price higher due to handling fees and brand margin.</p>
+  </div>
+
+  <p>A standard 3BHK has 3 bedrooms, typically with 60-90 sq ft of wardrobe per room. Across reviewed projects, individual bedroom wardrobes at laminate finish ranged from <strong>₹1.95L to ₹3.75L per room</strong>. With a branded player, three bedrooms will run ₹6L to ₹10L. With an independent contractor at market rates, ₹3.5L to ₹6L. If your quote shows ₹12L for three bedrooms in laminates from an independent contractor, ask for a sqft breakdown immediately.</p>
+
+  <h3>What the quote should specify</h3>
+  <ul class="flag-list">
+    <li><div class="flag-icon">1</div><span>Carcass material and grade (BWP/BWR/HDHMR, not just "18mm plywood")</span></li>
+    <li><div class="flag-icon">2</div><span>Shutter finish and brand of laminate (Merino, Greenlam, Durian price very differently)</span></li>
+    <li><div class="flag-icon">3</div><span>Hardware brand for sliding channels and hinges (Hettich, Hafele, Ebco vs. unbranded)</span></li>
+    <li><div class="flag-icon">4</div><span>Internal fittings itemised: how many shelves, drawers, and trouser/tie racks</span></li>
+    <li><div class="flag-icon">5</div><span>Whether loft (overhead storage) is included or billed separately</span></li>
+  </ul>
+
+  <hr />
+
+  <!-- SECTION 4: FALSE CEILING -->
+  <h2>Category 3: False Ceiling & Electrical</h2>
+
+  <p>False ceilings are the most commonly padded category in Indian interior quotations. Rate inflation of 30-50% above market is routine, partly because homeowners rarely question it and partly because measurement manipulation (billing sq ft of ceiling that doesn't exist) is hard to catch without a site check.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">False Ceiling Rate Benchmarks — Per Sq Ft, India Metro (2026-27)</div>
+
+    <div class="bar-row">
+      <div class="bar-label">Basic POP (flat)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:30%;"></div></div>
+      <div class="bar-value">₹120–180</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Gypsum (flat)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:40%;"></div></div>
+      <div class="bar-value">₹150–220</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Gypsum (stepped/coffered)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:58%;"></div></div>
+      <div class="bar-value">₹200–320</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">POP with electrical</div>
+      <div class="bar-track"><div class="bar-fill" style="width:70%;"></div></div>
+      <div class="bar-value">₹220–300</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">POP + cove lighting</div>
+      <div class="bar-track"><div class="bar-fill" style="width:90%;"></div></div>
+      <div class="bar-value">₹280–420</div>
+    </div>
+    <p class="chart-note">Source: Actual BOQ data from reviewed projects (2025). Rates for branded player projects show POP plain at ₹167/sqft and POP with electrical at ₹253/sqft. Rates include labour and material. Painting of false ceiling billed separately at ₹34-40 per sqft.</p>
+  </div>
+
+  <p>A living room of 250 sq ft with a gypsum stepped ceiling and cove lighting: <strong>₹70,000 to ₹1,05,000</strong>. Reviewed project data shows POP with electrical at ₹253/sqft in branded player quotes, which is ₹63,250 for a 250 sq ft living room before painting. If your quote says ₹1.8L for the same room from a mid-market contractor, ask for measurement breakdown and exact spec.</p>
+
+  <h3>Electrical points: what to count</h3>
+  <p>Most quotations price electrical work per point or as a per-sq-ft package. A standard 3BHK should have 60 to 80 points. Branded players increasingly quote it as a lump-sum per sq ft, typically ₹217 to ₹298 per sq ft for a complete home electrical package. Independent contractors bill per point at <strong>₹450 to ₹850 per point</strong>. If the quote shows 120 points or per-point rates above ₹1,000, both numbers need scrutiny.</p>
+
+  <div class="callout">
+    <strong>The ceiling area trick</strong>
+    <p>Some contractors bill false ceiling at the gross room area rather than the net false ceiling area. In a room with a false ceiling only above the seating zone (say 120 sq ft), billing at full room area (250 sq ft) is a ₹16,000–25,000 discrepancy on a single room. Always cross-check proposed sq footage against your floor plan.</p>
+  </div>
+
+  <hr />
+
+  <!-- SECTION 5: LIVING ROOM -->
+  <h2>Category 4: Living Room Woodwork</h2>
+
+  <p>TV units, entertainment walls, display shelves, shoe cabinets near the entrance. These are typically bundled as "living room woodwork" in a quote. The living room is where upselling is easiest because clients are most emotionally invested in how it looks.</p>
+
+  <table class="rate-table">
+    <thead><tr><th>Item</th><th>Market Rate</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>TV unit (6-8 ft, laminate, with back panel)</td><td>₹22,000 – ₹42,000</td><td><span class="ok">Standard</span></td></tr>
+      <tr><td>TV unit (floor-to-ceiling wall panel, 8-10 ft)</td><td>₹55,000 – ₹1,10,000</td><td><span class="ok">Standard</span></td></tr>
+      <tr><td>Crockery/display unit (5-6 ft)</td><td>₹28,000 – ₹55,000</td><td><span class="ok">Standard</span></td></tr>
+      <tr><td>Foyer unit (console + mirror + shoe storage)</td><td>₹22,000 – ₹45,000</td><td><span class="ok">Standard</span></td></tr>
+      <tr><td>Wall panel (laminate finish, per sq ft)</td><td>₹500 – ₹1,050</td><td><span class="flag">Verify spec</span></td></tr>
+      <tr><td>Wall panel (PU/DUCO finish, per sq ft)</td><td>₹890 – ₹2,100</td><td><span class="flag">Get brand + process</span></td></tr>
+      <tr><td>Wooden flooring (engineered, per sq ft incl. install)</td><td>₹220 – ₹500</td><td><span class="flag">Get brand name</span></td></tr>
+    </tbody>
+  </table>
+
+  <p>Real BOQ data from reviewed projects shows laminate wall panelling at ₹500-1,050/sqft and PU/DUCO at ₹890-2,100/sqft. A full-wall TV panel priced at ₹2L in your quote at laminate finish rates should match roughly 190-400 sqft of panelling. Check the measurement against your actual wall dimensions.</p>
+
+  <hr />
+
+  <!-- SECTION 6: DINING -->
+  <h2>Category 5: Dining Room</h2>
+
+  <p>In most Indian apartments, the dining room has minimal fixed woodwork. The spend here is usually a crockery unit or display niche, and possibly wall treatment. If your quotation shows significant woodwork billed under "dining area" that doesn't match your design brief, it's probably scope creep that got added without a conversation.</p>
+
+  <p>Watch specifically for:</p>
+  <ul class="flag-list">
+    <li><div class="flag-icon">!</div><span><strong>Buffet units billed at living room rates.</strong> A freestanding buffet is furniture, not built-in woodwork. It shouldn't be priced on a per-sq-ft carpentry basis.</span></li>
+    <li><div class="flag-icon">!</div><span><strong>Wall paint quoted separately for each room.</strong> Painting is typically ₹28 to ₹42 per sq ft (2-coat premium emulsion with putty, metro rates). Some contractors bill it room-by-room at rates that don't aggregate correctly. Run the arithmetic yourself.</span></li>
+  </ul>
+
+  <hr />
+
+  <!-- SECTION 7: BEDROOMS -->
+  <h2>Category 6: Bedrooms</h2>
+
+  <p>Beyond the wardrobe (covered in Category 2), bedroom woodwork includes the bed platform or box bed, study/work unit, dressing table, and bedside ledges. These are the items most frequently added to scope without explicit client sign-off.</p>
+
+  <table class="rate-table">
+    <thead><tr><th>Item</th><th>Market Rate</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>Bed with hydraulic storage (queen, laminate)</td><td>₹35,000 – ₹65,000</td><td>Hydraulic adds ₹8,000-12,000 over basic; actual BOQ data shows ₹39,000-44,850 for standard beds</td></tr>
+      <tr><td>Bed with hydraulic storage (king, fabric headboard)</td><td>₹62,000 – ₹1,25,000</td><td>Reviewed project data shows ₹61,499-68,000; verify headboard material and storage mechanism</td></tr>
+      <tr><td>Study unit (5-6 ft with shelves)</td><td>₹14,000 – ₹30,000</td><td>Wall-mounted vs. floor-standing priced differently</td></tr>
+      <tr><td>Dressing table with mirror</td><td>₹18,000 – ₹40,000</td><td>Standalone vs. wardrobe-integrated</td></tr>
+      <tr><td>Bedside ledges / floating shelves (pair)</td><td>₹9,000 – ₹20,000</td><td>Simple item, commonly over-specified in quotes</td></tr>
+      <tr><td>Children's loft/bunk bed with storage</td><td>₹65,000 – ₹1,50,000</td><td>Reviewed projects show custom loft beds with stairs and drawers reaching ₹4,02,250. Confirm exact scope before approving.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>The scope creep conversation</strong>
+    <p>If your final quotation has items you don't remember discussing in the design meeting, call it out immediately. "I don't recall asking for a dressing table in the second bedroom. Can you remove that?" is a completely reasonable response. Scope creep accounts for 15-25% of final project costs on average.</p>
+  </div>
+
+  <hr />
+
+  <!-- SECTION 8: BATHROOMS -->
+  <h2>Category 7: Bathrooms & Wet Areas</h2>
+
+  <p>Most interior contractors quote bathroom civil and fitting work separately from the main woodwork scope. If your quotation bundles it without an itemised bathroom section, ask for it to be split out.</p>
+
+  <p>What should be quoted separately:</p>
+  <ul class="flag-list">
+    <li><div class="flag-icon">1</div><span>Tiles (supply rate per sq ft + laying rate per sq ft. Two separate line items.)</span></li>
+    <li><div class="flag-icon">2</div><span>CP fittings (branded: Jaquar, Kohler, American Standard. Compare against retail price.)</span></li>
+    <li><div class="flag-icon">3</div><span>Waterproofing (chemical treatment, per sq ft). Market rate: ₹80 to ₹150 per sq ft. Often under-scoped or missing entirely.</span></li>
+    <li><div class="flag-icon">4</div><span>Sanitary ware: WC, wash basin, shower enclosure. Each should be itemised with brand and model.</span></li>
+    <li><div class="flag-icon">5</div><span>Bathroom vanity or storage unit if any. Should be priced like other woodwork.</span></li>
+  </ul>
+
+  <div class="warning">
+    <strong>The missing waterproofing problem</strong>
+    <p>Waterproofing is skipped or quoted at a nominal rate in roughly 40% of residential interior quotations in India. It's the single most expensive omission. A bathroom leak in year 2 of ownership costs ₹80,000 to ₹2,50,000 to fix depending on what's above and below the slab. Make sure your quote explicitly includes waterproofing for all wet areas.</p>
+  </div>
+
+  <hr />
+
+  <!-- SECTION 9: RED FLAGS -->
+  <h2>Seven Red Flags That Should Stop You Mid-Scroll</h2>
+
+  <p>These aren't minor errors. Each of them is a signal worth investigating before you proceed.</p>
+
+  <ul class="flag-list">
+    <li><div class="flag-icon">1</div><span><strong>No material specifications.</strong> "18mm plywood wardrobe" without grade, brand, or finish spec means the contractor can substitute anything on site. Every major item needs the full spec: material, grade, brand, finish.</span></li>
+    <li><div class="flag-icon">2</div><span><strong>Quantities without drawings.</strong> How was the contractor counting cabinets before your drawings were finalised? If detailed drawings don't exist, the quantities are estimates, and estimates tend to expand.</span></li>
+    <li><div class="flag-icon">3</div><span><strong>Lump sum line items.</strong> "False ceiling, living room: ₹85,000" is not a quotation. A quotation shows area (sq ft), rate per sq ft, and total. Lump sums prevent comparison and hide overcharging.</span></li>
+    <li><div class="flag-icon">4</div><span><strong>GST described as "as applicable."</strong> GST on interior work is 18%. Every quotation should show the pre-GST amount and the GST amount separately. "As applicable" is evasion. The number you're comparing is not the number you'll pay.</span></li>
+    <li><div class="flag-icon">5</div><span><strong>No payment schedule.</strong> A legitimate interior project runs in tranches linked to completion milestones: design sign-off, material procurement, work commencement, 50% completion, handover. If the quote asks for 60-70% upfront with no milestone structure, that's a problem.</span></li>
+    <li><div class="flag-icon">6</div><span><strong>Appliances "included" without brand or model.</strong> "Branded chimney and hob included" means nothing without a brand, model number, and specification. You may be paying a ₹28,000 rate for a ₹12,000 product.</span></li>
+    <li><div class="flag-icon">7</div><span><strong>Revision charges not mentioned.</strong> Design revisions during execution are standard. If your contract doesn't define how many revisions are included and at what cost, every scope change becomes a renegotiation.</span></li>
+  </ul>
+
+  <hr />
+
+  <!-- SECTION 10: TOTAL BENCHMARKS -->
+  <h2>Total Project Benchmarks: What a 3BHK Should Cost in 2026-27</h2>
+
+  <p>These are broad but honest benchmarks for a metro city (Bengaluru, Mumbai, Delhi NCR, Hyderabad, Pune) for a full interior project including modular kitchen, wardrobes, false ceiling, electrical, TV unit, and paint:</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Full Interior Project Cost — 3BHK (1,200 to 1,500 sq ft), Metro India 2026-27</div>
+
+    <div class="bar-row">
+      <div class="bar-label">Budget (independent, basic)</div>
+      <div class="bar-track"><div class="bar-fill muted-fill" style="width:18%;"></div></div>
+      <div class="bar-value">₹12L – ₹22L</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Mid-range (independent)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:38%;"></div></div>
+      <div class="bar-value">₹25L – ₹42L</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Branded player (full service)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:58%;"></div></div>
+      <div class="bar-value">₹38L – ₹65L</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Premium (veneer, imported finishes)</div>
+      <div class="bar-track"><div class="bar-fill" style="width:80%;"></div></div>
+      <div class="bar-value">₹60L – ₹95L</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Luxury / large villa</div>
+      <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+      <div class="bar-value">₹85L+</div>
+    </div>
+
+    <p class="chart-note">Source: Actual BOQ data from reviewed projects across Bengaluru, Mumbai, and Delhi NCR (2025). Excludes loose furniture, curtains, tiles, and appliances unless specified. GST at 18% is additional on contractor invoices.</p>
+  </div>
+
+  <p>A 3BHK quoted at ₹55L with a branded player using standard laminates and basic false ceiling is not unusual in 2026. That same project with an independent contractor should come in at ₹30-40L. The gap is real, and a significant part of it is handling fees and brand margin, not material quality. Both are valid choices. Know which one you're paying for.</p>
+
+  <hr />
+
+  <!-- CLOSING -->
+  <h2>What to Do Before You Sign</h2>
+
+  <p>Three things. First, check whether every major line item has a specification (material, brand, grade, finish). If a line item is vague, annotate it and send it back for clarification before anything else.</p>
+
+  <p>Second, run the area calculations yourself. Take your floor plan, measure the proposed false ceiling areas and wardrobe lengths, and cross-check against what's been quoted. This takes 45 minutes and catches a surprising number of errors.</p>
+
+  <p>Third, compare rates in at least three categories against the benchmarks in this guide. You don't need to be an expert in everything. Knowing that your kitchen laminate shutter rate is ₹680 per sq ft when actual BOQ data shows ₹220 to ₹420 for independent contractors is enough to ask the right question.</p>
+
+  <p>The goal isn't to distrust your contractor. It's to verify. An honest contractor will welcome the scrutiny. One who doesn't is telling you something.</p>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h3>Not sure what you're looking at?</h3>
+    <p>Upload your interior quotation. Our 62-point expert review checks rates, quantities, spec gaps, and missing items, and tells you exactly what to negotiate.</p>
+    <a class="cta-btn" href="https://interioriqpro.com">Get Your Quotation Reviewed</a>
+  </div>
+
+</div><!-- /article-body -->
+
+</body>
+</html>
