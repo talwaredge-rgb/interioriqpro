@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The BoQ Brief | Interiors Guides by InteriorIQ Pro</title>
+  <meta name="description" content="Practical guides for Indian homeowners navigating interior renovation. Understand BoQ overcharges, contractor tactics, drawing errors, and how to protect your budget before signing anything.">
+  <meta property="og:title" content="The BoQ Brief | Interiors Guides by InteriorIQ Pro">
+  <meta property="og:description" content="Practical guides for Indian homeowners on BoQ overcharges, contractor tactics, and renovation mistakes that cost lakhs.">
+  <meta property="og:url" content="https://interioriqpro.com/blog">
+  <meta property="og:image" content="https://interioriqpro.com/og-image.png">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://interioriqpro.com/blog">
+  <link rel="preload" href="/Jost-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face{font-family:'Jost';src:url('/Jost-VariableFont_wght.woff2') format('woff2-variations');font-weight:100 900;font-style:normal;font-display:swap;}
+    :root{--ink:#1A1714;--linen:#F5F0E8;--cream:#EDE8DC;--terracotta:#C4552A;--terracotta-light:#E8703F;--muted:#7A7268;--rule:rgba(26,23,20,0.12);--rule-strong:rgba(26,23,20,0.25);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{font-size:16px;scroll-behavior:smooth;}
+    body{background:var(--linen);color:var(--ink);font-family:'Jost',sans-serif;font-weight:400;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,h4{font-family:'Jost',sans-serif;line-height:1.15;}
+    .container{max-width:1140px;margin:0 auto;padding:0 32px;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--linen);border-bottom:1px solid var(--rule);backdrop-filter:blur(8px);}
+    .nav-inner{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:60px;}
+    .nav-logo{font-family:'Jost',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:-0.01em;color:var(--ink);text-decoration:none;}
+    .nav-logo span{color:var(--terracotta);}
+    .nav-links{display:flex;gap:32px;list-style:none;}
+    .nav-links a{font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--ink);}
+    .nav-links a.active{color:var(--ink);}
+    .nav-cta{font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;background:var(--ink);color:var(--linen);padding:8px 18px;text-decoration:none;transition:background 0.2s;}
+    .nav-cta:hover{background:var(--terracotta);}
+    .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;}
+
+    /* HERO */
+    .blog-hero{padding:140px 0 80px;border-bottom:1px solid var(--rule-strong);}
+    .blog-eyebrow{font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--terracotta);display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;}
+    .blog-eyebrow::before{content:'';width:28px;height:1px;background:var(--terracotta);}
+    .blog-hero-title{font-size:clamp(2.4rem,3.5vw,4rem);font-weight:700;letter-spacing:-0.025em;line-height:1.1;margin-bottom:20px;}
+    .blog-hero-title em{color:var(--terracotta);font-style:normal;}
+    .blog-hero-sub{font-size:1.05rem;color:var(--muted);max-width:580px;line-height:1.8;margin-bottom:40px;}
+    .blog-hero-meta{display:flex;gap:32px;align-items:center;flex-wrap:wrap;}
+    .blog-hero-stat{display:flex;flex-direction:column;gap:3px;}
+    .blog-hero-stat-num{font-family:'Jost',sans-serif;font-size:1.6rem;font-weight:700;color:var(--ink);letter-spacing:-0.02em;line-height:1;}
+    .blog-hero-stat-lbl{font-size:0.7rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);}
+    .blog-hero-divider{width:1px;height:40px;background:var(--rule-strong);}
+
+    /* FILTERS */
+    .blog-filters{padding:32px 0;border-bottom:1px solid var(--rule);display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+    .filter-pill{font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.05em;text-transform:uppercase;padding:7px 16px;border:1px solid var(--rule-strong);background:transparent;cursor:pointer;color:var(--muted);transition:all 0.2s;}
+    .filter-pill:hover,.filter-pill.active{background:var(--ink);color:var(--linen);border-color:var(--ink);}
+    .filter-label{font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);margin-right:4px;}
+
+    /* FEATURED POST */
+    .featured-section{padding:64px 0 48px;}
+    .section-label{font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--terracotta);display:flex;align-items:center;gap:10px;margin-bottom:32px;}
+    .section-label::before{content:'';width:28px;height:1px;background:var(--terracotta);}
+    .featured-card{display:grid;grid-template-columns:1fr 420px;gap:0;border:1px solid var(--rule-strong);background:#fff;transition:box-shadow 0.2s;}
+    .featured-card:hover{box-shadow:0 8px 32px rgba(26,23,20,0.08);}
+    .featured-card a{text-decoration:none;color:inherit;display:contents;}
+    .featured-image{background:var(--ink);min-height:360px;display:flex;align-items:flex-end;padding:40px;position:relative;overflow:hidden;}
+    .featured-image-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 80%,rgba(196,85,42,0.25) 0%,transparent 60%);}
+    .featured-image-number{font-family:'Jost',sans-serif;font-size:7rem;font-weight:700;color:rgba(245,240,232,0.06);position:absolute;top:20px;right:30px;line-height:1;letter-spacing:-0.04em;}
+    .featured-category{font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;background:rgba(196,85,42,0.9);color:#fff;padding:4px 12px;display:inline-block;margin-bottom:16px;}
+    .featured-image-title{font-size:1.6rem;font-weight:700;color:var(--linen);line-height:1.2;letter-spacing:-0.02em;position:relative;}
+    .featured-body{padding:40px 44px;display:flex;flex-direction:column;justify-content:space-between;}
+    .featured-tag{font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--terracotta);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+    .featured-tag::before{content:'';width:16px;height:1px;background:var(--terracotta);}
+    .featured-excerpt{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:32px;}
+    .featured-excerpt strong{color:var(--ink);}
+    .featured-footer{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--rule);}
+    .post-meta{font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.04em;color:var(--muted);}
+    .read-link{font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:color 0.2s;}
+    .read-link:hover{color:var(--terracotta);}
+    .read-link::after{content:'→';transition:transform 0.2s;}
+    .read-link:hover::after{transform:translateX(4px);}
+
+    /* POST GRID */
+    .posts-section{padding:0 0 80px;}
+    .posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule-strong);}
+    .post-card{padding:32px 28px;border-right:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong);display:flex;flex-direction:column;background:#fff;transition:background 0.2s;cursor:pointer;text-decoration:none;color:inherit;}
+    .post-card:hover{background:rgba(196,85,42,0.02);}
+    .post-card:nth-child(3n){border-right:none;}
+    .post-card:nth-last-child(-n+3){border-bottom:none;}
+    .post-card-cat{font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--terracotta);margin-bottom:14px;}
+    .post-card-title{font-size:1.05rem;font-weight:600;line-height:1.3;margin-bottom:12px;letter-spacing:-0.01em;}
+    .post-card-excerpt{font-size:0.85rem;color:var(--muted);line-height:1.7;flex-grow:1;margin-bottom:20px;}
+    .post-card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--rule);}
+    .post-card-meta{font-family:'Jost',sans-serif;font-size:0.62rem;color:var(--muted);letter-spacing:0.03em;}
+    .post-card-arrow{font-size:0.9rem;color:var(--terracotta);transition:transform 0.2s;}
+    .post-card:hover .post-card-arrow{transform:translateX(4px);}
+    .coming-soon{opacity:0.5;cursor:default;}
+    .coming-soon:hover{background:#fff;}
+    .coming-badge{font-family:'Jost',sans-serif;font-size:0.58rem;letter-spacing:0.06em;text-transform:uppercase;background:var(--cream);color:var(--muted);padding:2px 8px;display:inline-block;margin-bottom:14px;}
+
+    /* CTA STRIP */
+    .blog-cta{background:var(--ink);padding:80px 0;}
+    .blog-cta-inner{display:grid;grid-template-columns:1fr 340px;gap:80px;align-items:center;}
+    .blog-cta-label{font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--terracotta);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+    .blog-cta-label::before{content:'';width:28px;height:1px;background:var(--terracotta);}
+    .blog-cta-title{font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:700;letter-spacing:-0.02em;color:var(--linen);line-height:1.2;margin-bottom:16px;}
+    .blog-cta-title em{color:var(--terracotta);font-style:normal;}
+    .blog-cta-sub{font-size:0.95rem;color:rgba(245,240,232,0.5);line-height:1.75;}
+    .blog-cta-box{background:rgba(245,240,232,0.05);border:1px solid rgba(245,240,232,0.1);padding:32px;}
+    .blog-cta-box-label{font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--terracotta);margin-bottom:12px;}
+    .blog-cta-box p{font-size:0.9rem;color:rgba(245,240,232,0.6);line-height:1.7;margin-bottom:20px;}
+    .btn-primary{background:var(--terracotta);color:#fff;font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;padding:14px 28px;text-decoration:none;transition:background 0.2s;display:inline-block;}
+    .btn-primary:hover{background:#a83d1b;}
+
+    /* FOOTER */
+    .footer-bottom{background:var(--ink);border-top:1px solid rgba(245,240,232,0.08);padding:28px 0;}
+    .footer-inner{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+    .footer-copy{font-family:'Jost',sans-serif;font-size:0.65rem;color:rgba(245,240,232,0.3);letter-spacing:0.06em;}
+    .footer-links{display:flex;gap:24px;list-style:none;}
+    .footer-links a{font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.06em;color:rgba(245,240,232,0.3);text-decoration:none;transition:color 0.2s;}
+    .footer-links a:hover{color:rgba(245,240,232,0.7);}
+
+    /* FADE */
+    .fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-up.in{opacity:1;transform:translateY(0);}
+
+    /* RESPONSIVE */
+    @media(max-width:1000px){
+      .featured-card{grid-template-columns:1fr;}
+      .featured-image{min-height:240px;}
+      .blog-cta-inner{grid-template-columns:1fr;gap:40px;}
+      .posts-grid{grid-template-columns:repeat(2,1fr);}
+      .post-card:nth-child(3n){border-right:1px solid var(--rule-strong);}
+      .post-card:nth-child(2n){border-right:none;}
+      .post-card:nth-last-child(-n+3){border-bottom:1px solid var(--rule-strong);}
+      .post-card:nth-last-child(-n+2){border-bottom:none;}
+    }
+    @media(max-width:640px){
+      .container{padding:0 20px;}
+      .nav-links{display:none;}
+      .nav-hamburger{display:block;}
+      .blog-hero{padding:100px 0 60px;}
+      .blog-hero-meta{gap:20px;}
+      .blog-hero-divider{display:none;}
+      .posts-grid{grid-template-columns:1fr;}
+      .post-card{border-right:none;}
+      .post-card:nth-last-child(-n+2){border-bottom:1px solid var(--rule-strong);}
+      .post-card:last-child{border-bottom:none;}
+      .featured-body{padding:28px 24px;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">InteriorIQ<span>Pro</span></a>
+    <ul class="nav-links">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#sample-report">Sample Report</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#trust">About</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/" class="nav-cta">Free Quote Review</a>
+    <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none"><rect width="22" height="2" fill="#1A1714"/><rect y="7" width="22" height="2" fill="#1A1714"/><rect y="14" width="22" height="2" fill="#1A1714"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <div class="container">
+    <div class="blog-eyebrow">The BoQ Brief</div>
+    <h1 class="blog-hero-title fade-up">Practical guides for<br>a <em>smarter renovation.</em></h1>
+    <p class="blog-hero-sub fade-up">Specific, informed guides for Indian homeowners at every stage of a renovation. From understanding your BoQ to optimising plug points, designing for senior living, and knowing what questions to ask before work begins.</p>
+    <div class="blog-hero-meta fade-up">
+      <div class="blog-hero-stat">
+        <span class="blog-hero-stat-num">10</span>
+        <span class="blog-hero-stat-lbl">Guides planned</span>
+      </div>
+      <div class="blog-hero-divider"></div>
+      <div class="blog-hero-stat">
+        <span class="blog-hero-stat-num">0</span>
+        <span class="blog-hero-stat-lbl">Contractor affiliations</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="container">
+  <div class="blog-filters">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-pill active" data-filter="all">All</button>
+    <button class="filter-pill" data-filter="boq">BoQ & Pricing</button>
+    <button class="filter-pill" data-filter="execution">Execution & Site</button>
+    <button class="filter-pill" data-filter="materials">Materials</button>
+    <button class="filter-pill" data-filter="contracts">Contracts & Payments</button>
+  </div>
+</div>
+
+<!-- FEATURED POST -->
+<div class="featured-section">
+  <div class="container">
+    <div class="section-label">Featured guide</div>
+    <div class="featured-card fade-up">
+      <a href="/blog/5-ways-contractor-overcharges">
+        <div class="featured-image">
+          <div class="featured-image-bg"></div>
+          <div class="featured-image-number">01</div>
+          <div>
+            <div class="featured-category">BoQ & Pricing</div>
+            <h2 class="featured-image-title">5 common ways your contractor<br>may be overcharging you</h2>
+          </div>
+        </div>
+        <div class="featured-body">
+          <div>
+            <div class="featured-tag">Most read</div>
+            <p class="featured-excerpt">Most homeowners assume their contractor's quote is a take-it-or-leave-it number. It isn't. <strong>Rate padding, quantity inflation, double billing, vague specifications, and missing exclusions</strong> are standard practice in most BoQs. Not because contractors are dishonest, but because no one ever checks. Here is what to look for, line by line.</p>
+          </div>
+          <div class="featured-footer">
+            <span class="post-meta">InteriorIQ Pro &nbsp;·&nbsp; 8 min read</span>
+            <span class="read-link">Read guide</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- POST GRID -->
+<div class="posts-section">
+  <div class="container">
+    <div class="section-label">All guides</div>
+    <div class="posts-grid" id="posts-grid">
+
+      <!-- Post NEW-1 | live -->
+      <a class="post-card" href="/blog/how-to-read-interior-quote-structure" data-cat="boq">
+        <span class="post-card-cat">BoQ & Pricing</span>
+        <h3 class="post-card-title">Two quotes, same price, completely different projects</h3>
+        <p class="post-card-excerpt">GST, handling fees, and missing scope: why comparing headline numbers is meaningless without reading the structure first.</p>
+        <div class="post-card-footer">
+          <span class="post-card-meta">5 min read</span>
+          <span class="post-card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Post NEW-2 | live -->
+      <a class="post-card" href="/blog/interior-quote-rate-benchmarks" data-cat="boq">
+        <span class="post-card-cat">BoQ & Pricing</span>
+        <h3 class="post-card-title">Your interior quote may be hiding ₹1–3 lakhs in overcharges</h3>
+        <p class="post-card-excerpt">Category-by-category rate benchmarks for kitchens, wardrobes, false ceilings, and more. Based on actual reviewed quotes.</p>
+        <div class="post-card-footer">
+          <span class="post-card-meta">8 min read</span>
+          <span class="post-card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Post 1 | live -->
+      <a class="post-card" href="/blog/5-ways-contractor-overcharges" data-cat="boq">
+        <span class="post-card-cat">BoQ & Pricing</span>
+        <h3 class="post-card-title">5 common ways your contractor may be overcharging you</h3>
+        <p class="post-card-excerpt">Rate padding, quantity inflation, double billing: how to catch each one before you sign.</p>
+        <div class="post-card-footer">
+          <span class="post-card-meta">8 min read</span>
+          <span class="post-card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Post 2 — live -->
+      <a class="post-card" href="/blog/why-18l-becomes-22l" data-cat="boq">
+        <span class="post-card-cat">BoQ & Pricing</span>
+        <h3 class="post-card-title">Why your ₹18L quote becomes ₹22L during execution</h3>
+        <p class="post-card-excerpt">The four moments where cost escalation happens, and what to lock down in writing before work starts.</p>
+        <div class="post-card-footer">
+          <span class="post-card-meta">6 min read</span>
+          <span class="post-card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Post 3 — live -->
+      <a class="post-card" href="/blog/flooring-quantity-inflation" data-cat="boq">
+        <span class="post-card-cat">BoQ & Pricing</span>
+        <h3 class="post-card-title">How flooring quantity gets inflated in a BoQ</h3>
+        <p class="post-card-excerpt">The gap between carpet area and chargeable area is where most flooring overcharges live. Here is the math.</p>
+        <div class="post-card-footer">
+          <span class="post-card-meta">5 min read</span>
+          <span class="post-card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Post 4 — live -->
+      <a class="post-card" href="/blog/waterproofing-mistakes" data-cat="execution">
+        <span class="post-card-cat">Execution & Site</span>
+        <h3 class="post-card-title">Waterproofing mistakes that show up a year later</h3>
+        <p class="post-card-excerpt">By the time seepage appears, your contractor is gone. The five shortcuts that cause it, and how to verify during execution.</p>
+        <div class="post-card-footer">
+          <span class="post-card-meta">7 min read</span>
+          <span class="post-card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Post 5 — coming soon -->
+      <div class="post-card coming-soon" data-cat="boq">
+        <span class="coming-badge">Coming soon</span>
+        <span class="post-card-cat">BoQ & Pricing</span>
+        <h3 class="post-card-title">What a BoQ should actually contain, and what most leave out</h3>
+        <p class="post-card-excerpt">The 12 line items that are routinely missing from contractor quotes, and what happens when they surface mid-project.</p>
+        <div class="post-card-footer">
+          <span class="post-card-meta">Coming soon</span>
+          <span class="post-card-arrow" style="opacity:0.3">→</span>
+        </div>
+      </div>
+
+      <!-- Post 6 — coming soon -->
+      <div class="post-card coming-soon" data-cat="boq">
+        <span class="coming-badge">Coming soon</span>
+        <span class="post-card-cat">BoQ & Pricing</span>
+        <h3 class="post-card-title">False ceiling: why rates vary from ₹65 to ₹160 per sqft for the same work</h3>
+        <p class="post-card-excerpt">It is the same gypsum board. The difference is what your contractor thinks you know.</p>
+        <div class="post-card-footer">
+          <span class="post-card-meta">Coming soon</span>
+          <span class="post-card-arrow" style="opacity:0.3">→</span>
+        </div>
+      </div>
+
+      <!-- Post 7 — coming soon -->
+      <div class="post-card coming-soon" data-cat="contracts">
+        <span class="coming-badge">Coming soon</span>
+        <span class="post-card-cat">Contracts & Payments</span>
+        <h3 class="post-card-title">The payment milestone trap: why releasing 80% early costs you leverage</h3>
+        <p class="post-card-excerpt">The standard payment structure most contractors propose hands them all the power. Here is how to restructure it.</p>
+        <div class="post-card-footer">
+          <span class="post-card-meta">Coming soon</span>
+          <span class="post-card-arrow" style="opacity:0.3">→</span>
+        </div>
+      </div>
+
+      <!-- Post 8 — coming soon -->
+      <div class="post-card coming-soon" data-cat="execution">
+        <span class="coming-badge">Coming soon</span>
+        <span class="post-card-cat">Execution & Site</span>
+        <h3 class="post-card-title">Drawing errors that cause site rework: how to catch them before work starts</h3>
+        <p class="post-card-excerpt">A wrong dimension on a carpenter drawing costs ₹8,000 to fix after installation. Here is what to verify before approving any drawing.</p>
+        <div class="post-card-footer">
+          <span class="post-card-meta">Coming soon</span>
+          <span class="post-card-arrow" style="opacity:0.3">→</span>
+        </div>
+      </div>
+
+      <!-- Post 9 — coming soon -->
+      <div class="post-card coming-soon" data-cat="boq">
+        <span class="coming-badge">Coming soon</span>
+        <span class="post-card-cat">BoQ & Pricing</span>
+        <h3 class="post-card-title">How to read a contractor's BoQ, even with no technical background</h3>
+        <p class="post-card-excerpt">The five columns that matter, the three ratios to calculate, and the two questions to ask before signing.</p>
+        <div class="post-card-footer">
+          <span class="post-card-meta">Coming soon</span>
+          <span class="post-card-arrow" style="opacity:0.3">→</span>
+        </div>
+      </div>
+
+      <!-- Post 10 — coming soon -->
+      <div class="post-card coming-soon" data-cat="materials">
+        <span class="coming-badge">Coming soon</span>
+        <span class="post-card-cat">Materials</span>
+        <h3 class="post-card-title">Modular kitchen quotes: what the showroom price never includes</h3>
+        <p class="post-card-excerpt">Civil work, plumbing rerouting, electrical points, chimney ducting: the additions that routinely add ₹80,000 to a modular kitchen quote.</p>
+        <div class="post-card-footer">
+          <span class="post-card-meta">Coming soon</span>
+          <span class="post-card-arrow" style="opacity:0.3">→</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="blog-cta">
+  <div class="container">
+    <div class="blog-cta-inner">
+      <div>
+        <div class="blog-cta-label">Get an expert eye</div>
+        <h2 class="blog-cta-title">Reading is useful.<br><em>Knowing your specific BoQ</em> is better.</h2>
+        <p class="blog-cta-sub">Every guide on this page describes problems we catch in real BoQs every week. If you have a quotation in hand, upload it and we will tell you exactly what needs a second look, at no cost.</p>
+      </div>
+      <div class="blog-cta-box">
+        <div class="blog-cta-box-label">Free BoQ health check</div>
+        <p>Upload your contractor's quote. We flag the risk areas (rate padding, missing items, vague specs) and return a health check within 24–48 hours. No signup required.</p>
+        <a href="/" class="btn-primary">Upload your BoQ →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer-bottom">
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 InteriorIQ Pro &nbsp;·&nbsp; interioriqpro.com &nbsp;·&nbsp; India</span>
+    <ul class="footer-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="mailto:hello@interioriqpro.com">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  // Fade-up on scroll
+  const faders = document.querySelectorAll('.fade-up');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }});
+  }, {threshold: 0.1});
+  faders.forEach(el => obs.observe(el));
+
+  // Filter pills
+  document.querySelectorAll('.filter-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('#posts-grid > *').forEach(card => {
+        if(filter === 'all' || card.dataset.cat === filter){
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
