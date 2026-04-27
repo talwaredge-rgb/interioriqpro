@@ -1,21 +1,4 @@
 {
-  "redirects": [
-    { "source": "/homepage", "destination": "/", "permanent": true },
-    { "source": "/home", "destination": "/", "permanent": true }
-  ],
-  "headers": [
-    {
-      "source": "/og-image.png",
-      "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-      ]
-    },
-    {
-      "source": "/preview.html",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
-      ]
-    }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
