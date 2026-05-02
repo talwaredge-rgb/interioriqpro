@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="/og-image.png">
+  <link rel="shortcut icon" href="/og-image.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Most Interior Firms Take 100% Before the Work Is Done. Here Is What That Means for You. | The Interiors Brief | InteriorIQ Pro</title>
+<meta name="description" content="The payment structures used by organised interior firms mean most homeowners have zero leverage by the time installation begins. Here is how these schedules actually work." />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --terracotta: #C4552A;
+    --ink: #1A1714;
+    --muted: #7A7268;
+    --cream: #EDE8DC;
+    --linen: #F5F0E8;
+    --white: #FFFFFF;
+    --border: #D9D2C5;
+    --green: #1A7A3C;
+    --green-light: #EFF7F0;
+    --red-light: #FDF3EF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.78;
+  }
+  .article-header { background: var(--ink); padding: 64px 24px 56px; margin-top: 0; }
+  .header-inner { max-width: 760px; margin: 0 auto; }
+  .tag {
+    display: inline-block;
+    background: var(--terracotta);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+  .article-header h1 {
+    font-size: clamp(22px, 3.8vw, 38px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+  .article-header h1 span { color: var(--terracotta); }
+  .article-meta { font-size: 13px; color: rgba(255,255,255,0.45); }
+  .article-body { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
+  p { margin-bottom: 22px; }
+  h2 { font-size: 21px; font-weight: 700; color: var(--ink); margin: 52px 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--terracotta); line-height: 1.3; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 44px 0; }
+  strong { font-weight: 600; }
+  .lede { font-size: 19px; line-height: 1.68; margin-bottom: 36px; border-left: 3px solid var(--terracotta); padding-left: 20px; color: var(--ink); }
+
+  /* Payment flow table */
+  .flow-wrap { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin: 32px 0; }
+  .flow-header { background: var(--ink); padding: 12px 20px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); }
+  .flow-row { display: grid; grid-template-columns: 28px 1fr 80px 90px; border-bottom: 1px solid var(--border); align-items: stretch; }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-row.col-head { background: var(--linen); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .flow-cell { padding: 12px 16px; font-size: 14px; line-height: 1.5; border-right: 1px solid var(--border); display: flex; align-items: center; }
+  .flow-cell:last-child { border-right: none; }
+  .flow-cell.step-num { font-weight: 700; color: var(--terracotta); justify-content: center; font-size: 13px; }
+  .flow-cell.tranche { font-weight: 700; justify-content: center; font-size: 15px; }
+  .flow-cell.tranche.red { color: var(--terracotta); }
+  .flow-cell.milestone-cell { flex-direction: column; align-items: flex-start; gap: 3px; }
+  .milestone-name { font-weight: 600; color: var(--ink); font-size: 14px; }
+  .milestone-reality { font-size: 12px; color: var(--terracotta); font-style: italic; }
+  .cumul { font-size: 13px; font-weight: 700; justify-content: center; flex-direction: column; gap: 4px; align-items: center; }
+  .cumul-bar { width: 48px; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .cumul-fill { height: 100%; background: var(--terracotta); border-radius: 2px; }
+
+  /* Word trick box */
+  .word-box { background: var(--red-light); border: 1px solid #E8A990; border-radius: 6px; padding: 24px; margin: 32px 0; }
+  .word-box-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--terracotta); margin-bottom: 14px; }
+  .word-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  @media (max-width: 520px) { .word-comparison { grid-template-columns: 1fr; } }
+  .word-col { background: var(--white); border-radius: 4px; padding: 16px; }
+  .word-col-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+  .word-col-label.think { color: var(--green); }
+  .word-col-label.reality { color: var(--terracotta); }
+  .word-col p { font-size: 14px; margin: 0; line-height: 1.6; color: var(--ink); }
+
+  /* Leverage */
+  .leverage-wrap { background: var(--linen); border: 1px solid var(--border); border-radius: 6px; padding: 24px; margin: 32px 0; }
+  .leverage-title { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+  .leverage-row { display: grid; grid-template-columns: 160px 1fr 64px; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .leverage-row:last-child { margin-bottom: 0; }
+  .leverage-label { font-size: 13px; color: var(--ink); text-align: right; line-height: 1.3; }
+  .leverage-track { background: var(--border); height: 18px; border-radius: 2px; overflow: hidden; }
+  .leverage-fill { height: 100%; border-radius: 2px; }
+  .leverage-pct { font-size: 13px; font-weight: 700; }
+  .leverage-note { font-size: 12px; color: var(--muted); margin-top: 14px; font-style: italic; line-height: 1.6; }
+
+  /* Callout / Warning */
+  .callout { background: var(--linen); border-left: 4px solid var(--terracotta); padding: 18px 22px; margin: 28px 0; border-radius: 0 4px 4px 0; }
+  .callout strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--terracotta); margin-bottom: 7px; }
+  .callout p { margin: 0; font-size: 15px; line-height: 1.7; }
+  .warning { background: var(--red-light); border: 1px solid #E8A990; padding: 18px 22px; margin: 28px 0; border-radius: 4px; }
+  .warning strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--terracotta); margin-bottom: 7px; }
+  .warning p { margin: 0; font-size: 15px; line-height: 1.7; }
+
+  /* Checklist */
+  .check-list { list-style: none; padding: 0; margin: 20px 0; }
+  .check-list li { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 15px; line-height: 1.65; }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list li > span { flex: 1; min-width: 0; }
+  .check-num { background: var(--terracotta); color: var(--white); font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+
+  /* CTA */
+  .cta-block { background: var(--ink); border-radius: 6px; padding: 36px 32px; margin: 52px 0 0; text-align: center; }
+  .cta-block h3 { font-size: 20px; font-weight: 700; color: var(--white); margin: 0 0 10px; }
+  .cta-block p { color: rgba(255,255,255,0.55); margin: 0 0 22px; font-size: 15px; }
+  .cta-btn { display: inline-block; background: var(--terracotta); color: var(--white); font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 13px 28px; border-radius: 3px; text-decoration: none; }
+
+  @media (max-width: 520px) {
+    .flow-row { grid-template-columns: 24px 1fr 60px 68px; }
+    .leverage-row { grid-template-columns: 110px 1fr 52px; }
+  }
+</style>
+</head>
+<body>
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(245,240,232,0.96);border-bottom:1px solid #D9D2C5;backdrop-filter:blur(8px);font-family:'Jost',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:52px;display:flex;align-items:center;justify-content:space-between;">
+    <a href="/blog" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:#7A7268;font-size:0.75rem;letter-spacing:0.04em;text-transform:uppercase;font-weight:600;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      All Guides
+    </a>
+    <a href="/" style="text-decoration:none;font-size:1rem;font-weight:700;letter-spacing:-0.01em;color:#1A1714;">InteriorIQ<span style="color:#C4552A;">Pro</span></a>
+    <a href="/" style="background:#1A1714;color:#F5F0E8;font-size:0.7rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:8px 16px;text-decoration:none;">Free Review</a>
+  </div>
+</nav>
+<div style="height:52px;"></div>
+
+
+<div class="article-header">
+  <div class="header-inner">
+    <div class="tag">The Interiors Brief</div>
+    <h1>Most Interior Firms Take 100%<br>Before the Work Is Done.<br><span>Here Is What That Means for You.</span></h1>
+    <p class="article-meta">By InteriorIQ Pro &nbsp;|&nbsp; 6 min read &nbsp;|&nbsp; Contracts & Payments</p>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p class="lede">Organised interior firms in India have standardised a payment structure that collects the full project amount before installation is complete. Most homeowners sign it without realising what they've given up.</p>
+
+  <p>The schedule follows a consistent pattern across most organised players: a booking amount to initiate design, a large tranche at contract or works order signing, and the final balance due before dispatch or delivery. By the time the first unit arrives at your home, the firm has 100% of your money.</p>
+
+  <p>That is not an accident. Understanding it before you sign is the difference between having options if something goes wrong and having none.</p>
+
+  <hr />
+
+  <h2>How the Typical Schedule Works</h2>
+
+  <p>The exact percentages vary by firm, but the architecture is consistent. A representative schedule for a ₹20 lakh project:</p>
+
+  <div class="flow-wrap">
+    <div class="flow-header">Typical Organised Player Payment Schedule — ₹20L Project</div>
+    <div class="flow-row col-head">
+      <div class="flow-cell">#</div>
+      <div class="flow-cell">Milestone</div>
+      <div class="flow-cell" style="justify-content:center;">Tranche</div>
+      <div class="flow-cell" style="justify-content:center;">Paid so far</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-cell step-num">1</div>
+      <div class="flow-cell milestone-cell">
+        <span class="milestone-name">Booking / design initiation</span>
+        <span class="milestone-reality">Before any design work begins</span>
+      </div>
+      <div class="flow-cell tranche red">5–10%</div>
+      <div class="flow-cell cumul red">10%<div class="cumul-bar"><div class="cumul-fill" style="width:10%"></div></div></div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-cell step-num">2</div>
+      <div class="flow-cell milestone-cell">
+        <span class="milestone-name">Design sign-off / works order</span>
+        <span class="milestone-reality">Before production starts. Nothing built yet.</span>
+      </div>
+      <div class="flow-cell tranche red">50–60%</div>
+      <div class="flow-cell cumul red">65%<div class="cumul-bar"><div class="cumul-fill" style="width:65%"></div></div></div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-cell step-num">3</div>
+      <div class="flow-cell milestone-cell">
+        <span class="milestone-name">Ready to dispatch / pre-delivery</span>
+        <span class="milestone-reality">Before the truck leaves the factory</span>
+      </div>
+      <div class="flow-cell tranche red">35–40%</div>
+      <div class="flow-cell cumul red">100%<div class="cumul-bar"><div class="cumul-fill" style="width:100%"></div></div></div>
+    </div>
+    <div class="flow-row" style="background:var(--linen);">
+      <div class="flow-cell step-num" style="color:var(--muted);">4</div>
+      <div class="flow-cell milestone-cell">
+        <span class="milestone-name" style="color:var(--muted);">Installation and handover</span>
+        <span class="milestone-reality" style="color:var(--muted);">The work actually happens here</span>
+      </div>
+      <div class="flow-cell tranche" style="color:var(--muted); justify-content:center;">0%</div>
+      <div class="flow-cell cumul" style="color:var(--muted);">100%<div class="cumul-bar"><div class="cumul-fill" style="width:100%; background:var(--border)"></div></div></div>
+    </div>
+  </div>
+
+  <p>Installation, the phase where quality problems actually appear, happens after 100% has been paid. A wardrobe that doesn't fit the alcove, a kitchen shutter that won't close, a ceiling that doesn't match the agreed design — all discovered after the firm has your full payment.</p>
+
+  <p>Your leverage at that point is not financial. It's whatever the firm's service team decides to offer you.</p>
+
+  <hr />
+
+  <h2>The Word That Does the Most Work: "Dispatch"</h2>
+
+  <p>Most homeowners read "pre-delivery payment" and understand it as: pay before the finished product comes to your home. The interpretation is correct. What they miss is what "delivery" means in practice.</p>
+
+  <div class="word-box">
+    <div class="word-box-title">What "Ready to Dispatch" Actually Means</div>
+    <div class="word-comparison">
+      <div class="word-col">
+        <div class="word-col-label think">What most homeowners assume</div>
+        <p>"I pay the balance after I've seen the work installed and I'm satisfied with it."</p>
+      </div>
+      <div class="word-col">
+        <div class="word-col-label reality">What it actually means</div>
+        <p>"The units are manufactured at the factory. Pay now before the truck is loaded. You have not seen them installed. A 7-day payment deadline starts from this notification."</p>
+      </div>
+    </div>
+  </div>
+
+  <p>Several firms include a clause requiring payment within 7 days of the "Ready to Dispatch" notification, regardless of whether the homeowner is ready for installation. If the flat isn't ready, or the site visit hasn't happened, the clock runs anyway. Miss the window and warehousing charges apply, typically 0.25% of project value per week.</p>
+
+  <p>The final payment isn't linked to quality approval. It's linked to a factory notification. Those are very different things.</p>
+
+  <hr />
+
+  <h2>Your Leverage at Each Stage</h2>
+
+  <p>Leverage in any contract dispute is the money you haven't paid yet. Once you've paid, your leverage is whatever goodwill, warranty terms, and service escalation the firm chooses to honour.</p>
+
+  <div class="leverage-wrap">
+    <div class="leverage-title">How Much of Your ₹20L Remains Unpaid at Each Stage</div>
+    <div class="leverage-row">
+      <div class="leverage-label">After booking</div>
+      <div class="leverage-track"><div class="leverage-fill" style="width:90%; background:var(--green)"></div></div>
+      <div class="leverage-pct" style="color:var(--green);">₹18L</div>
+    </div>
+    <div class="leverage-row">
+      <div class="leverage-label">After design sign-off</div>
+      <div class="leverage-track"><div class="leverage-fill" style="width:35%; background:#B07000"></div></div>
+      <div class="leverage-pct" style="color:#B07000;">₹7L</div>
+    </div>
+    <div class="leverage-row">
+      <div class="leverage-label">After dispatch payment</div>
+      <div class="leverage-track"><div class="leverage-fill" style="width:2%; background:var(--terracotta)"></div></div>
+      <div class="leverage-pct" style="color:var(--terracotta);">₹0</div>
+    </div>
+    <div class="leverage-row">
+      <div class="leverage-label">During installation</div>
+      <div class="leverage-track"><div class="leverage-fill" style="width:2%; background:var(--border)"></div></div>
+      <div class="leverage-pct" style="color:var(--muted);">₹0</div>
+    </div>
+    <div class="leverage-row">
+      <div class="leverage-label">At handover</div>
+      <div class="leverage-track"><div class="leverage-fill" style="width:2%; background:var(--border)"></div></div>
+      <div class="leverage-pct" style="color:var(--muted);">₹0</div>
+    </div>
+    <p class="leverage-note">Once ₹0 is unpaid, the only recourse is warranty terms, consumer forum complaints, and the firm's service processes. All three have variable reliability.</p>
+  </div>
+
+  <p>The ₹7 lakhs unpaid after design sign-off is the most useful leverage point in the project. Most homeowners don't realise they're surrendering it at step 3, before seeing a single unit installed.</p>
+
+  <hr />
+
+  <h2>The Booking Amount: The Lock-In Before Design</h2>
+
+  <p>The booking amount, typically 5-10% of project value or a fixed minimum around ₹25,000, is paid before design work begins. It's the first payment, and the one that psychologically commits most homeowners to the firm before they've seen a design, a detailed quote, or a material specification.</p>
+
+  <p>The issue isn't the amount. It's what it costs to exit.</p>
+
+  <p>Most organised firms have non-refundable or partially refundable booking policies. The policy is typically in the terms and conditions, not mentioned during the sales conversation. Some homeowners have spent months trying to recover booking amounts from firms that stopped responding after payment. Several LinkedIn complaint posts document exactly this pattern.</p>
+
+  <div class="warning">
+    <strong>Before paying any booking amount</strong>
+    <p>Ask one question in writing: "What is the refund policy if I cancel before design sign-off, and what if I cancel after?" A WhatsApp response counts. Get it before you transfer anything. The refund policy matters more than the booking amount itself.</p>
+  </div>
+
+  <hr />
+
+  <h2>What You Can Still Do</h2>
+
+  <p>The payment structure of an organised interior firm is largely non-negotiable. These are system-driven standardised contracts. What you can influence is how you use the leverage you have at each stage before it's gone.</p>
+
+  <ul class="check-list">
+    <li>
+      <div class="check-num">1</div>
+      <span><strong>At design sign-off, verify every material specification before releasing tranche 2.</strong> This is the last meaningful financial leverage point. Every material, brand, finish, and hardware spec should be documented before you release 50-60% of the project value. Changes become costly after this stage.</span>
+    </li>
+    <li>
+      <div class="check-num">2</div>
+      <span><strong>Request a factory inspection or video walkthrough before the dispatch notification triggers.</strong> Some firms allow this. If they do, ask for it. Seeing units at the factory is your only quality checkpoint before financial leverage disappears entirely.</span>
+    </li>
+    <li>
+      <div class="check-num">3</div>
+      <span><strong>Read the warranty terms before paying the final tranche.</strong> What is covered, for how long, and what is the escalation process. The warranty is your only protection after full payment. Read it as carefully as the payment schedule.</span>
+    </li>
+    <li>
+      <div class="check-num">4</div>
+      <span><strong>Document every verbal commitment in writing.</strong> Design changes on a site visit, a promise to upgrade a countertop, an assurance about delivery dates. If it isn't written, it didn't happen. WhatsApp messages are admissible evidence in consumer forums. Use that channel deliberately.</span>
+    </li>
+    <li>
+      <div class="check-num">5</div>
+      <span><strong>Prepare a snag list on the day of installation, not after.</strong> Walk through every unit as it's being installed. Snags are far easier to fix while the installation crew is on site. After they leave, each correction becomes a scheduled revisit that may take weeks to materialise.</span>
+    </li>
+  </ul>
+
+  <hr />
+
+  <p>The payment structure won't change because one homeowner pushes back. The organised interior industry built this model because it works for their cash flow, and because most customers don't understand what they're signing until it's too late.</p>
+
+  <p>Knowing this before you sign doesn't give you new leverage. It tells you exactly how much you have at each stage, so you use it before it's gone.</p>
+
+  <div class="cta-block">
+    <h3>Not sure what your payment schedule actually says?</h3>
+    <p>Upload your quote or contract. We'll flag every clause that leaves you underprotected.
+    <br>Before you sign.</p>
+    <a class="cta-btn" href="https://interioriqpro.com">Get Your Free Quote Review</a>
+  </div>
+
+</div>
+</body>
+</html>
