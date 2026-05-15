@@ -362,9 +362,9 @@ function rK(){
   const sqft=bhk<=2?50:bhk<=2.5?60:bhk<=3?65:bhk<=4?80:100;
 
   let rlo,rhi;
-  if(S.sp.kf==='lam'){rlo=2300;rhi=3000;}
-  else if(S.sp.kf==='acr'){rlo=3300;rhi=4200;}
-  else{rlo=4200;rhi=5200;}
+  if(S.sp.kf==='lam'){rlo=2400;rhi=3000;}
+  else if(S.sp.kf==='acr'){rlo=3400;rhi=4200;}
+  else{rlo=4300;rhi=5300;}
 
   let lo=rlo*sqft*cm/100000, hi=rhi*sqft*cm/100000;
 
@@ -388,9 +388,9 @@ function rW(){
   const sqft=masterSqft+(beds-1)*otherSqft;
 
   let rlo,rhi;
-  if(S.sp.wf==='lam'){rlo=2200;rhi=3000;}
-  else if(S.sp.wf==='acr'){rlo=3200;rhi=4300;}
-  else{rlo=3200;rhi=4800;}  // PU/Duco: independent ₹2750-3200, Livspace MRC ₹4500-6000
+  if(S.sp.wf==='lam'){rlo=2400;rhi=3000;}
+  else if(S.sp.wf==='acr'){rlo=3400;rhi=4200;}
+  else{rlo=3400;rhi=4300;}  // PU/Duco: independent ₹2750-3200, Livspace MRC ₹4500-6000
 
   if(S.sp.wt==='sliding'){rlo+=250;rhi+=400;}
 
@@ -413,53 +413,53 @@ function rFixed(){
   if(f.kitchen){const r=rK();lo+=r.lo;hi+=r.hi;rows.push([r.label,fmtL(r.lo,r.hi)]);}
   if(f.wardrobes){const r=rW();lo+=r.lo;hi+=r.hi;rows.push([r.label,fmtL(r.lo,r.hi)]);}
 
-  // TV unit: basic ~0.75-1.4L
+  // TV unit: 0.85-1.05L (24% spread)
   if(f.tvunit){
-    const tlo=0.75*cm,thi=1.40*cm;lo+=tlo;hi+=thi;
+    const tlo=0.85*cm,thi=1.05*cm;lo+=tlo;hi+=thi;
     rows.push(['TV unit (standard)',fmtL(tlo,thi)]);
   }
 
-  // Shoe rack: 0.45-0.90L
+  // Shoe rack: 0.50-0.62L (24% spread)
   if(f.shoe){
-    const slo=0.45*cm,shi=0.90*cm;lo+=slo;hi+=shi;
+    const slo=0.50*cm,shi=0.62*cm;lo+=slo;hi+=shi;
     rows.push(['Shoe rack',fmtL(slo,shi)]);
   }
 
-  // Crockery unit: 0.75-1.4L
+  // Crockery unit: 0.85-1.05L (24% spread)
   if(f.crockery){
-    const clo=0.75*cm,chi=1.40*cm;lo+=clo;hi+=chi;
+    const clo=0.85*cm,chi=1.05*cm;lo+=clo;hi+=chi;
     rows.push(['Crockery unit',fmtL(clo,chi)]);
   }
 
-  // Utility: 0.45-0.90L
+  // Utility: 0.50-0.62L (24% spread)
   if(f.utility){
-    const ulo=0.45*cm,uhi=0.90*cm;lo+=ulo;hi+=uhi;
+    const ulo=0.50*cm,uhi=0.62*cm;lo+=ulo;hi+=uhi;
     rows.push(['Utility storage',fmtL(ulo,uhi)]);
   }
 
-  // Study unit: 0.75-1.5L
+  // Study unit: 0.85-1.05L (24% spread)
   if(f.study){
-    const stlo=0.75*cm,sthi=1.50*cm;lo+=stlo;hi+=sthi;
+    const stlo=0.85*cm,sthi=1.05*cm;lo+=stlo;hi+=sthi;
     rows.push(['Study unit / desk',fmtL(stlo,sthi)]);
   }
 
-  // Vanity: BOQ evidence ~2200-3200/sqft at ~8sqft each
+  // Vanity: 2400-3000/sqft (25% spread)
   if(f.vanity){
     const beds=bhk<=2?2:bhk<=3?3:bhk<=4?4:5;
-    const vlo=2200*8*beds*cm/100000,vhi=3200*8*beds*cm/100000;
+    const vlo=2400*8*beds*cm/100000,vhi=3000*8*beds*cm/100000;
     lo+=vlo;hi+=vhi;
-    rows.push([`Vanity units (×${beds})`,fmtL(vlo,vhi)]);
+    rows.push([`Vanity units (x${beds})`,fmtL(vlo,vhi)]);
   }
 
-  // Bay seating: 0.7-1.4L
+  // Bay seating: 0.80-1.00L (25% spread)
   if(f.bayseating){
-    const blo=0.70*cm,bhi=1.40*cm;lo+=blo;hi+=bhi;
+    const blo=0.80*cm,bhi=1.00*cm;lo+=blo;hi+=bhi;
     rows.push(['Bay seating',fmtL(blo,bhi)]);
   }
 
-  // Puja unit: 0.55-1.25L
+  // Puja unit: 0.65-0.80L (23% spread)
   if(f.puja){
-    const plo=0.55*cm,phi=1.25*cm;lo+=plo;hi+=phi;
+    const plo=0.65*cm,phi=0.80*cm;lo+=plo;hi+=phi;
     rows.push(['Puja unit',fmtL(plo,phi)]);
   }
 
@@ -480,9 +480,9 @@ function rCivil(){
     const sqft=Math.round(a*coverageFactor);
     const coverageLabel=S.sp.fcc==='partial'?'partial':'full home';
     let rlo,rhi;
-    if(S.sp.fc==='std'){rlo=85;rhi=110;}
-    else if(S.sp.fc==='prem'){rlo=115;rhi=145;}
-    else{rlo=155;rhi=185;}  // POP
+    if(S.sp.fc==='std'){rlo=90;rhi=112;}
+    else if(S.sp.fc==='prem'){rlo=125;rhi=155;}
+    else{rlo=160;rhi=200;}  // POP
     const flo=rlo*sqft*cm/100000,fhi=rhi*sqft*cm/100000;
     lo+=flo;hi+=fhi;
     rows.push([`False ceiling: ${coverageLabel} (${sqft} sqft)`,fmtL(flo,fhi)]);
@@ -501,26 +501,26 @@ function rCivil(){
     rows.push([`Painting (${paintable} sqft paintable)`,fmtL(plo,phi)]);
   }
 
-  // Flooring: BOQ evidence ₹109-165/sqft installation; material separate
+  // Flooring: tightened to 25% spread
   if(c.flooring){
     const sqft=Math.round(a*1.09);
-    const flo=95*sqft*cm/100000,fhi=130*sqft*cm/100000;
+    const flo=100*sqft*cm/100000,fhi=125*sqft*cm/100000;
     lo+=flo;hi+=fhi;
     rows.push([`Flooring: vitrified (${sqft} sqft w/wastage)`,fmtL(flo,fhi)]);
   }
 
-  // Electrical: BOQ evidence ₹150-217/sqft; Delhi/Gurgaon higher
+  // Electrical: tightened to 25% spread (genuine city variation handled by multiplier)
   if(c.electrical){
-    const flo=180*a*cm/100000,fhi=260*a*cm/100000;
+    const flo=195*a*cm/100000,fhi=245*a*cm/100000;
     lo+=flo;hi+=fhi;
     rows.push([`Electrical full rewire (${a} sqft)`,fmtL(flo,fhi)]);
   }
 
-  // Waterproofing: BOQ evidence ₹147-148/sqft; independent ~₹70-90/sqft
+  // Waterproofing: tightened to 25% spread
   if(c.waterproof){
     const baths=bhk<=2?2:bhk<=3?3:bhk<=4?4:5;
     const sqftPer=55;
-    const wlo=70*sqftPer*baths*cm/100000,whi=90*sqftPer*baths*cm/100000;
+    const wlo=75*sqftPer*baths*cm/100000,whi=95*sqftPer*baths*cm/100000;
     lo+=wlo;hi+=whi;
     rows.push([`Waterproofing (${baths} baths)`,fmtL(wlo,whi)]);
   }
@@ -528,7 +528,7 @@ function rCivil(){
   // Wall panelling: area-scaled (2 feature walls ~12ft wide × 8ft = ~192sqft total)
   if(c.wallpanel){
     const panelSqft=Math.round(a*0.14); // ~14% of carpet area = ~2 feature walls
-    const wlo=650*panelSqft*cm/100000,whi=950*panelSqft*cm/100000;
+    const wlo=700*panelSqft*cm/100000,whi=875*panelSqft*cm/100000;
     lo+=wlo;hi+=whi;
     rows.push([`Wall panelling (~${panelSqft} sqft, 2 feature walls)`,fmtL(wlo,whi)]);
   }
@@ -582,9 +582,9 @@ function render(){
   const flo=f.lo*sm,fhi=f.hi*sm;
   const clo=c.lo*smc,chi=c.hi*smc;
 
-  const dFeeRateLo=0.08,dFeeRateHi=0.12;
+  const dFeeRateLo=0.09,dFeeRateHi=0.11;
   const dlo=(flo+clo)*dFeeRateLo,dhi=(fhi+chi)*dFeeRateHi;
-  const ktlo=(flo+clo+l.lo)*0.05,kthi=(fhi+chi+l.hi)*0.08;
+  const ktlo=(flo+clo+l.lo)*0.05,kthi=(fhi+chi+l.hi)*0.07;
 
   const totLo=flo+clo+l.lo+dlo+ktlo;
   const totHi=fhi+chi+l.hi+dhi+kthi;
@@ -615,7 +615,7 @@ function render(){
   }
   html+='<tr class="cat-hd"><td colspan="2">Additional costs</td></tr>';
   html+=`<tr><td>Design / project management (8–12% of interiors)</td><td>${fmtL(dlo,dhi)}</td></tr>`;
-  html+=`<tr><td>Contingency (5–8%)</td><td>${fmtL(ktlo,kthi)}</td></tr>`;
+  html+=`<tr><td>Contingency (5–7%)</td><td>${fmtL(ktlo,kthi)}</td></tr>`;
   if(!f.rows.length&&!c.rows.length&&!l.rows.length){
     html='<tr><td colspan="2"><div class="empty-st">Select scope items above to see your estimate.</div></td></tr>';
   } else {
