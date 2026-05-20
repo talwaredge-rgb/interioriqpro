@@ -2082,7 +2082,7 @@ async function handleUpload() {
           customer_name: (name && name !== 'Not provided') ? name : 'there',
           boq_file_name: uploadedFileName || 'quote file'
         };
-        emailjs.send('interioriqpro', 'template_k6c0x4a', ejsParams)
+        emailjs.send('service_2cpkmx9', 'template_nhilepj', ejsParams)
           .then(() => {})
           .catch(err => {
     console.error('EmailJS error:', JSON.stringify(err));
@@ -2135,7 +2135,8 @@ function toggleMobileMenu() {
   if (links.style.display === 'flex') {
     links.style.display = '';
   } else {
-    links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:var(--linen);border-bottom:1px solid var(--rule);padding:20px 32px;gap:16px;z-index:99;';
+    links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:#F5F0E8;border-bottom:1px solid rgba(26,23,20,0.15);padding:20px 32px;gap:16px;z-index:99;box-shadow:0 8px 24px rgba(26,23,20,0.12);';
+    links.querySelectorAll('a').forEach(a => { a.style.color = '#1A1714'; a.style.fontSize = '0.85rem'; });
   }
 }
 
@@ -2488,7 +2489,7 @@ function initiatePayment() {
       }).catch(e => {});
       // Send order confirmation email via EmailJS
       if (typeof emailjs !== 'undefined') {
-        emailjs.send('interioriqpro', 'template_zrp2ne4', {
+        emailjs.send('service_2cpkmx9', 'template_026jzik', {
           email: email,
           customer_name: name !== 'Customer' ? name : 'there',
           services: services,
@@ -2560,7 +2561,7 @@ function initiatePayment() {
       var ejsScript = document.createElement('script');
       ejsScript.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
       ejsScript.onload = function() {
-        emailjs.init('ieeizTZgVPFoO2hTO');
+        emailjs.init('nF4L7aXl7FEdDVqHK');
       };
       document.head.appendChild(ejsScript);
 
