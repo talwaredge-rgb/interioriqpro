@@ -2135,8 +2135,8 @@ function toggleMobileMenu() {
   if (links.style.display === 'flex') {
     links.style.display = '';
   } else {
-    links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:#F5F0E8;border-bottom:1px solid rgba(26,23,20,0.15);padding:20px 32px;gap:16px;z-index:99;box-shadow:0 8px 24px rgba(26,23,20,0.12);';
-    links.querySelectorAll('a').forEach(a => { a.style.color = '#1A1714'; a.style.fontSize = '0.85rem'; });
+    links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:#1A1714;border-bottom:2px solid #C4552A;padding:24px 32px;gap:20px;z-index:99;box-shadow:0 8px 24px rgba(26,23,20,0.3);';
+    links.querySelectorAll('a').forEach(a => { a.style.color = '#F5F0E8'; a.style.fontSize = '0.88rem'; a.style.letterSpacing = '0.05em'; });
   }
 }
 
