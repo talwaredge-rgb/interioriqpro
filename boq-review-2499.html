@@ -203,7 +203,7 @@
     </div>
     <p id="discount-msg" style="font-size:0.72rem;margin-top:6px;font-family:'Jost',sans-serif;min-height:18px;"></p>
   </div>
-  <button class="pay-btn" id="payBtn" onclick="startPayment()">Pay ₹2,499 &amp; Submit BoQ →</button>
+  <button class="pay-btn" id="payBtn" onclick="startPayment()">Pay &amp; Submit BoQ →</button>
   <p class="secure-note">UPI &nbsp;·&nbsp; Cards &nbsp;·&nbsp; Net Banking &nbsp;·&nbsp; Wallets &nbsp;&nbsp;|&nbsp;&nbsp; Secured by Razorpay</p>
 
   <div class="success-box" id="successBox">
@@ -378,7 +378,7 @@
       modal: {
         ondismiss: function() {
           document.getElementById('payBtn').disabled = false;
-          document.getElementById('payBtn').innerHTML = 'Pay ₹2,499 &amp; Submit BoQ →';
+          document.getElementById('payBtn').innerHTML = 'Pay &amp; Submit BoQ →';
           gtag('event', 'checkout_dismissed', { currency: 'INR', value: AMOUNT });
         }
       },
