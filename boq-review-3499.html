@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BoQ Review — Post-Design BoQ Review | InteriorIQ Pro</title>
+  <title>BoQ Review : Post-Design BoQ Review | InteriorIQ Pro</title>
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="shortcut icon" href="/favicon.svg">
@@ -121,6 +121,10 @@
       nav { padding: 0 20px; }
     }
   </style>
+  <script>UPLOADCARE_PUBLIC_KEY = "ba46729704eed89d36f7";</script>
+  <script>UPLOADCARE_LOCALE = "en";</script>
+  <script async src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" charset="utf-8"></script>
+  <link rel="dns-prefetch" href="https://ucarecdn.com">
 </head>
 <body>
 
@@ -133,12 +137,12 @@
 
   <div class="badge">Post-Design BoQ Review</div>
   <h1>Your design is finalised.<br><em>Now verify the quote.</em></h1>
-  <p class="subtitle">Your design is signed off. Before you release the next payment tranche, have an expert verify the revised BoQ matches the agreed scope — and that nothing has been quietly added or upgraded without your sign-off.</p>
+  <p class="subtitle">Your design is signed off. Before you release the next payment tranche, have an expert verify the revised BoQ matches the agreed scope, checking that nothing has been quietly added or upgraded without your sign-off.</p>
 
   <div class="price-block">
     <div class="price-label">One-time payment</div>
     <div class="price">₹3,499</div>
-    <div class="price-note">Includes GST &nbsp;·&nbsp; Report delivered in 24–48 hours</div>
+    <div class="price-note">Report delivered in 24–48 hours</div>
   </div>
 
   <div class="what-you-get">
@@ -146,26 +150,60 @@
     <div class="item"><div class="item-dot"></div><p>Verification that the revised BoQ matches your finalised design scope exactly</p></div>
     <div class="item"><div class="item-dot"></div><p>Line-by-line benchmarking against actual 2026 market rates for your city</p></div>
     <div class="item"><div class="item-dot"></div><p>Identification of any scope additions or upgrades added after design sign-off</p></div>
-    <div class="item"><div class="item-dot"></div><p>Spec gap flags — vague material calls your contractor can substitute on site</p></div>
+    <div class="item"><div class="item-dot"></div><p>Spec gap flags: vague material calls your contractor can substitute on site</p></div>
     <div class="item"><div class="item-dot"></div><p>Written report PDF + WhatsApp follow-up if you have questions</p></div>
   </div>
 
   <hr class="divider">
 
+  <!-- BoQ Upload -->
+  <div style="margin-bottom:28px;">
+    <label style="display:block;font-size:0.68rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-family:'Jost',sans-serif;">Upload your BoQ <span style="color:#C4552A">*</span></label>
+    <div id="drop-zone" onclick="triggerUpload()"
+      style="border:1.5px dashed rgba(26,23,20,0.18);padding:28px 20px;text-align:center;cursor:pointer;transition:border-color 0.2s,background 0.2s;border-radius:4px;background:var(--linen);">
+      <p id="drop-label" style="font-family:'Jost',sans-serif;font-size:0.82rem;color:var(--muted);line-height:1.6;">
+        <strong style="display:block;font-size:0.9rem;color:var(--ink);margin-bottom:4px;">Drop your renovation quote here</strong>
+        Floor plan and design brief welcome, not required
+        <span style="display:block;margin-top:3px;font-size:0.82rem;">PDF, Excel or image &nbsp;&middot;&nbsp; Up to 3 files &nbsp;&middot;&nbsp; 10MB each</span>
+      </p>
+    </div>
+    <input type="hidden" role="uploadcare-uploader" id="uc-widget"
+      data-public-key="ba46729704eed89d36f7"
+      data-tabs="file"
+      data-preview-step="false"
+      data-max-local-file-size-bytes="10485760"
+      data-multiple="true" data-multiple-max="3" />
+    <p id="upload-err" style="font-size:0.72rem;color:#C4552A;margin-top:4px;font-family:'Jost',sans-serif;min-height:18px;"></p>
+  </div>
+
   <div class="form-group">
-    <label for="name">Your name</label>
+    <label for="name">Your name <span style="color:#C4552A">*</span></label>
     <input type="text" id="name" placeholder="Full name" autocomplete="name">
   </div>
   <div class="form-group">
-    <label for="email">Email address</label>
+    <label for="email">Email address <span style="color:#C4552A">*</span></label>
     <input type="email" id="email" placeholder="Where we'll send your report" autocomplete="email">
   </div>
   <div class="form-group">
-    <label for="phone">Phone number</label>
+    <label for="phone">Phone number <span style="color:#C4552A">*</span></label>
     <input type="tel" id="phone" placeholder="For WhatsApp follow-up" autocomplete="tel">
   </div>
 
-  <button class="pay-btn" id="payBtn" onclick="startPayment()">Pay ₹3,499 &amp; Submit BoQ →</button>
+
+  <div style="margin-bottom:16px;">
+    <label style="display:block;font-size:0.68rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-family:'Jost',sans-serif;">Discount code</label>
+    <div style="display:flex;gap:8px;">
+      <input type="text" id="discount-input" placeholder="Enter code" oninput="this.value=this.value.toUpperCase()"
+        style="flex:1;padding:12px 14px;border:1px solid rgba(26,23,20,0.18);background:#fff;font-family:'Jost',sans-serif;font-size:0.92rem;color:var(--ink);outline:none;transition:border-color 0.2s;"
+        onfocus="this.style.borderColor='var(--terracotta)'" onblur="this.style.borderColor='rgba(26,23,20,0.18)'"
+        onkeydown="if(event.key==='Enter'){event.preventDefault();applyDiscount();}">
+      <button onclick="applyDiscount()"
+        style="background:var(--ink);color:var(--linen);font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.06em;text-transform:uppercase;border:none;padding:12px 18px;cursor:pointer;white-space:nowrap;transition:background 0.2s;"
+        onmouseover="this.style.background='var(--terracotta)'" onmouseout="this.style.background='var(--ink)'">Apply</button>
+    </div>
+    <p id="discount-msg" style="font-size:0.72rem;margin-top:6px;font-family:'Jost',sans-serif;min-height:18px;"></p>
+  </div>
+  <button class="pay-btn" id="payBtn" onclick="startPayment()">Pay &amp; Submit BoQ →</button>
   <p class="secure-note">UPI &nbsp;·&nbsp; Cards &nbsp;·&nbsp; Net Banking &nbsp;·&nbsp; Wallets &nbsp;&nbsp;|&nbsp;&nbsp; Secured by Razorpay</p>
 
   <div class="success-box" id="successBox">
@@ -182,25 +220,155 @@
   const AMOUNT = 3499;
   const SERVICE = 'BoQ Post-Design BoQ Review';
 
+
+  const DISCOUNT_CODES = {
+    'NEW10': { type: 'percent', value: 10, label: '10% off' }
+  };
+  let appliedDiscount = null;
+
+  function applyDiscount() {
+    const input = document.getElementById('discount-input').value.trim().toUpperCase();
+    const msgEl = document.getElementById('discount-msg');
+    const code = DISCOUNT_CODES[input];
+    if (code) {
+      appliedDiscount = { code: input, ...code };
+      msgEl.style.color = '#1A7A3C';
+      msgEl.textContent = 'Code applied: ' + code.label;
+      updateDiscountedPrice();
+    } else {
+      appliedDiscount = null;
+      msgEl.style.color = '#C4552A';
+      msgEl.textContent = input ? 'Code not recognised.' : '';
+      updateDiscountedPrice();
+    }
+  }
+
+  function calcFinalAmount(base) {
+    if (!appliedDiscount) return base;
+    if (appliedDiscount.type === 'percent') {
+      return Math.round(base * (1 - appliedDiscount.value / 100));
+    }
+    return Math.max(0, base - appliedDiscount.value);
+  }
+
+  function updateDiscountedPrice() {
+    const final = calcFinalAmount(3499);
+    const priceEl = document.getElementById('display-price');
+    const discEl = document.getElementById('discounted-price');
+    if (appliedDiscount) {
+      priceEl.style.textDecoration = 'line-through';
+      priceEl.style.color = 'var(--muted)';
+      priceEl.style.fontSize = '1.4rem';
+      discEl.style.display = 'block';
+      discEl.textContent = '\u20B9' + final.toLocaleString('en-IN');
+      document.getElementById('payBtn').innerHTML = 'Pay &amp; Submit BoQ \u2192';
+    } else {
+      priceEl.style.textDecoration = '';
+      priceEl.style.color = '';
+      priceEl.style.fontSize = '';
+      discEl.style.display = 'none';
+      document.getElementById('payBtn').innerHTML = 'Pay &amp; Submit BoQ \u2192';
+    }
+  }
+
+  let ucWidget = null;
+  let uploadedFileUrl = null;
+  let uploadedFileName = null;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const el = document.getElementById('uc-widget');
+    if (!el || typeof uploadcare === 'undefined') {
+      // Retry after short delay if script not yet loaded
+      setTimeout(() => {
+        const el2 = document.getElementById('uc-widget');
+        if (el2 && typeof uploadcare !== 'undefined') {
+          ucWidget = uploadcare.Widget(el2);
+          bindUploadcare();
+        }
+      }, 1500);
+      return;
+    }
+    ucWidget = uploadcare.Widget(el);
+    bindUploadcare();
+  });
+
+  function triggerUpload() {
+    if (ucWidget) ucWidget.openDialog();
+  }
+
+  function bindUploadcare() {
+    ucWidget.onUploadComplete(info => {
+      let fileCount, fileNames, fileUrls;
+      if (info.files) {
+        // Multiple files - group
+        fileCount = info.count;
+        fileNames = info.files().map(f => f.name).join(', ');
+        fileUrls = info.files().map(f => f.cdnUrl).join('\n');
+      } else {
+        // Single file
+        fileCount = 1;
+        fileNames = info.name;
+        fileUrls = info.cdnUrl;
+      }
+      uploadedFileUrl = fileUrls;
+      uploadedFileName = fileNames;
+      const label = document.getElementById('drop-label');
+      label.innerHTML = '<strong style="display:block;font-size:0.9rem;color:#1A7A3C;margin-bottom:4px;">&#10003; ' + fileCount + ' file' + (fileCount > 1 ? 's' : '') + ' ready</strong>' + fileNames.slice(0,60) + (fileNames.length > 60 ? '...' : '');
+      document.getElementById('drop-zone').style.borderColor = '#1A7A3C';
+      document.getElementById('drop-zone').style.background = 'rgba(26,122,60,0.03)';
+      document.getElementById('upload-err').textContent = '';
+      gtag('event', 'boq_file_selected', { event_category: 'engagement', event_label: fileCount });
+    });
+  }
+  function showError(fieldId, msg) {
+    const field = document.getElementById(fieldId);
+    let err = document.getElementById(fieldId + '-err');
+    if (!err) {
+      err = document.createElement('p');
+      err.id = fieldId + '-err';
+      err.style.cssText = 'font-size:0.72rem;color:#C4552A;margin-top:4px;font-family:Jost,sans-serif;';
+      field.parentNode.appendChild(err);
+    }
+    err.textContent = msg;
+    field.style.borderColor = '#C4552A';
+  }
+
+  function clearError(fieldId) {
+    const field = document.getElementById(fieldId);
+    const err = document.getElementById(fieldId + '-err');
+    if (err) err.textContent = '';
+    field.style.borderColor = '';
+  }
+
   function startPayment() {
     const name  = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const phone = document.getElementById('phone').value.trim();
 
-    if (!name)  { alert('Please enter your name.'); return; }
-    if (!email) { alert('Please enter your email address.'); return; }
+    let valid = true;
+    clearError('name'); clearError('email'); clearError('phone');
+
+    if (!name) { showError('name', 'Name is required'); valid = false; }
+    if (!email) { showError('email', 'Email address is required'); valid = false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('email', 'Please enter a valid email address'); valid = false; }
+    if (!phone) { showError('phone', 'Phone number is required'); valid = false; }
+    else if (phone.replace(/\D/g,'').length < 10) { showError('phone', 'Please enter a valid 10-digit number'); valid = false; }
+
+    if (!uploadedFileUrl) { showError('upload-err-standalone', ''); document.getElementById('upload-err').textContent = 'Please upload your BoQ before paying.'; document.getElementById('drop-zone').style.borderColor = '#C4552A'; valid = false; }
+    if (!valid) return;
 
     document.getElementById('payBtn').disabled = true;
     document.getElementById('payBtn').textContent = 'Opening payment...';
 
+    const finalAmount = calcFinalAmount(AMOUNT);
     gtag('event', 'begin_checkout', {
-      currency: 'INR', value: AMOUNT,
+      currency: 'INR', value: finalAmount,
       items: [{ item_name: SERVICE, price: AMOUNT }]
     });
 
     const options = {
       key: RAZORPAY_KEY,
-      amount: AMOUNT * 100,
+      amount: finalAmount * 100,
       currency: 'INR',
       name: 'InteriorIQ Pro',
       description: SERVICE,
@@ -210,15 +378,36 @@
       modal: {
         ondismiss: function() {
           document.getElementById('payBtn').disabled = false;
-          document.getElementById('payBtn').innerHTML = 'Pay ₹3,499 &amp; Submit BoQ →';
+          document.getElementById('payBtn').innerHTML = 'Pay &amp; Submit BoQ →';
           gtag('event', 'checkout_dismissed', { currency: 'INR', value: AMOUNT });
         }
       },
       handler: function(response) {
         gtag('event', 'purchase', {
           transaction_id: response.razorpay_payment_id,
-          currency: 'INR', value: AMOUNT,
+          currency: 'INR', value: finalAmount,
           items: [{ item_name: SERVICE, price: AMOUNT }]
+        });
+
+        // Send notification email with file details
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            access_key: 'f6a1aa64-f9dc-4353-9270-374c64e23363',
+            subject: 'PAID: Post-Design BoQ Review from ' + email,
+            from_name: 'InteriorIQ Pro',
+            replyto: email,
+            name: name,
+            email: email,
+            phone: phone,
+            payment_id: response.razorpay_payment_id,
+            service: 'Post-Design BoQ Review',
+            amount: '\u20B9' + finalAmount.toLocaleString('en-IN'),
+            boq_file: uploadedFileName,
+            boq_url: uploadedFileUrl,
+            message: 'PAID SUBMISSION\n\nService: Post-Design BoQ Review\nAmount: \u20B9' + finalAmount.toLocaleString('en-IN') + '\nPayment ID: ' + response.razorpay_payment_id + '\nName: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nBoQ File: ' + uploadedFileName + '\nDownload: ' + uploadedFileUrl
+          })
         });
         document.getElementById('successBox').style.display = 'block';
         document.getElementById('paymentId').textContent = 'Payment ID: ' + response.razorpay_payment_id;
