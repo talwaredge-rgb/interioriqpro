@@ -2084,7 +2084,7 @@ async function handleUpload() {
           customer_name: (name && name !== 'Not provided') ? name : 'there',
           boq_file_name: uploadedFileName || 'quote file'
         };
-        emailjs.send('interioriqpro', 'template_k6c0x4a', ejsParams)
+        emailjs.send('service_2cpkmx9', 'template_nhilepj', ejsParams)
           .then(() => {})
           .catch(err => {
     console.error('EmailJS error:', JSON.stringify(err));
@@ -2506,7 +2506,7 @@ function initiatePayment() {
       }).catch(e => {});
       // Send order confirmation email via EmailJS
       if (typeof emailjs !== 'undefined') {
-        emailjs.send('interioriqpro', 'template_zrp2ne4', {
+        emailjs.send('service_2cpkmx9', 'template_026jzik', {
           email: email,
           customer_name: name !== 'Customer' ? name : 'there',
           services: services,
