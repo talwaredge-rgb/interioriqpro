@@ -2507,6 +2507,8 @@ function initiatePayment() {
         })
       }).catch(e => {});
       // Send order confirmation email via EmailJS
+      console.log('EmailJS defined:', typeof emailjs !== 'undefined');
+      console.log('Sending to:', email);
       if (typeof emailjs !== 'undefined') {
         emailjs.send('service_2cpkmx9', 'template_026jzik', {
           email: email,
@@ -2514,8 +2516,13 @@ function initiatePayment() {
           services: services,
           total: '\u20B9' + total.toLocaleString('en-IN'),
           payment_id: response.razorpay_payment_id
-        }).then(() => {})
-          .catch(err => console.error('EmailJS order confirm error:', err));
+        }).then(function(res) {
+          console.log('EmailJS success:', res.status, res.text);
+        }).catch(function(err) {
+          console.error('EmailJS error:', JSON.stringify(err));
+        });
+      } else {
+        console.error('EmailJS not loaded at payment time');
       }
       showPaymentSuccess(email, services, response.razorpay_payment_id, total);
       clearCart();
