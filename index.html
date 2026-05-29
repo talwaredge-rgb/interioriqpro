@@ -61,6 +61,8 @@
 </script>
 <link rel="dns-prefetch" href="https://ucarecdn.com">
 <link rel="dns-prefetch" href="https://checkout.razorpay.com">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init('ieeizTZgVPFoO2hTO');</script>
 <link rel="preload" href="/Jost-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:'Jost';src:url('/Jost-VariableFont_wght.woff2') format('woff2-variations');font-weight:100 900;font-style:normal;font-display:swap;}
@@ -2582,14 +2584,6 @@ document.addEventListener('keydown', function(e) {
         }
       };
       document.head.appendChild(ucScript);
-
-      // EmailJS
-      var ejsScript = document.createElement('script');
-      ejsScript.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
-      ejsScript.onload = function() {
-        emailjs.init('ieeizTZgVPFoO2hTO');
-      };
-      document.head.appendChild(ejsScript);
 
       // Razorpay  -  only load when user opens checkout
       document.getElementById('cartBar') && document.getElementById('cartBar').addEventListener('click', function() {
