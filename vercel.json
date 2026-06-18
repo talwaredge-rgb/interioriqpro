@@ -12,6 +12,11 @@
       ],
       "destination": "https://interioriqpro.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/homepage",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
